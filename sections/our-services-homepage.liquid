@@ -1,0 +1,196 @@
+<style>
+
+  .t-container {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      max-width: 1200px;
+      padding: 0;
+  }
+
+  .t920__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  .t920__row {
+    display: inline;
+    float: left;
+    width: 100%;
+  }
+
+  .t-prefix_1 {
+    padding-left: 100px;
+  }
+
+  .t-col_5 {
+    max-width: 560px;
+  }
+
+  .t-col {
+    display: inline;
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 100%;
+  }
+
+  .t920__wrapper {
+    position: relative;
+    padding-left: 110px;
+  }
+
+  .t920__title {
+    z-index: 2;
+    position: relative;
+    font-weight: 700;
+    padding-top: 65px;
+    padding-bottom: 10px;
+  }
+
+  .t920__bottommargin_sm {
+    margin-bottom: 4px;
+  }
+
+  .t-name_lg {
+    font-size: 22px;
+    line-height: 1.35;
+  }
+
+  .t-name {
+    font-family: 'Roboto',Arial,sans-serif;
+    font-weight: 600;
+    color: #000000;
+  }
+
+  .t920__descr {
+    z-index: 2;
+    position: relative;
+  }
+
+  .t-descr_xs {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .t-descr {
+    font-family: 'Roboto',Arial,sans-serif;
+    font-weight: 300;
+    color: #000000;
+  }
+
+  .t920__symbol {
+    position: absolute;
+    z-index: 1;
+    line-height: 150px;
+    left: 0;
+    right: 0;
+    top: 0;
+    font-size: 200px;
+    font-family: sans-serif;
+    font-weight: 700;
+    color: rgba(230,230,230,.7);
+    opacity: .6;
+    user-select: none;
+  }
+
+  .t-prefix_1 {
+    padding-left: 100px;
+  }
+
+  .t920__offset {
+    height: 1px;
+  }
+
+  .t-clear {
+    clear: both;
+  }
+
+  .t-container:before, .t-container:after, .t-container_10:before, .t-container_10:after, .t-container_8:before, .t-container_8:after, .t-container_100:before, .t-container_100:after {
+    display: table;
+    content: " ";
+    width: 0;
+  }
+
+
+</style>
+
+<div class="t-section__container t-container">
+  <div class=""></div>
+</div>
+<ul class="t920__container t-container">
+  {% for block in section.blocks %}
+    {% capture thecycle %}{% cycle 'even', 'odd' %}{% endcapture %}
+      {% if thecycle == 'even' %}
+        <li class="t920__row row__even">
+          <div class="t920__col t-col t-prefix_1 t-col_5 t-animate t-animate__chain_first-in-row t-animate_started t-animate__chain_showed">
+            <div class="t920__itemwrapper">
+              <div class="t920__wrapper">
+                <div class="t920__title t-name t-name_lg t920__bottommargin_sm">
+                  <div class="" style="font-size: 26px;">{{ block.settings.slide_heading }}</div>
+                </div>
+                <div class="t920__descr t-descr t-descr_xs">{{ block.settings.slide_text }}</div>
+                <div class="t920__symbol" style="color:#dbb75d;opacity:0.40;">0{{ forloop.index }}</div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <div class="t-clear t920__separator"> </div>
+      {% else %}
+        <li class="t920__row row__odd">
+          <div class="t920__offset t-col t-col_5 t-prefix_1"> </div>
+          <div class="t920__col t-col t-col_5 t-animate t-animate__chain_first-in-row t-animate_started t-animate__chain_showed">
+            <div class="t920__itemwrapper">
+              <div class="t920__wrapper">
+                <div class="t920__title t-name t-name_lg t920__bottommargin_sm">
+                  <div class="" style="font-size: 26px;">{{ block.settings.slide_heading }}</div>
+                </div>
+                <div class="t920__descr t-descr t-descr_xs">{{ block.settings.slide_text }}</div>
+                <div class="t920__symbol" style="color:#dbb75d;opacity:0.40;">0{{ forloop.index }}</div>
+                <div class="t-clear t920__separator"> </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      {% endif %}
+  {% endfor %}
+</ul>
+
+{% schema %}
+  {
+    "name": "Our services",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "slide",
+        "name": "Slide",
+        "settings": [
+          {
+            "type": "text",
+            "id": "slide_heading",
+            "label": "Slide heading"
+          },
+          {
+            "type": "text",
+            "id": "slide_text",
+            "label": "Slide text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Our services"
+      }
+    ]
+  }
+{% endschema %}
