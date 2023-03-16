@@ -87,10 +87,58 @@
         "heading_size": "h1",
         "enable_slider": false
       }
+    },
+    "36c26daa-aa95-4ca2-94fc-0d325f8cc404": {
+      "type": "homepage-reviews",
+      "blocks": {
+        "26f39446-55b4-40ca-8e05-75ae453cf226": {
+          "type": "slide",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
+            "slide_heading": "Iman Gadzhi",
+            "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai."
+          }
+        },
+        "87b28767-fbca-4c25-b6ba-55820fb6d305": {
+          "type": "slide",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
+            "slide_heading": "Iman Gadzhi",
+            "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai."
+          }
+        },
+        "0bf61740-7335-498c-8130-a4bc37bf3f8b": {
+          "type": "slide",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
+            "slide_heading": "Iman Gadzhi",
+            "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai."
+          }
+        },
+        "80db57a2-56bc-4034-b7e2-9a0f3c6a07aa": {
+          "type": "slide",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
+            "slide_heading": "Iman Gadzhi",
+            "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai."
+          }
+        }
+      },
+      "block_order": [
+        "26f39446-55b4-40ca-8e05-75ae453cf226",
+        "87b28767-fbca-4c25-b6ba-55820fb6d305",
+        "0bf61740-7335-498c-8130-a4bc37bf3f8b",
+        "80db57a2-56bc-4034-b7e2-9a0f3c6a07aa"
+      ],
+      "settings": {
+        "heading": "Section heading",
+        "heading_size": "h1"
+      }
     }
   },
   "order": [
     "image_banner",
-    "64eeda0d-699f-42e8-9569-2a78d4663baf"
+    "64eeda0d-699f-42e8-9569-2a78d4663baf",
+    "36c26daa-aa95-4ca2-94fc-0d325f8cc404"
   ]
 }
