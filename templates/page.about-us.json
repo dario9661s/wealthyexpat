@@ -6,10 +6,17 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "eaf18d29-736e-4e67-9014-4828e8ef9fa0": {
+      "type": "about-us",
+      "settings": {
+        "about-us-heading": "About us",
+        "about-us-paragraph": "Wealthy Expat is a company which assists with citizenship, tax reduction strategies and asset protection by all means necessary. We make this process simple, secure and 100% guaranteed. Our clients are high net worth investors, entrepreneurs and business owners who seek total financial and business freedom."
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "eaf18d29-736e-4e67-9014-4828e8ef9fa0"
   ]
 }
-
