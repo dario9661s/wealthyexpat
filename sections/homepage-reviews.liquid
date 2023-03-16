@@ -1,0 +1,98 @@
+<div class="page-width">
+  <h2 class="banner__heading {{ section.settings.heading_size }}" style="text-align: center;">
+    {{ section.settings.heading }}
+  </h2>
+  <div class="swiper mySwiper_1">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide"></div>
+      {% endfor %}
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+
+<script>
+  var swiper = new Swiper(".mySwiper_1", {
+    slidesPerView: 1,
+    pagination: {
+      el: ".swiper-pagination",
+      dynamicBullets: true,
+    },
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      },
+      // when window width is >= 991px
+      991: {
+        slidesPerView: 3,
+        spaceBetween: 10
+      }
+    }
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Reviews",
+    "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Section heading",
+          "label": "t:sections.image-banner.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            }
+          ],
+          "default": "h1",
+          "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_slider",
+          "label": "Enable slider for our services",
+          "default": false
+        }
+    ],
+    "blocks": [
+      {
+        "type": "slide",
+        "name": "Slide",
+        "settings": [
+          {
+            "type": "text",
+            "id": "slide_heading",
+            "label": "Slide heading"
+          },
+          {
+            "type": "text",
+            "id": "slide_text",
+            "label": "Slide text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Reviews"
+      }
+    ]
+  }
+{% endschema %}

@@ -130,6 +130,21 @@
   }
 {%- endstyle -%}
 
+<style>
+  #shopify-section-{{ section.id }} .header__inline-menu .list-menu .header__menu-item {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+  #shopify-section-{{ section.id }} .menu-drawer__menu-item {
+    font-weight: 600;
+  }
+  #shopify-section-{{ section.id }} .menu-drawer__menu-item--active {
+    text-decoration: underline;
+    text-underline-offset: 0.3rem;
+    text-decoration-color: var(--golden-color);
+  }
+</style>
+
 <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
@@ -653,6 +668,28 @@
           </span>
         </a>
       {%- endif -%}
+
+      {% if section.settings.enable_phone_number %}
+        <div class="t228__rightside">
+          <div class="t228__rightcontainer">
+            <div class="t228__right_descr">
+              <div class="custom_number">
+                <a href="{{ section.settings.phone_number_url }}">{{ section.settings.phone_number_text }}</a>
+              </div>
+            </div>
+            <div class="t-sociallinks">
+              <div class="t-sociallinks__wrapper">
+                <div class="t-sociallinks__item t-sociallinks__item_whatsapp">
+                  <a href="{{ section.settings.whatsapp_url }}" rel="nofollow noopener">
+                    {% render 'whatsapp-icon' %}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
       {% comment %}
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
         {%- liquid
@@ -865,6 +902,32 @@
       ],
       "default": "background-1",
       "label": "t:sections.all.colors.label"
+    },
+    {
+      "type": "header",
+      "content": "Phone number and whatsapp"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_phone_number",
+      "default": false,
+      "label": "Enable phone number and whatsapp"
+    },
+    {
+      "type": "url",
+      "id": "phone_number_url",
+      "label": "Phone number url",
+      "info": "Format of the url: tel:+99999999"
+    },
+    {
+      "type": "text",
+      "id": "phone_number_text",
+      "label": "Phone number text"
+    },
+    {
+      "type": "url",
+      "id": "whatsapp_url",
+      "label": "Whatsapp url"
     },
     {
       "type": "header",
