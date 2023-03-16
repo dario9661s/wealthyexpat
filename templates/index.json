@@ -88,10 +88,10 @@
         "enable_slider": false
       }
     },
-    "30d7f5eb-4a75-4f7f-bca8-73c95c4713af": {
+    "e7953e76-1a0a-4d08-903c-db508e48c46f": {
       "type": "homepage-reviews",
       "blocks": {
-        "198a8c3c-8775-4ead-910d-d690e3bc2101": {
+        "643c86b1-0553-4e95-a94c-54948b450b7e": {
           "type": "slide",
           "settings": {
             "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
@@ -99,7 +99,7 @@
             "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai."
           }
         },
-        "8a2bb7f9-2fa3-45d8-932d-b348f8584803": {
+        "25976792-ed67-4015-b1c7-4c1c8321c9af": {
           "type": "slide",
           "settings": {
             "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
@@ -107,7 +107,7 @@
             "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai."
           }
         },
-        "54004aff-af76-42c3-8aae-9e13092efe5b": {
+        "ab9e54a8-41a9-4390-818f-e422b65d2450": {
           "type": "slide",
           "settings": {
             "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
@@ -115,7 +115,7 @@
             "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai."
           }
         },
-        "17921c0a-c55f-4697-8d36-1202379b48a6": {
+        "4f1c3158-882e-4020-8fca-627d817b747d": {
           "type": "slide",
           "settings": {
             "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
@@ -125,10 +125,10 @@
         }
       },
       "block_order": [
-        "198a8c3c-8775-4ead-910d-d690e3bc2101",
-        "8a2bb7f9-2fa3-45d8-932d-b348f8584803",
-        "54004aff-af76-42c3-8aae-9e13092efe5b",
-        "17921c0a-c55f-4697-8d36-1202379b48a6"
+        "643c86b1-0553-4e95-a94c-54948b450b7e",
+        "25976792-ed67-4015-b1c7-4c1c8321c9af",
+        "ab9e54a8-41a9-4390-818f-e422b65d2450",
+        "4f1c3158-882e-4020-8fca-627d817b747d"
       ],
       "settings": {
         "heading": "Section heading",
@@ -139,6 +139,6 @@
   "order": [
     "image_banner",
     "64eeda0d-699f-42e8-9569-2a78d4663baf",
-    "30d7f5eb-4a75-4f7f-bca8-73c95c4713af"
+    "e7953e76-1a0a-4d08-903c-db508e48c46f"
   ]
 }
