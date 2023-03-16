@@ -1,4 +1,14 @@
-<div class="page-width">
+<style>
+  .hp-reviews {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+  .mySwiper_1{
+    padding-top: 70px;
+  }
+
+</style>
+<div class="hp-reviews page-width">
   <h2 class="banner__heading {{ section.settings.heading_size }}" style="text-align: center;">
     {{ section.settings.heading }}
   </h2>
@@ -7,10 +17,16 @@
       {% for block in section.blocks %}
         <div class="swiper-slide">
           {% if block.settings.img %}
-            <img src="{{ block.settings.img | img_url }}" alt="img">
+            <img src="{{ block.settings.img | img_url: "200x"}}" alt="img">
           {% endif %}
+        <div class="quotes-helper">
+        </div>
           <p>{{ block.settings.slide_text }}</p>
+          <div class="quotes-helper">
+          </div>
           <h3><strong>{{ block.settings.slide_heading }}</strong></h3>
+          <p>fafafafaewfaeffaef</p>
+          {% include 'yt-icon' %}
         </div>
       {% endfor %}
     </div>
@@ -25,6 +41,9 @@
       el: ".swiper-pagination",
       dynamicBullets: true,
     },
+    autoplay: {
+      delay: 3000,
+    },
     breakpoints: {
       // when window width is >= 320px
       320: {
@@ -34,7 +53,7 @@
       // when window width is >= 991px
       991: {
         slidesPerView: 3,
-        spaceBetween: 50
+        spaceBetween: 75
       }
     }
   });
