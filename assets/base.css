@@ -3002,3 +3002,24 @@ details-disclosure > details {
     outline: transparent solid 1px;
   }
 }
+.wa-helper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.wa-helper p {
+  margin-right: 30px;
+}
+
+.mySwiper_1 .swiper-slide  {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.mySwiper_1 .swiper-slide img {
+  border-radius: 50%;
+  width: 170px;
+  height: 170px;
+}

@@ -5,7 +5,13 @@
   <div class="swiper mySwiper_1">
     <div class="swiper-wrapper">
       {% for block in section.blocks %}
-        <div class="swiper-slide"></div>
+        <div class="swiper-slide">
+          {% if block.settings.img %}
+            <img src="{{ block.settings.img | img_url }}" alt="img">
+          {% endif %}
+          <p>{{ block.settings.slide_text }}</p>
+          <h3><strong>{{ block.settings.slide_heading }}</strong></h3>
+        </div>
       {% endfor %}
     </div>
     <div class="swiper-pagination"></div>
@@ -28,7 +34,7 @@
       // when window width is >= 991px
       991: {
         slidesPerView: 3,
-        spaceBetween: 10
+        spaceBetween: 50
       }
     }
   });
@@ -63,12 +69,6 @@
           ],
           "default": "h1",
           "label": "t:sections.all.heading_size.label"
-        },
-        {
-          "type": "checkbox",
-          "id": "enable_slider",
-          "label": "Enable slider for our services",
-          "default": false
         }
     ],
     "blocks": [
@@ -77,13 +77,21 @@
         "name": "Slide",
         "settings": [
           {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Slider Image",
+            "info": "Slider Image"
+          },
+          {
             "type": "text",
             "id": "slide_heading",
+            "default": "Iman Gadzhi",
             "label": "Slide heading"
           },
           {
             "type": "text",
             "id": "slide_text",
+            "default": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai.",
             "label": "Slide text"
           }
         ]
