@@ -29,6 +29,23 @@
   }
 {%- endstyle -%}
 
+<style>
+  {% if section.settings.text_align %}
+    @media screen and (min-width: 750px) {
+      #shopify-section-{{ section.id }} .banner__box.content-container {
+        text-align: {{ section.settings.text_align }};
+      }
+    }
+  {% endif %}
+  {% if section.settings.text_align_mobile %}
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .banner__box.content-container {
+      text-align: {{ section.settings.text_align_mobile }};
+    }
+  }
+{% endif %}
+</style>
+
 <div
   id="Banner-{{ section.id }}"
   class="banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.stack_images_on_mobile and section.settings.image != blank and section.settings.image_2 != blank %} banner--stacked{% endif %}{% if section.settings.image_height == 'adapt' and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}"
@@ -99,7 +116,7 @@
         {%- case block.type -%}
           {%- when 'heading' -%}
             <h2 class="banner__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
-              <span>{{ block.settings.heading | escape }}</span>
+              {{ block.settings.heading }}
             </h2>
           {%- when 'text' -%}
             <div class="banner__text {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
@@ -107,7 +124,7 @@
             </div>
           {%- when 'buttons' -%}
             <div
-              class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
+              class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}" style="background-color: {{ block.settings.button_background_color }};"
               {{ block.shopify_attributes }}
             >
               {%- if block.settings.button_label_1 != blank -%}
@@ -118,6 +135,7 @@
                     href="{{ block.settings.button_link_1 }}"
                   {% endif %}
                   class="button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"
+                  style="color: {{ block.settings.button_text_color }}; font-weight: {{ block.settings.button_text_weight }};"
                 >
                   {{- block.settings.button_label_1 | escape -}}
                 </a>
@@ -264,6 +282,46 @@
       ],
       "default": "center",
       "label": "t:sections.image-banner.settings.desktop_content_alignment.label"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.image-banner.settings.desktop_content_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.image-banner.settings.desktop_content_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.image-banner.settings.desktop_content_alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "Text alignment on desktop"
+    },
+    {
+      "type": "select",
+      "id": "text_align_mobile",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.image-banner.settings.desktop_content_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.image-banner.settings.desktop_content_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.image-banner.settings.desktop_content_alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "Text alignment on mobile"
     },
     {
       "type": "select",
@@ -438,6 +496,39 @@
           "id": "button_style_secondary_2",
           "default": false,
           "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_2.label"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "default": "#000000",
+          "label": "Text color of the button"
+        },
+        {
+          "type": "color",
+          "id": "button_background_color",
+          "default": "#dbb75d",
+          "label": "Text color of the button"
+        },
+        
+        {
+          "type": "select",
+          "id": "button_text_weight",
+          "options": [
+            {
+              "value": "500",
+              "label": "Normal"
+            },
+            {
+              "value": "600",
+              "label": "Semi-bold"
+            },
+            {
+              "value": "700",
+              "label": "Bold"
+            }
+          ],
+          "default": "700",
+          "label": "Select text font weight"
         }
       ]
     }
