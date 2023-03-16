@@ -1,0 +1,218 @@
+<style>
+    .about-us--{{section.id}}{
+        color: #000000;
+        font-family: Arial;
+    }
+    .about-us_heading_and_paragraph{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .about-us-heading_and_paragraph_wrapper{
+        padding-top: 45px;
+        padding-bottom: 45px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        max-width: 800px;
+    }
+    .about-us_heading{
+        font-weight: 600;
+        font-family: Arial;
+        margin-bottom: 40px;
+        font-size: 52px;
+    }
+    .about-us_heading_and_paragraph_split{
+        max-width: 100px;
+        width: 100%;
+        height: 3px;
+        background-color: #dbb75d;
+        opacity: 1;
+    }
+    .about-us_paragraph{
+        font-size: 20px;
+        font-family: Arial;
+        margin-top: 40px;
+        text-overflow: ellipsis;
+    }
+    .about-us_blocks{
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        padding-top: 30px;
+        padding-bottom: 105px;
+        justify-content: center;
+    }
+    .about-us_block_wrapper{
+        max-width: 360px;
+        width: 100%;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .about-us_block_heading{
+        font-size: 38px;
+        font-weight: 600;
+    }
+    .about-us_block_split{
+        background-color: #dbb75d;
+        opacity: 1;
+        margin-top: 14px;
+        margin-bottom: 14px;
+        border: 0;
+        height: 1px;         
+    }
+
+    .about-us_block_paragraph{
+        font-size: 22px;
+    }
+
+@media screen and (max-width: 960px){
+    .about-us-heading_and_paragraph_wrapper{
+        max-width: 640px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .about-us_paragraph{
+        font-size: 18px;
+    }
+    .about-us_blocks {
+        max-width: 640px;
+        width: 100%;
+        flex-direction: column;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .about-us_block_wrapper{
+        margin-left: auto;
+        margin-right: auto;
+        max-width: inherit;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+
+@media screen and (max-width: 640px){
+    .about-us_heading_and_paragraph{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .about-us_heading{
+        margin-bottom: 30px;
+    }
+    .about-us_paragraph{
+        margin-top: 30px;
+    }
+    .about-us_paragraph{
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .about-us_heading_and_paragraph {
+        max-width: 960px;
+    }
+}
+</style>
+
+<div class="about-us--{{section.id}}">
+    <div class="about-us_heading_and_paragraph">
+        <div class="about-us-heading_and_paragraph_wrapper">
+            <span class="about-us_heading">{{section.settings.about-us-heading}}</span>
+            <div class="about-us_heading_and_paragraph_split"></div>
+            <span class="about-us_paragraph">{{section.settings.about-us-paragraph}}</span>
+        </div>
+        <div class="about-us_blocks">
+            {% for block in section.blocks %}
+            <div class="about-us_block_wrapper">
+                <span class="about-us_block_heading">{{block.settings.slide_heading}}</span>
+                <div class="about-us_block_split"></div>
+                <span class="about-us_block_paragraph">{{block.settings.slide_text}}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "About us",
+    "max_blocks": 3,
+    "settings": [
+        {
+          "type": "text",
+          "id": "about-us-heading",
+          "default": "Heading example",
+          "label": "About Us Heading"
+        },
+        {
+          "type": "text",
+          "id": "about-us-paragraph",
+          "default": "Paragraph example",
+          "label": "About Us Paragraph"
+        }
+    ],
+    "blocks": [
+      {
+        "type": "slide",
+        "name": "Slide",
+        "settings": [
+          {
+            "type": "text",
+            "id": "slide_heading",
+            "label": "Slide heading"
+          },
+          {
+            "type": "text",
+            "id": "slide_text",
+            "label": "Slide text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "About us"
+      }
+    ]
+  }
+{% endschema %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
