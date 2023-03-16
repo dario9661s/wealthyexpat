@@ -3011,74 +3011,15 @@ details-disclosure > details {
   margin-right: 30px;
 }
 
-.mySwiper_1{
-  margin-top: 50px;
-}
 .mySwiper_1 .swiper-slide  {
   align-items: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  position: relative;
 }
 
 .mySwiper_1 .swiper-slide img {
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  width: 170px;
+  height: 170px;
 }
-
-.mySwiper_1 .swiper-slide p{
-  margin-top: 30px;
-  text-align: center;
-}
-
-.mySwiper_1 .swiper-wrapper {
-  padding-bottom: 60px;
-}
-.quotes-helper {
-  width: 100%;
-}
-.quotes {
-  position: absolute;
-  left: -10px;
-  top: 0;
-  transform: rotate(180deg);
-}
-.quotes-back {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  transform: rotate(180deg);
-}
-.quotes-helper {
-  position: relative;
-}
-.swiper-pagination-bullet-active {
-  background: rgb(219, 183, 93);
-}
-.mySwiper_1 .swiper-slide .quotes , .mySwiper_1 .swiper-slide .quotes-back {
-  display: none;
-}
-.mySwiper_1 .swiper-slide-next .quotes, .mySwiper_1 .swiper-slide-next .quotes-back {
-  display: block;
-}
-.mySwiper_1 .swiper-slide img {
-  border: 4px solid transparent;
-  padding: 1px;
-}
-.mySwiper_1 .swiper-slide-next img {
-  border: 4px solid rgb(219, 183, 93);
-  padding: 1px;
-}
-.mySwiper_1 .swiper-slide-next {
-  transform: scale(1.23);
-  transition: all 300ms ease-in;
-
-}
-
-.mySwiper_1 .swiper-slide {
-  transition: all 300ms ease;
-
-}
-
