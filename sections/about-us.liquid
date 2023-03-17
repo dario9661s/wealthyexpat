@@ -132,6 +132,9 @@
         <div class="about-us_blocks">
             {% for block in section.blocks %}
             <div class="about-us_block_wrapper">
+                {% if block.settings.slide_cash %}
+                    <span class="about-us_block_heading statistic">$</span>
+                {% endif %}
                 <span class="about-us_block_heading statistic">{{block.settings.slide_number}} </span><span class="about-us_block_heading"> {{block.settings.slide_heading}}</span>
 
                 <div class="about-us_block_split"></div>
@@ -206,6 +209,12 @@
             "type": "text",
             "id": "slide_text",
             "label": "Slide text"
+          },
+          {
+            "type": "checkbox",
+            "id": "show_cash",
+            "default": true,
+            "label": "t:sections.featured-blog.settings.show_image.label"
           },
           {
             "type": "text",
