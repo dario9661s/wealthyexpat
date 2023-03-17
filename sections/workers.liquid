@@ -1,0 +1,76 @@
+<div class="page-width">
+    <div class="swiper mySwiper_2">
+        <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+                <div class="swiper-slide">
+                    {% if block.settings.img %}
+                        <img src="{{ block.settings.img | img_url: "200x"}}" alt="img">
+                    {% endif %}
+                    <h3><strong>{{ block.settings.slide_heading }}</strong></h3>
+                    <p>{{ block.settings.slide_text }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+
+<script>
+    var swiper = new Swiper(".mySwiper_2", {
+        slidesPerView: 1,
+        pagination: {
+            el: ".swiper-pagination",
+            dynamicBullets: true,
+        },
+        breakpoints: {
+            // when window width is >= 320px
+            320: {
+                slidesPerView: 2,
+                spaceBetween: 20
+            },
+            // when window width is >= 991px
+            767: {
+                slidesPerView: 4,
+                spaceBetween: 55
+            }
+        }
+    });
+</script>
+
+{% schema %}
+{
+  "name": "Careers",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Slider Image",
+          "info": "Slider Image"
+        },
+        {
+          "type": "text",
+          "id": "slide_heading",
+          "default": "Iman Gadzhi",
+          "label": "Slide heading"
+        },
+        {
+          "type": "text",
+          "id": "slide_text",
+          "default": "Crypto Consultant",
+          "label": "Slide heading"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Career"
+    }
+  ]
+}
+{% endschema %}

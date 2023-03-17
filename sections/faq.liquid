@@ -1,0 +1,246 @@
+<style>
+    .accordion-box{
+        position:relative;
+    }
+
+    .accordion-box .heading{
+        position:relative;
+        color:#000000;
+        font-size:28px;
+        font-weight:600;
+        margin-bottom:45px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .accordion-box .block{
+        position: relative;
+        padding-top: 22px;
+    }
+
+    .accordion-box .block:last-child{
+        border-bottom: 0px;
+    }
+
+    .accordion-box .block .acc-btn{
+        font-size:18px;
+        padding-right:0px;
+        padding-left:50px;
+        position:relative;
+        cursor:pointer;
+        line-height:30px;
+        color:#000000;
+        font-weight:600;
+        transition:all 500ms ease;
+        -ms-transition:all 500ms ease;
+        -o-transition:all 500ms ease;
+        -moz-transition:all 500ms ease;
+        -webkit-transition:all 500ms ease;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .accordion-box .block .icon-outer{
+        position:absolute;
+        left:0px;
+        top:0px;
+        width:30px;
+        height:30px;
+        text-align:center;
+        border-radius:50%;
+        font-size:14px;
+        color:#ffffff;
+        transition:all 500ms ease;
+        -moz-transition:all 500ms ease;
+        -webkit-transition:all 500ms ease;
+        -ms-transition:all 500ms ease;
+        -o-transition:all 500ms ease;
+        background-image: -ms-linear-gradient(left, #FF8442 0%, #f4369e 100%);
+        background-image: -moz-linear-gradient(left, #FF8442 0%, #f4369e 100%);
+        background-image: -o-linear-gradient(left, #FF8442 0%, #f4369e 100%);
+        background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #FF8442), color-stop(100, #f4369e));
+        background-image: -webkit-linear-gradient(left, #FF8442 0%, #f4369e 100%);
+        background-image: linear-gradient(to right, #FF8442 0%, #f4369e 100%);
+    }
+
+    .accordion-box .block .icon-outer .icon{
+        position: absolute;
+        left: 0px;
+        top: 50%;
+        margin-top: -15px;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        border-radius: 50%;
+        line-height: 30px;
+        font-size: 14px;
+        color: #ffffff;
+    }
+
+    .accordion-box .block .icon-outer .icon-plus{
+        opacity:1;
+    }
+
+    .accordion-box .block .icon-outer .icon-minus{
+        opacity:0;
+        color:#ffffff;
+        font-weight:400;
+    }
+
+    .accordion-box .block .acc-btn.active .icon-outer .icon-minus{
+        opacity:1;
+        color:#ffffff;
+    }
+
+    .accordion-box .block .acc-btn.active .icon-outer .icon-plus{
+        opacity:0;
+    }
+
+    .accordion-box .block .acc-btn.active .icon-outer{
+        border-color:#ff3548;
+        color:#ff3548;
+    }
+
+    .accordion-box .block .acc-content{
+        position:relative;
+        display:none;
+    }
+
+    .accordion-box .block .acc-content .content-text{
+        padding-bottom:6px;
+    }
+
+    .accordion-box .block .acc-content.current{
+        display:block;
+    }
+
+    .accordion-box .block .content{
+        position:relative;
+        font-size:14px;
+        padding:10px 0px 0px 0px;
+    }
+
+    .accordion-box .block .content p{
+        margin-bottom:0px;
+        line-height:2em;
+        font-size:16px;
+        color:#555555;
+        padding-left:50px;
+    }
+
+    .accordion-box .block .content p:last-child{
+        margin-bottom:0px;
+    }
+
+    .accordion-box.style-two .block .icon-outer{
+        background-image:none;
+        background-color:#eb2f5b;
+    }
+
+</style>
+
+<ul class="accordion-box">
+    {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+            {% assign blcokTitle = block.settings.accordionTitle %}
+            {% assign blockParagraph = block.settings.accordionParagraph %}
+            <!--Block-->
+            <li class="accordion block">
+                <div class="acc-btn"><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>{{ blcokTitle }}</div>
+                <div class="acc-content">
+                    <div class="content">
+                        <div class="text">
+                            <p>{{ blockParagraph }}</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    {% endif %}
+</ul>
+
+<script>
+    if($('.accordion-box').length){
+        $(".accordion-box").on('click', '.acc-btn', function() {
+
+            var outerBox = $(this).parents('.accordion-box');
+            var target = $(this).parents('.accordion');
+
+            if($(this).hasClass('active')!==true){
+                $(outerBox).find('.accordion .acc-btn').removeClass('active');
+            }
+            if ($(this).hasClass('active')) {
+                $(this).removeClass('active');
+                target.removeClass('active-block');
+                $(this).next('.acc-content').slideUp(300);
+            }
+            if ($(this).next('.acc-content').is(':visible')){
+                return false;
+            }else{
+                $(this).addClass('active');
+                $(outerBox).children('.accordion').removeClass('active-block');
+                $(outerBox).find('.accordion').children('.acc-content').slideUp(300);
+                target.addClass('active-block');
+                $(this).next('.acc-content').slideDown(300);
+            }
+        });
+    }
+</script>
+{% schema %}
+{
+  "name": "Moment Section",
+  "class": "moment-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "imageMain",
+      "label": "Main Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "we are pixer"
+    },
+    {
+      "type": "textarea",
+      "id": "mainHeading",
+      "label": "Main Heading",
+      "default": "we are happy to assist <br> you all time <span>moment</span>",
+      "info": "For special customization use span"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph",
+      "label": "Paragraph",
+      "default": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed. So some forward-looking CIOs are putting."
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "accordionBlock",
+      "name": "Accordion Block",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "accordionTitle",
+          "label": "Accordion Title",
+          "default": "Solutions is the latest software Sigma?"
+        },
+        {
+          "type": "textarea",
+          "id": "accordionParagraph",
+          "label": "Accordion Paragraph",
+          "default": "The argument in favor of using to filler text goes something is that anybody can do it."
+        }
+
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Moment Section"
+    }
+  ]
+}
+{% endschema %}

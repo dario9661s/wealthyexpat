@@ -3014,7 +3014,7 @@ details-disclosure > details {
 .mySwiper_1{
   margin-top: 50px;
 }
-.mySwiper_1 .swiper-slide  {
+.mySwiper_1 .swiper-slide, .mySwiper_2 .swiper-slide  {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -3093,10 +3093,28 @@ details-disclosure > details {
     padding: 1px;
   }
 }
-
-
+.mySwiper_2 img {
+  width: 100%;
+}
+.mySwiper_2 h3 {
+  margin-bottom: 0;
+}
+.mySwiper_2 p {
+  margin-top: 0;
+}
+.iwt-caption {
+  border-bottom: 2px solid #dbb75e;
+  padding-bottom: 10px;
+}
 .mySwiper_1 .swiper-slide {
   transition: all 300ms ease;
-
 }
-
+.mySwiper_2 .swiper-wrapper {
+  padding-bottom: 20px;
+}
+.accordion-box {
+  list-style: none;
+}
+.fa-plus:before {
+  content: "+";
+}
