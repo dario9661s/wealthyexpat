@@ -114,12 +114,21 @@
             "slide_heading": "Iman Gadzhi",
             "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai."
           }
+        },
+        "a04bd3c3-75d6-4446-81c2-e44d05d73d79": {
+          "type": "slide",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
+            "slide_heading": "Iman Gadzhi",
+            "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai."
+          }
         }
       },
       "block_order": [
         "f1e29b19-f54c-46a8-adc7-dae031e89dfa",
         "0cfdfeab-2cff-46c8-865f-fc4ef74cf108",
-        "0045f251-3755-40d3-860e-7414d4a89ee3"
+        "0045f251-3755-40d3-860e-7414d4a89ee3",
+        "a04bd3c3-75d6-4446-81c2-e44d05d73d79"
       ],
       "settings": {
         "heading": "Section heading",
