@@ -93,11 +93,66 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "76c67aa6-880e-4a89-9cd4-94df8fb02ed7": {
+      "type": "workers",
+      "blocks": {
+        "377013d1-f14c-449d-8182-ba26dd63a65d": {
+          "type": "slide",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/photo_2022-07-29_08.webp",
+            "slide_heading": "Iman Gadzhi",
+            "slide_text": "Crypto Consultant"
+          }
+        },
+        "4bcd12d5-9dfd-4c63-baea-e1e768aaaa27": {
+          "type": "slide",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/photo_2022-07-29_08.webp",
+            "slide_heading": "Iman Gadzhi",
+            "slide_text": "Crypto Consultant"
+          }
+        },
+        "f8760325-3f49-434f-b100-eab3e64c2613": {
+          "type": "slide",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/photo_2022-07-29_08.webp",
+            "slide_heading": "Iman Gadzhi",
+            "slide_text": "Crypto Consultant"
+          }
+        },
+        "8d0f743d-f987-48e1-8c22-9492a07cc6bb": {
+          "type": "slide",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/photo_2022-07-29_08.webp",
+            "slide_heading": "Iman Gadzhi",
+            "slide_text": "Crypto Consultant"
+          }
+        },
+        "c7493efb-89f1-4932-b6e1-21e3202ec88a": {
+          "type": "slide",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/photo_2022-07-29_08.webp",
+            "slide_heading": "Iman Gadzhi",
+            "slide_text": "Crypto Consultant"
+          }
+        }
+      },
+      "block_order": [
+        "377013d1-f14c-449d-8182-ba26dd63a65d",
+        "4bcd12d5-9dfd-4c63-baea-e1e768aaaa27",
+        "f8760325-3f49-434f-b100-eab3e64c2613",
+        "8d0f743d-f987-48e1-8c22-9492a07cc6bb",
+        "c7493efb-89f1-4932-b6e1-21e3202ec88a"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
     "main",
     "eaf18d29-736e-4e67-9014-4828e8ef9fa0",
-    "4e89b3f0-a6d7-4cfd-8122-7620d1a79b6a"
+    "4e89b3f0-a6d7-4cfd-8122-7620d1a79b6a",
+    "76c67aa6-880e-4a89-9cd4-94df8fb02ed7"
   ]
 }
