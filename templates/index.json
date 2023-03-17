@@ -96,7 +96,8 @@
           "settings": {
             "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
             "slide_heading": "Iman Gadzhi",
-            "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai."
+            "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai.",
+            "job": "Owner of IAG Media, marketer with 1.7+ Million followers on Youtube"
           }
         },
         "0cfdfeab-2cff-46c8-865f-fc4ef74cf108": {
@@ -104,7 +105,8 @@
           "settings": {
             "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
             "slide_heading": "Iman Gadzhi",
-            "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai."
+            "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai.",
+            "job": "Owner of IAG Media, marketer with 1.7+ Million followers on Youtube"
           }
         },
         "0045f251-3755-40d3-860e-7414d4a89ee3": {
@@ -112,7 +114,8 @@
           "settings": {
             "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
             "slide_heading": "Iman Gadzhi",
-            "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai."
+            "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai.",
+            "job": "Owner of IAG Media, marketer with 1.7+ Million followers on Youtube"
           }
         },
         "a04bd3c3-75d6-4446-81c2-e44d05d73d79": {
@@ -120,7 +123,8 @@
           "settings": {
             "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
             "slide_heading": "Iman Gadzhi",
-            "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai."
+            "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai.",
+            "job": "Owner of IAG Media, marketer with 1.7+ Million followers on Youtube"
           }
         }
       },
@@ -134,11 +138,64 @@
         "heading": "Section heading",
         "heading_size": "h1"
       }
+    },
+    "448b6ebb-7cbc-4e18-9ce6-2538fc087669": {
+      "type": "faq",
+      "blocks": {
+        "2cc1b956-5dc3-4659-ba43-c27a49e3778a": {
+          "type": "accordionBlock",
+          "settings": {
+            "accordionTitle": "Solutions is the latest software Sigma?",
+            "accordionParagraph": "The argument in favor of using to filler text goes something is that anybody can do it."
+          }
+        },
+        "840e79a6-e0dc-481a-89be-aec48a41dd95": {
+          "type": "accordionBlock",
+          "settings": {
+            "accordionTitle": "Solutions is the latest software Sigma?",
+            "accordionParagraph": "The argument in favor of using to filler text goes something is that anybody can do it."
+          }
+        },
+        "9e4a22ca-bc7d-4fea-8ba0-920c60156c5c": {
+          "type": "accordionBlock",
+          "settings": {
+            "accordionTitle": "Solutions is the latest software Sigma?",
+            "accordionParagraph": "The argument in favor of using to filler text goes something is that anybody can do it."
+          }
+        },
+        "b0619415-819c-4c80-ace3-9240b7dea090": {
+          "type": "accordionBlock",
+          "settings": {
+            "accordionTitle": "Solutions is the latest software Sigma?",
+            "accordionParagraph": "The argument in favor of using to filler text goes something is that anybody can do it."
+          }
+        },
+        "eae85189-4614-45b2-8ab1-050cfbdf7e88": {
+          "type": "accordionBlock",
+          "settings": {
+            "accordionTitle": "Solutions is the latest software Sigma?",
+            "accordionParagraph": "The argument in favor of using to filler text goes something is that anybody can do it."
+          }
+        }
+      },
+      "block_order": [
+        "2cc1b956-5dc3-4659-ba43-c27a49e3778a",
+        "840e79a6-e0dc-481a-89be-aec48a41dd95",
+        "9e4a22ca-bc7d-4fea-8ba0-920c60156c5c",
+        "b0619415-819c-4c80-ace3-9240b7dea090",
+        "eae85189-4614-45b2-8ab1-050cfbdf7e88"
+      ],
+      "settings": {
+        "title": "we are pixer",
+        "mainHeading": "we are happy to assist <br> you all time <span>moment<\/span>",
+        "paragraph": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed. So some forward-looking CIOs are putting."
+      }
     }
   },
   "order": [
     "image_banner",
     "64eeda0d-699f-42e8-9569-2a78d4663baf",
-    "e7953e76-1a0a-4d08-903c-db508e48c46f"
+    "e7953e76-1a0a-4d08-903c-db508e48c46f",
+    "448b6ebb-7cbc-4e18-9ce6-2538fc087669"
   ]
 }
