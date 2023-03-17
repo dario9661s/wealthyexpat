@@ -16,6 +16,7 @@
           "settings": {
             "slide_heading": "+ clients",
             "slide_text": "Tax Optimization and Residence Services",
+            "show_cash": false,
             "slide_number": "300"
           }
         },
@@ -24,6 +25,7 @@
           "settings": {
             "slide_heading": "million",
             "slide_text": "In Taxes Legally Saved by Our Clients",
+            "show_cash": true,
             "slide_number": "15"
           }
         },
@@ -32,6 +34,7 @@
           "settings": {
             "slide_heading": "billion",
             "slide_text": "In Combined Net Worth of Our Clients",
+            "show_cash": true,
             "slide_number": "18"
           }
         }
