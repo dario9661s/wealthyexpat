@@ -125,14 +125,15 @@
 <div class="about-us--{{section.id}}">
     <div class="about-us_heading_and_paragraph">
         <div class="about-us-heading_and_paragraph_wrapper">
-            <span class="about-us_heading">{{section.settings.about-us-heading}}</span>
+            <span class="about-us_heading ">{{section.settings.about-us-heading}}</span>
             <div class="about-us_heading_and_paragraph_split"></div>
             <span class="about-us_paragraph">{{section.settings.about-us-paragraph}}</span>
         </div>
         <div class="about-us_blocks">
             {% for block in section.blocks %}
             <div class="about-us_block_wrapper">
-                <span class="about-us_block_heading">{{block.settings.slide_heading}}</span>
+                <span class="about-us_block_heading statistic">{{block.settings.slide_number}} </span><span class="about-us_block_heading"> {{block.settings.slide_heading}}</span>
+
                 <div class="about-us_block_split"></div>
                 <span class="about-us_block_paragraph">{{block.settings.slide_text}}</span>
             </div>
@@ -142,7 +143,31 @@
 </div>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/1.8.5/countUp.min.js"></script>
 
+<script>
+
+    var options = {
+        useEasing: true,
+        useGrouping: true,
+        separator: ",",
+        decimal: "."
+    };
+
+    // Find all Statistics on page, put them inside a variable
+    var statistics = $(".statistic");
+
+    // For each Statistic we find, animate it
+    statistics.each(function(index) {
+        // Find the value we want to animate (what lives inside the p tags)
+        var value = $(statistics[index]).html();
+        // Start animating
+        var statisticAnimation = new CountUp(statistics[index], 0, value, 0, 5, options);
+        statisticAnimation.start();
+    });
+
+</script>
 
 
 
@@ -180,6 +205,12 @@
           {
             "type": "text",
             "id": "slide_text",
+            "label": "Slide text"
+          },
+          {
+            "type": "text",
+            "id": "slide_number",
+            "default": "300",
             "label": "Slide text"
           }
         ]

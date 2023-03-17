@@ -1,14 +1,20 @@
 <style>
-  .hp-reviews {
-    margin-top: 80px;
-    margin-bottom: 80px;
+  @media(min-width: 767px){
+    .hp-reviews {
+      margin-top: 80px;
+      margin-bottom: 80px;
+    }
+    .mySwiper_1{
+      padding-top: 70px;
+    }
   }
-  .mySwiper_1{
-    padding-top: 70px;
-  }
+
 
 </style>
 <div class="hp-reviews page-width">
+  <p class="statistic">500</p>
+  <p class="statistic">1000</p>
+  <p class="statistic">1223344</p>
   <h2 class="banner__heading {{ section.settings.heading_size }}" style="text-align: center;">
     {{ section.settings.heading }}
   </h2>
@@ -21,7 +27,7 @@
           {% endif %}
           <p>{{ block.settings.slide_text }}</p>
           <h3><strong>{{ block.settings.slide_heading }}</strong></h3>
-          <p>fafafafaewfaeffaef</p>
+          <span>{{ block.settings.job }}</span>
           {% include 'yt-icon' %}
         </div>
       {% endfor %}
@@ -30,7 +36,27 @@
   </div>
 </div>
 
+
 <script>
+
+  var options = {
+    useEasing: true,
+    useGrouping: true,
+    separator: ",",
+    decimal: "."
+  };
+
+  // Find all Statistics on page, put them inside a variable
+  var statistics = $(".statistic");
+
+  // For each Statistic we find, animate it
+  statistics.each(function(index) {
+    // Find the value we want to animate (what lives inside the p tags)
+    var value = $(statistics[index]).html();
+    // Start animating
+    var statisticAnimation = new CountUp(statistics[index], 0, value, 0, 5, options);
+    statisticAnimation.start();
+  });
   var swiper = new Swiper(".mySwiper_1", {
     slidesPerView: 1,
     pagination: {
@@ -44,9 +70,9 @@
         spaceBetween: 20
       },
       // when window width is >= 991px
-      991: {
+      767: {
         slidesPerView: 3,
-        spaceBetween: 50
+        spaceBetween: 55
       }
     }
   });
@@ -105,6 +131,12 @@
             "id": "slide_text",
             "default": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai.",
             "label": "Slide text"
+          },
+          {
+            "type": "text",
+            "id": "job",
+            "default": "Owner of IAG Media, marketer with 1.7+ Million followers on Youtube",
+            "label": "Slide heading"
           }
         ]
       }
