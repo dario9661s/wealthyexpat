@@ -91,7 +91,7 @@
     "e7953e76-1a0a-4d08-903c-db508e48c46f": {
       "type": "homepage-reviews",
       "blocks": {
-        "643c86b1-0553-4e95-a94c-54948b450b7e": {
+        "f1e29b19-f54c-46a8-adc7-dae031e89dfa": {
           "type": "slide",
           "settings": {
             "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
@@ -99,7 +99,7 @@
             "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai."
           }
         },
-        "25976792-ed67-4015-b1c7-4c1c8321c9af": {
+        "0cfdfeab-2cff-46c8-865f-fc4ef74cf108": {
           "type": "slide",
           "settings": {
             "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
@@ -107,15 +107,7 @@
             "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai."
           }
         },
-        "ab9e54a8-41a9-4390-818f-e422b65d2450": {
-          "type": "slide",
-          "settings": {
-            "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
-            "slide_heading": "Iman Gadzhi",
-            "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai."
-          }
-        },
-        "4f1c3158-882e-4020-8fca-627d817b747d": {
+        "0045f251-3755-40d3-860e-7414d4a89ee3": {
           "type": "slide",
           "settings": {
             "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
@@ -125,10 +117,9 @@
         }
       },
       "block_order": [
-        "643c86b1-0553-4e95-a94c-54948b450b7e",
-        "25976792-ed67-4015-b1c7-4c1c8321c9af",
-        "ab9e54a8-41a9-4390-818f-e422b65d2450",
-        "4f1c3158-882e-4020-8fca-627d817b747d"
+        "f1e29b19-f54c-46a8-adc7-dae031e89dfa",
+        "0cfdfeab-2cff-46c8-865f-fc4ef74cf108",
+        "0045f251-3755-40d3-860e-7414d4a89ee3"
       ],
       "settings": {
         "heading": "Section heading",
