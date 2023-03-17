@@ -56,7 +56,7 @@
         "2887b358-fced-4592-872e-162e56f22d46": {
           "type": "caption",
           "settings": {
-            "caption": "Add a tagline",
+            "caption": "Founder & CEO",
             "text_style": "caption-with-letter-spacing",
             "text_size": "medium"
           }
@@ -64,7 +64,7 @@
         "template--16102194151593__4e89b3f0-a6d7-4cfd-8122-7620d1a79b6a-1679063820a4246ad9-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Rafael is the leader of Wealthy Expat, the fastest growing and most consistent tax optimization and citizenship by investment company in the World.<br\/>He went through all the processes Wealthy Expat provides himself and knows how to optimize them for you in the best way possible.<\/p>",
             "text_style": "body"
           }
         }
