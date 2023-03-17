@@ -14,22 +14,25 @@
         "bf202c83-5da5-4759-9c58-13aae8385ad9": {
           "type": "slide",
           "settings": {
-            "slide_heading": "300+ clients",
-            "slide_text": "Tax Optimization and Residence Services"
+            "slide_heading": "+ clients",
+            "slide_text": "Tax Optimization and Residence Services",
+            "slide_number": "300"
           }
         },
         "d86f332e-bd07-483f-a8b6-4b4a62dcfc7b": {
           "type": "slide",
           "settings": {
             "slide_heading": "$15 million",
-            "slide_text": "In Taxes Legally Saved by Our Clients"
+            "slide_text": "In Taxes Legally Saved by Our Clients",
+            "slide_number": "300"
           }
         },
         "8b69ccc2-3b90-49d7-b8df-f4e692bb3449": {
           "type": "slide",
           "settings": {
             "slide_heading": "$18 billion",
-            "slide_text": "In Combined Net Worth of Our Clients"
+            "slide_text": "In Combined Net Worth of Our Clients",
+            "slide_number": "300"
           }
         }
       },
