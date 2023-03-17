@@ -132,7 +132,7 @@
         <div class="about-us_blocks">
             {% for block in section.blocks %}
             <div class="about-us_block_wrapper">
-                {% if block.settings.slide_cash %}
+                {% if block.settings.show_cash %}
                     <span class="about-us_block_heading statistic">$</span>
                 {% endif %}
                 <span class="about-us_block_heading statistic">{{block.settings.slide_number}} </span><span class="about-us_block_heading"> {{block.settings.slide_heading}}</span>
