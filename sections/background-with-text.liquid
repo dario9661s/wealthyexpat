@@ -1,0 +1,253 @@
+<style>
+    .background-with-text--{{section.id}}{
+        color: white;
+        opacity: 0;
+	    animation: fadeIn 1s ease-in both;
+    }
+    .background-with-text-wrapper{
+        min-height: 700px;
+        height: 100vh;
+        background-position: center center;
+        background-attachment: scroll;
+        
+        background-image: url("{{section.settings.bg_image  | img_url: 'master'}}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: 0;
+        position: relative;
+    }
+
+    .background-with-text_heading{
+        color: #ffffff;
+        font-size: 52px;
+        font-family: 'Arial',Arial,sans-serif;
+        line-height: 1.55;
+        font-weight: 700;
+        background-position: center center;
+        border-color: transparent;
+        border-style: solid;
+        line-height: 81px;
+        margin-bottom: 150px;
+
+        
+    }
+    .background-with-text-wrapper_cover{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-image: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6));
+        will-change: transform;
+        min-height: 700px;
+        height: 100vh;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+        transform: translateZ(0);
+    }
+
+    .background-with-text_block_wrapper{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+    .background-with-text_single_block{
+        max-width: 500px;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+    .background-with-text_single_block_image{
+        width: 100px;
+    }
+
+    .background-with-text_single_block_heading{
+        line-height: 40px;
+        color: #ffffff;
+        font-size: 26px;
+        font-family: 'Arial',Arial,sans-serif;
+        font-weight: 700;
+        background-position: center center;
+        border-color: transparent;
+        border-style: solid;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .background-with-text_single_block_text{
+        color: #ffffff;
+        font-size: 18px;
+        font-family: 'Arial',Arial,sans-serif;
+        line-height: 28px;
+        font-weight: 400;
+        background-position: center center;
+        border-color: transparent;
+        border-style: solid;
+    }
+
+    @media screen and (max-width: 960px){
+        .background-with-text_block_wrapper{
+            flex-direction: column;
+        }
+        .background-with-text_single_block_image{
+            width: 60px;
+        }
+        .background-with-text_heading{
+            font-size: 35px;
+            margin-bottom: 30px;
+        }
+        .background-with-text_single_block_heading{
+            font-size: 18px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        .background-with-text-wrapper_cover{
+            min-height: 1000px;
+            height: 100%;
+        }
+        .background-with-text-wrapper{
+            height: 100%;
+            min-height: 1000px;
+        }
+    }
+
+        @media screen and (max-width: 460px){
+            .background-with-text-wrapper{
+                min-height: 1300px;
+                height: 100%;
+            }
+            .background-with-text-wrapper_cover{
+                justify-content: flex-start;
+                min-height: 1300px;
+                height: 100%;
+            }
+
+            .background-with-text_heading{
+                margin-top: 100px;
+            }
+            .background-with-text_single_block{
+                margin-top: 25px;
+                margin-bottom: 25px;
+            }
+            .background-with-text_single_block_heading{
+                margin-top: 10px;
+                margin-bottom: 5px;
+            }
+        }
+
+</style>
+
+
+<div class="background-with-text--{{section.id}}">
+    <div class="background-with-text-wrapper">
+        <div class="background-with-text-wrapper_cover">
+            <div class="background-with-text_heading">{{section.settings.heading_text}}</div>
+            <div class="background-with-text_block_wrapper">
+                {% for block in section.blocks %}
+                    <div class="background-with-text_single_block">
+                        <img class="background-with-text_single_block_image" src="{{block.settings.block_image  | img_url: 'master' }}" alt="">
+                        <div class="background-with-text_single_block_heading ">{{block.settings.slide_heading}}</div>
+                        <div class="background-with-text_single_block_text ">{{block.settings.slide_text}}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    const heading = entry.target.querySelector('.background-with-text_heading');
+    const blockimg = entry.target.querySelectorAll(".background-with-text_single_block_image");
+    const blockheading = entry.target.querySelectorAll(".background-with-text_single_block_heading");
+    const blockText = entry.target.querySelectorAll(".background-with-text_single_block_text");
+
+    if (entry.isIntersecting) {
+        heading.classList.add("animate__animated","animate__fadeInDown","animate__delay-0.5s");
+        blockimg.forEach(bImg => {
+            bImg.classList.add("animate__animated", "animate__fadeIn", "animate__delay-1s");
+        })
+        blockheading.forEach(bHeading => {
+            bHeading.classList.add("animate__animated", "animate__fadeIn", "animate__delay-1s");
+
+        })
+        blockText.forEach(bText => {
+            bText.classList.add("animate__animated", "animate__fadeInUp", "animate__delay-2s");    
+        })
+	  return; // if we added the class, exit the function
+    }
+
+    // We're not intersecting, so remove the class!
+    heading.classList.remove("animate__animated","animate__fadeInDown","animate__delay-0.5s");
+    blockimg.forEach(bImg => {
+        bImg.classList.remove("animate__animated", "animate__fadeIn", "animate__delay-1s");
+    })
+    blockheading.forEach(bHeading => {
+        bHeading.classList.remove("animate__animated", "animate__fadeIn", "animate__delay-1s");
+
+    })
+    blockText.forEach(bText => {
+        bText.classList.remove("animate__animated", "animate__fadeInUp", "animate__delay-2s");    
+    })
+  });
+});
+
+observer.observe(document.querySelector('.background-with-text--{{section.id}}'));
+
+</script>
+
+
+
+
+
+{% schema %}
+{
+    "name": "Background with text",
+    "max_blocks": 3,
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "bg_image",
+            "label": "Background image"
+        },
+        {
+            "type": "text",
+            "id": "heading_text",
+            "label": "Main heading text"
+        }
+    ],
+    "blocks": [
+      {
+        "type": "slide",
+        "name": "Slide",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "block_image",
+                "label": "Small image"
+            },
+            {
+                "type": "text",
+                "id": "slide_heading",
+                "label": "Slide heading"
+            },
+            {
+                "type": "text",
+                "id": "slide_text",
+                "label": "Slide text"
+            }
+        ]
+      }
+    ],
+ "presets": [
+      {
+        "name": "Background image with text"
+      }
+    ]
+}
+{% endschema %}
