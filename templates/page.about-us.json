@@ -150,6 +150,35 @@
     },
     "16c0ae63-709a-4765-9d8c-1cada25093f7": {
       "type": "background-with-text",
+      "blocks": {
+        "04890a6d-37f7-4ae0-bc0e-665f38e7d783": {
+          "type": "slide",
+          "settings": {
+            "slide_heading": "",
+            "slide_text": ""
+          }
+        },
+        "fdeeaf57-de25-4a5d-92dc-7206fd66b351": {
+          "type": "slide",
+          "settings": {
+            "slide_heading": "",
+            "slide_text": ""
+          }
+        },
+        "b17b0517-f080-4c9e-9454-2a2c2cc616b6": {
+          "type": "slide",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/check.svg",
+            "slide_heading": "Complete Package",
+            "slide_text": "We don't just \"set up a company\" for you.We ensure that the company, residence and immigration setup you're choosing is the best one for you."
+          }
+        }
+      },
+      "block_order": [
+        "04890a6d-37f7-4ae0-bc0e-665f38e7d783",
+        "fdeeaf57-de25-4a5d-92dc-7206fd66b351",
+        "b17b0517-f080-4c9e-9454-2a2c2cc616b6"
+      ],
       "settings": {
         "bg_image": "shopify:\/\/shop_images\/about-us-background.jpg",
         "heading_text": "Our advantages"
