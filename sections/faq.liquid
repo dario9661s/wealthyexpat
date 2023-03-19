@@ -22,12 +22,12 @@
     }
 
     .accordion-box .block .acc-btn{
-        font-size:18px;
+        font-size:24px;
         padding-right:0px;
         padding-left:50px;
         position:relative;
         cursor:pointer;
-        line-height:30px;
+        line-height:1.35;
         color:#000000;
         font-weight:600;
         transition:all 500ms ease;
@@ -40,7 +40,7 @@
 
     .accordion-box .block .icon-outer{
         position:absolute;
-        left:0px;
+        right:0px;
         top:0px;
         width:30px;
         height:30px;
@@ -53,12 +53,13 @@
         -webkit-transition:all 500ms ease;
         -ms-transition:all 500ms ease;
         -o-transition:all 500ms ease;
-        background-image: -ms-linear-gradient(left, #FF8442 0%, #f4369e 100%);
-        background-image: -moz-linear-gradient(left, #FF8442 0%, #f4369e 100%);
-        background-image: -o-linear-gradient(left, #FF8442 0%, #f4369e 100%);
-        background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #FF8442), color-stop(100, #f4369e));
-        background-image: -webkit-linear-gradient(left, #FF8442 0%, #f4369e 100%);
-        background-image: linear-gradient(to right, #FF8442 0%, #f4369e 100%);
+        background: #dbb75d;
+        /*background-image: -ms-linear-gradient(left, #FF8442 0%, #f4369e 100%);*/
+        /*background-image: -moz-linear-gradient(left, #FF8442 0%, #f4369e 100%);*/
+        /*background-image: -o-linear-gradient(left, #FF8442 0%, #f4369e 100%);*/
+        /*background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #FF8442), color-stop(100, #f4369e));*/
+        /*background-image: -webkit-linear-gradient(left, #FF8442 0%, #f4369e 100%);*/
+        /*background-image: linear-gradient(to right, #FF8442 0%, #f4369e 100%);*/
     }
 
     .accordion-box .block .icon-outer .icon{
@@ -80,14 +81,18 @@
     }
 
     .accordion-box .block .icon-outer .icon-minus{
-        opacity:0;
+        /*opacity:0;*/
+        transition: all ease 0.3s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 6px;
         color:#ffffff;
         font-weight:400;
     }
 
     .accordion-box .block .acc-btn.active .icon-outer .icon-minus{
-        opacity:1;
-        color:#ffffff;
+       transform: rotate(135deg);
     }
 
     .accordion-box .block .acc-btn.active .icon-outer .icon-plus{
@@ -121,7 +126,7 @@
     .accordion-box .block .content p{
         margin-bottom:0px;
         line-height:2em;
-        font-size:16px;
+        font-size:18px;
         color:#555555;
         padding-left:50px;
     }
@@ -134,9 +139,18 @@
         background-image:none;
         background-color:#eb2f5b;
     }
+    .faq-title {
+        text-align: center;
+    }
 
 </style>
-
+{% assign title = section.settings.title %}
+{% assign mainTitle = section.settings.mainHeading %}
+{% assign imageMain = section.settings.imageMain %}
+{% assign sectionText = section.settings.paragraph %}
+<div class="faq-title">
+    <h2 class="banner__heading h1">{{ title }}</h2>
+</div>
 <ul class="accordion-box">
     {% if section.blocks.size > 0 %}
         {% for block in section.blocks %}
@@ -144,7 +158,7 @@
             {% assign blockParagraph = block.settings.accordionParagraph %}
             <!--Block-->
             <li class="accordion block">
-                <div class="acc-btn"><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>{{ blcokTitle }}</div>
+                <div class="acc-btn">{{ blcokTitle }}<div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus">{% include 'icon-plus' %}</span></div></div>
                 <div class="acc-content">
                     <div class="content">
                         <div class="text">
@@ -160,10 +174,8 @@
 <script>
     if($('.accordion-box').length){
         $(".accordion-box").on('click', '.acc-btn', function() {
-
             var outerBox = $(this).parents('.accordion-box');
             var target = $(this).parents('.accordion');
-
             if($(this).hasClass('active')!==true){
                 $(outerBox).find('.accordion .acc-btn').removeClass('active');
             }

@@ -3031,6 +3031,7 @@ details-disclosure > details {
 .mySwiper_1 .swiper-slide p{
   margin-top: 30px;
   font-size: 15px;
+  font-style: italic;
   text-align: center;
   margin-bottom: 10px;
 }
@@ -3115,6 +3116,9 @@ details-disclosure > details {
 .accordion-box {
   list-style: none;
 }
-.fa-plus:before {
-  content: "+";
+
+
+.accordion {
+  max-width: 700px;
+  margin: 0 auto;
 }
