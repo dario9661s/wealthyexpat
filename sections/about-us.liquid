@@ -2,6 +2,8 @@
     .about-us--{{section.id}}{
         color: #000000;
         font-family: Arial;
+        margin-top: {{ section.settings.margin_top }}px;
+        margin-bottom: {{ section.settings.margin_bottom }}px;
     }
     .about-us_heading_and_paragraph{
         display: flex;
@@ -95,6 +97,10 @@
         max-width: inherit;
         margin-top: 20px;
         margin-bottom: 20px;
+    }
+    .about-us--{{section.id}}{
+        margin-top: {{ section.settings.margin_top_mobile }}px;
+        margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
     }
 }
 
@@ -192,7 +198,47 @@
           "id": "about-us-paragraph",
           "default": "Paragraph example",
           "label": "About Us Paragraph"
-        }
+        },
+        {
+        "type": "range",
+        "id": "margin_top",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "default": 0,
+        "step": 1,
+        "label": "Top padding of the section"
+        },
+        {
+        "type": "range",
+        "id": "margin_bottom",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "default": 0,
+        "step": 1,
+        "label": "Bottom padding of the section"
+        },
+      {
+        "type": "range",
+        "id": "margin_top_mobile",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "default": 0,
+        "step": 1,
+        "label": "Top padding of the section on mobile"
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom_mobile",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "default": 0,
+        "step": 1,
+        "label": "Bottom padding of the section on mobile"
+      }
     ],
     "blocks": [
       {

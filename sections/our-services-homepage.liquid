@@ -1,4 +1,10 @@
 <style>
+  #shopify-section-{{  section.id }} {
+    color: #000000;
+    font-family: Arial;
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
 
   .t-container {
       margin-left: auto;
@@ -176,14 +182,66 @@
     }
   }
 
+  .heading_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .our-services_heading{
+    font-weight: 600;
+    font-family: Arial;
+    margin-bottom: 40px;
+    font-size: 52px;
+  }
+
+  .about-us_heading_and_paragraph_split{
+    max-width: 100px;
+    width: 100%;
+    height: 3px;
+    background-color: #dbb75d;
+    opacity: 1;
+  }
+
+  #shopify-section-{{ section.id }} .swiper.mySwiper {
+    margin-top: 5rem;
+  }
+
+  #shopify-section-{{ section.id }} .swiper-wrapper {
+    padding-bottom: 40px;
+  }
+
+  @media screen and (max-width: 991px) {
+    #shopify-section-{{ section.id }} .swiper.mySwiper {
+      width: 80%;
+    }
+    #shopify-section-{{  section.id }} {
+      margin-top: {{ section.settings.margin_top_mobile }}px;
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+    }
+  }
+
+  @media screen and (max-width: 591px) {
+    #shopify-section-{{ section.id }} .swiper.mySwiper {
+      width: 100%;
+    }
+  }
+
 </style>
 
 <div class="t-section__container_heading t-container">
-  <div class="">
-    <h2 class="banner__heading {{ section.settings.heading_size }}" style="text-align: center;">
-      {{ section.settings.heading }}
-    </h2>
-  </div>
+  {% if section.settings.heading != blank %}
+    <div class="heading_container">
+      {% if section.settings.heading_bottom_margin %}
+        <span class="our-services_heading">{{ section.settings.heading }}</span>
+        <div class="about-us_heading_and_paragraph_split"></div>
+      {% else %}
+        <h2 class="banner__heading {{ section.settings.heading_size }}" style="text-align: center;">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+    </div>
+  {% endif %}
 </div>
 
 {% if section.settings.enable_slider %}
@@ -280,6 +338,12 @@
           "label": "t:sections.image-banner.blocks.heading.settings.heading.label"
         },
         {
+          "type": "checkbox",
+          "id": "heading_bottom_margin",
+          "label": "Heading bottom border",
+          "default": true
+        },
+        {
           "type": "select",
           "id": "heading_size",
           "options": [
@@ -304,7 +368,47 @@
           "id": "enable_slider",
           "label": "Enable slider for our services",
           "default": false
-        }
+        },
+        {
+          "type": "range",
+          "id": "margin_top",
+          "unit": "px",
+          "min": 0,
+          "max": 100,
+          "default": 20,
+          "step": 1,
+          "label": "Top padding of the section"
+        },
+        {
+          "type": "range",
+          "id": "margin_bottom",
+          "unit": "px",
+          "min": 0,
+          "max": 100,
+          "default": 20,
+          "step": 1,
+          "label": "Bottom padding of the section"
+        },
+      {
+        "type": "range",
+        "id": "margin_top_mobile",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "default": 20,
+        "step": 1,
+        "label": "Top padding of the section on mobile"
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom_mobile",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "default": 20,
+        "step": 1,
+        "label": "Bottom padding of the section on mobile"
+      }
     ],
     "blocks": [
       {

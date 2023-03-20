@@ -1,4 +1,11 @@
 <style>
+  #shopify-section-{{  section.id }} {
+    color: #000000;
+    font-family: Arial;
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
+
   @media(min-width: 767px){
     .hp-reviews {
       margin-top: 80px;
@@ -9,12 +16,65 @@
     }
   }
 
+  @media screen and (max-width: 766px) {
+    #shopify-section-{{  section.id }} {
+      margin-top: {{ section.settings.margin_top_mobile }}px;
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+    }
+  }
+
+  #shopify-section-{{ section.id }} svg.icon {
+    width: 23px;
+    height: 23px;
+    color: black;
+    {% comment %}
+    --iconSize: 12px;
+    display: inline-block;
+    min-width: calc(var(--iconSize) * 1.5);
+    width: calc(var(--iconSize) * 1.5);
+    height: calc(var(--iconSize) * 1.2);
+    vertical-align: middle;
+    fill: black;
+    color: black;
+    transform: translateY(-5%);
+    {% endcomment %}
+  }
+
+  .heading_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .our-services_heading{
+    font-weight: 600;
+    font-family: Arial;
+    margin-bottom: 40px;
+    font-size: 52px;
+  }
+
+  .about-us_heading_and_paragraph_split{
+    max-width: 100px;
+    width: 100%;
+    height: 3px;
+    background-color: #dbb75d;
+    opacity: 1;
+  }
 
 </style>
 <div class="hp-reviews page-width">
-  <h2 class="banner__heading {{ section.settings.heading_size }}" style="text-align: center;">
-    {{ section.settings.heading }}
-  </h2>
+  {% if section.settings.heading != blank %}
+    <div class="heading_container">
+      {% if section.settings.heading_bottom_margin %}
+        <span class="our-services_heading">{{ section.settings.heading }}</span>
+        <div class="about-us_heading_and_paragraph_split"></div>
+      {% else %}
+        <h2 class="banner__heading {{ section.settings.heading_size }}" style="text-align: center;">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+    </div>
+  {% endif %}
   <div class="swiper mySwiper_1">
     <div class="swiper-wrapper">
       {% for block in section.blocks %}
@@ -25,7 +85,16 @@
           <p>{{ block.settings.slide_text }}</p>
           <h3><strong>{{ block.settings.slide_heading }}</strong></h3>
           <span>{{ block.settings.job }}</span>
-          {% include 'yt-icon' %}
+          {% if block.settings.social_media_url != blank %}
+            <a class="" href="{{ block.settings.social_media_url }}" target="_blank" rel="noopener">
+              {% comment %}
+              {% assign snippet_value = block.settings.social_media | append: '-icon' %}
+              {% capture snipet_content %}{% include snippet_value %}{% endcapture %}
+                {{ snipet_content }}
+                {% endcomment %}
+              {% render 'global-icon' with block.settings.social_media %}
+            </a>
+          {% endif %}
         </div>
       {% endfor %}
     </div>
@@ -69,6 +138,12 @@
           "label": "t:sections.image-banner.blocks.heading.settings.heading.label"
         },
         {
+          "type": "checkbox",
+          "id": "heading_bottom_margin",
+          "label": "Heading bottom border",
+          "default": true
+        },
+        {
           "type": "select",
           "id": "heading_size",
           "options": [
@@ -87,6 +162,46 @@
           ],
           "default": "h1",
           "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "range",
+          "id": "margin_top",
+          "unit": "px",
+          "min": 0,
+          "max": 100,
+          "default": 20,
+          "step": 1,
+          "label": "Top padding of the section"
+        },
+        {
+          "type": "range",
+          "id": "margin_bottom",
+          "unit": "px",
+          "min": 0,
+          "max": 100,
+          "default": 20,
+          "step": 1,
+          "label": "Bottom padding of the section"
+        },
+        {
+          "type": "range",
+          "id": "margin_top_mobile",
+          "unit": "px",
+          "min": 0,
+          "max": 100,
+          "default": 20,
+          "step": 1,
+          "label": "Top padding of the section on mobile"
+        },
+        {
+          "type": "range",
+          "id": "margin_bottom_mobile",
+          "unit": "px",
+          "min": 0,
+          "max": 100,
+          "default": 20,
+          "step": 1,
+          "label": "Bottom padding of the section on mobile"
         }
     ],
     "blocks": [
@@ -117,6 +232,55 @@
             "id": "job",
             "default": "Owner of IAG Media, marketer with 1.7+ Million followers on Youtube",
             "label": "Slide heading"
+          },
+          {
+            "type": "select",
+            "id": "social_media",
+            "default": "youtube",
+            "label": "Icon for social media",
+            "options": [
+              {
+                "label": "Youtube",
+                "value": "youtube"
+              },
+              {
+                "label": "Instagram",
+                "value": "instagram"
+              },
+              {
+                "label": "Facebook",
+                "value": "facebook"
+              },
+              {
+                "label": "Twitter",
+                "value": "twitter"
+              },
+              {
+                "label": "Email",
+                "value": "email"
+              },
+              {
+                "label": "Tiktok",
+                "value": "tiktok"
+              },
+              {
+                "label": "Snapchat",
+                "value": "snapchat"
+              },
+              {
+                "label": "Whatsapp",
+                "value": "whatsapp"
+              },
+              {
+                "label": "Telegram",
+                "value": "telegram"
+              }
+            ]
+          },
+          {
+            "type": "url",
+            "id": "social_media_url",
+            "label": "Link of social media"
           }
         ]
       }

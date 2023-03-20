@@ -1,0 +1,74 @@
+<style>
+    .collection-container {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .collection-item img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+    .collection-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+    @media(max-width: 800px) {
+        .collection-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+</style>
+<div class="collection-container page-width">
+    {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+            {% assign blcokTitle = block.settings.text %}
+            {% assign blockImg = block.settings.img %}
+            <!--Block-->
+            <div class="collection-item">
+                <img src="{{ blockImg | img_url : "300x"}}" alt="img">
+                <p>{{ blcokTitle }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+
+</div>
+
+{% schema %}
+{
+  "name": "Collections",
+  "class": "collections-section",
+  "settings": [],
+
+  "blocks": [
+    {
+      "type": "accordionBlock",
+      "name": "Accordion Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Solutions is the latest software Sigma?"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Collections Section"
+    }
+  ]
+}
+{% endschema %}

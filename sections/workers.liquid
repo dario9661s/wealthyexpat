@@ -1,3 +1,16 @@
+<style>
+    #shopify-section-{{ section.id }} {
+        margin-top: {{ section.settings.margin_top }}px;
+        margin-bottom: {{ section.settings.margin_bottom }}px;
+    }
+    @media screen and (max-width: 767px) {
+        #shopify-section-{{ section.id }} {
+            margin-top: {{ section.settings.margin_top_mobile }}px;
+            margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+        }
+    }
+</style>
+
 <div class="page-width">
     <div class="swiper mySwiper_2">
         <div class="swiper-wrapper">
@@ -40,7 +53,48 @@
 {% schema %}
 {
   "name": "Careers",
-  "settings": [],
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_top",
+      "unit": "px",
+      "min": 0,
+      "max": 100,
+      "default": 20,
+      "step": 1,
+      "label": "Top padding of the section"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "unit": "px",
+      "min": 0,
+      "max": 100,
+      "default": 20,
+      "step": 1,
+      "label": "Bottom padding of the section"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "unit": "px",
+      "min": 0,
+      "max": 100,
+      "default": 0,
+      "step": 1,
+      "label": "Top padding of the section on mobile"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "unit": "px",
+      "min": 0,
+      "max": 100,
+      "default": 0,
+      "step": 1,
+      "label": "Bottom padding of the section on mobile"
+    }
+  ],
   "blocks": [
     {
       "type": "slide",
