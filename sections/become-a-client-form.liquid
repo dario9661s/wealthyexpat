@@ -82,22 +82,34 @@
 </div>
 
 <script>
+    let answers = [];
+    let checkedBoxes = [];
     const becomeClientForm = document.getElementById("becomeClientForm");
-    becomeClientForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        console.log("Form submitted");
-        let checkboxes = document.querySelectorAll(".quiz-checkbox");
-        let checkboxesChecked = [];
-        // loop over them all
-        for (let i=0; i<checkboxes.length; i++) {
-            // And stick the checked ones onto an array...
-            if (checkboxes[i].checked) {
-                checkboxesChecked.push(checkboxes[i]);
-            }
-        }
-        console.log(checkboxesChecked);
-    })
+        becomeClientForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            console.log("Form submitted");
+            let questionsWrapper = document.querySelectorAll(".quiz-question-wrapp");
+            questionsWrapper.forEach(questionWrap => {
+                let correctAnswers = questionWrap.querySelector(".quiz-answer").textContent;
+                let checkBoxes = questionWrap.querySelectorAll(".quiz-checkbox");
+                answers.push(correctAnswers.split(","));
+                checkBoxes.forEach(box => {
+                    checkedBoxes.push(String(box.checked));
+                    box.checked = false;
+                })
+            })
 
+        let answersFinal = answers.flat();
+        let checkedAnswers = [...checkedBoxes];
+       
+        let correctForm = true ? JSON.stringify(answersFinal) === JSON.stringify(checkedAnswers) : false;
+        console.log(correctForm);
+
+        checkedAnswers = [];
+        checkedBoxes = [];
+        answers = [];
+
+        });
 </script>
 
 
