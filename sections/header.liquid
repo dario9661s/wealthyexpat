@@ -25,6 +25,7 @@
 <noscript>{{ 'component-menu-drawer.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-cart-notification.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-cart-items.css' | asset_url | stylesheet_tag }}</noscript>
+{{ 'phone-whatsapp.css' | asset_url | stylesheet_tag }}
 
 <style>
   header-drawer {
@@ -97,8 +98,12 @@
         top: 0;
         left: 0;
         right: 0;
+      }
+
+      .transparent-header {
         background: transparent;
       }
+      
     }
   {% endif %}
 </style>
@@ -142,6 +147,9 @@
     text-decoration: underline;
     text-underline-offset: 0.3rem;
     text-decoration-color: var(--golden-color);
+  }
+  #shopify-section-{{ section.id }} .whatsapp--header_mobile {
+    margin-top: 2rem;
   }
 </style>
 
@@ -244,6 +252,22 @@
                       </li>
                     {%- endfor -%}
                   </ul>
+                  {% if section.settings.enable_phone_number %}
+                    <div class="whatsapp--header_mobile">
+                      <a href="{{ section.settings.phone_number_url }}" class="header__menu-item list-menu__item link link--text focus-inset" style="padding: 0; justify-content: center; font-size: 20px;">
+                        <span>{{ section.settings.phone_number_text }}</span>
+                      </a>
+                      <div class="t-sociallinks">
+                        <div class="t-sociallinks__wrapper">
+                          <div class="t-sociallinks__item t-sociallinks__item_whatsapp" style="margin-top: 22px;">
+                            <a href="{{ section.settings.whatsapp_url }}" class="header__menu-item list-menu__item link link--text focus-inset" style="padding: 0; justify-content: center;" rel="nofollow noopener">
+                              {% render 'whatsapp-icon' %}
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {% endif %}
                 </nav>
                 <div class="menu-drawer__utility-links">
                   {%- if shop.customer_accounts_enabled -%}
@@ -570,94 +594,94 @@
         </h1>
       {%- endif -%}
     {%- endif -%}
-    <div class="wa-helper">
-      <p>+3816227167</p>
-      <div class="header__icons">
-        <details-modal class="header__search">
-          <details>
-            <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
+
+    <div class="header__icons">
+      <details-modal class="header__search">
+        <details>
+          <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
             <span>
-              {% render 'icon-padlock' %}
+              <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false">
+                <use href="#icon-search">
+              </svg>
               <svg class="modal__toggle-close icon icon-close" aria-hidden="true" focusable="false">
                 <use href="#icon-close">
               </svg>
             </span>
-
-            </summary>
-            <div class="search-modal modal__content gradient" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
-              <div class="modal-overlay"></div>
-              <div class="search-modal__content{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}" tabindex="-1">
+          </summary>
+          <div class="search-modal modal__content gradient" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
+            <div class="modal-overlay"></div>
+            <div class="search-modal__content{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}" tabindex="-1">
               {%- if settings.predictive_search_enabled -%}
                 <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
-                  {%- else -%}
-                  <search-form class="search-modal__form">
-                    {%- endif -%}
-                    <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
-                      <div class="field">
-                        <input class="search__input field__input"
-                               id="Search-In-Modal"
-                               type="search"
-                               name="q"
-                               value="{{ search.terms | escape }}"
-                               placeholder="{{ 'general.search.search' | t }}"
-                                {%- if settings.predictive_search_enabled -%}
-                                  role="combobox"
-                                  aria-expanded="false"
-                                  aria-owns="predictive-search-results"
-                                  aria-controls="predictive-search-results"
-                                  aria-haspopup="listbox"
-                                  aria-autocomplete="list"
-                                  autocorrect="off"
-                                  autocomplete="off"
-                                  autocapitalize="off"
-                                  spellcheck="false"
-                                {%- endif -%}
-                        >
-                        <label class="field__label" for="Search-In-Modal">{{ 'general.search.search' | t }}</label>
-                        <input type="hidden" name="options[prefix]" value="last">
-                        <button type="reset" class="reset__button field__button{% if search.terms == blank %} hidden{% endif %}" aria-label="{{ 'general.search.reset' | t }}">
-                          <svg class="icon icon-close" aria-hidden="true" focusable="false">
-                            <use xlink:href="#icon-reset">
+              {%- else -%}
+                <search-form class="search-modal__form">
+              {%- endif -%}
+                  <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
+                    <div class="field">
+                      <input class="search__input field__input"
+                        id="Search-In-Modal"
+                        type="search"
+                        name="q"
+                        value="{{ search.terms | escape }}"
+                        placeholder="{{ 'general.search.search' | t }}"
+                        {%- if settings.predictive_search_enabled -%}
+                          role="combobox"
+                          aria-expanded="false"
+                          aria-owns="predictive-search-results"
+                          aria-controls="predictive-search-results"
+                          aria-haspopup="listbox"
+                          aria-autocomplete="list"
+                          autocorrect="off"
+                          autocomplete="off"
+                          autocapitalize="off"
+                          spellcheck="false"
+                        {%- endif -%}
+                      >
+                      <label class="field__label" for="Search-In-Modal">{{ 'general.search.search' | t }}</label>
+                      <input type="hidden" name="options[prefix]" value="last">
+                      <button type="reset" class="reset__button field__button{% if search.terms == blank %} hidden{% endif %}" aria-label="{{ 'general.search.reset' | t }}">
+                        <svg class="icon icon-close" aria-hidden="true" focusable="false">
+                          <use xlink:href="#icon-reset">
+                        </svg>
+                      </button>
+                      <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
+                        <svg class="icon icon-search" aria-hidden="true" focusable="false">
+                          <use href="#icon-search">
+                        </svg>
+                      </button>
+                    </div>
+
+                    {%- if settings.predictive_search_enabled -%}
+                      <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
+                        <div class="predictive-search__loading-state">
+                          <svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                            <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
                           </svg>
-                        </button>
-                        <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
-                          <svg class="icon icon-search" aria-hidden="true" focusable="false">
-                            <use href="#icon-search">
-                          </svg>
-                        </button>
+                        </div>
                       </div>
 
-                      {%- if settings.predictive_search_enabled -%}
-                        <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
-                          <div class="predictive-search__loading-state">
-                            <svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                              <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                            </svg>
-                          </div>
-                        </div>
-
-                        <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
-                      {%- endif -%}
-                    </form>
-                    {%- if settings.predictive_search_enabled -%}
-                </predictive-search>
-              {%- else -%}
-                </search-form>
+                      <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
+                    {%- endif -%}
+                  </form>
+                {%- if settings.predictive_search_enabled -%}
+                  </predictive-search>
+                {%- else -%}
+                  </search-form>
                 {%- endif -%}
-                <button type="button" class="search-modal__close-button modal__close-button link link--text focus-inset" aria-label="{{ 'accessibility.close' | t }}">
-                  <svg class="icon icon-close" aria-hidden="true" focusable="false">
-                    <use href="#icon-close">
-                  </svg>
-                </button>
-              </div>
+              <button type="button" class="search-modal__close-button modal__close-button link link--text focus-inset" aria-label="{{ 'accessibility.close' | t }}">
+                <svg class="icon icon-close" aria-hidden="true" focusable="false">
+                  <use href="#icon-close">
+                </svg>
+              </button>
             </div>
-          </details>
-        </details-modal>
+          </div>
+        </details>
+      </details-modal>
 
-        {%- if shop.customer_accounts_enabled -%}
-          <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}">
-            {% render 'icon-account' %}
-            <span class="visually-hidden">
+      {%- if shop.customer_accounts_enabled -%}
+        <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}">
+          {% render 'icon-account' %}
+          <span class="visually-hidden">
             {%- liquid
               if customer
                 echo 'customer.account_fallback' | t
@@ -666,54 +690,34 @@
               endif
             -%}
           </span>
-          </a>
-        {%- endif -%}
-
-        {% if section.settings.enable_phone_number %}
-          <div class="t228__rightside">
-            <div class="t228__rightcontainer">
-              <div class="t228__right_descr">
-                <div class="custom_number">
-                  <a href="{{ section.settings.phone_number_url }}">{{ section.settings.phone_number_text }}</a>
-                </div>
-              </div>
-              <div class="t-sociallinks">
-                <div class="t-sociallinks__wrapper">
-                  <div class="t-sociallinks__item t-sociallinks__item_whatsapp">
-                    <a href="{{ section.settings.whatsapp_url }}" rel="nofollow noopener">
-                      {% render 'whatsapp-icon' %}
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        {% endif %}
-
-        {% comment %}
-        <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
-          {%- liquid
-            if cart == empty
-              render 'icon-cart-empty'
-            else
-              render 'icon-cart'
-            endif
-          -%}
-          <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-          {%- if cart != empty -%}
-            <div class="cart-count-bubble">
-              {%- if cart.item_count < 100 -%}
-                <span aria-hidden="true">{{ cart.item_count }}</span>
-              {%- endif -%}
-              <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-            </div>
-          {%- endif -%}
         </a>
-        {% endcomment %}
-      </div>
+      {%- endif -%}
+
+      {% if section.settings.enable_phone_number %}
+        {% include 'number-and-whatsapp' %}     
+      {% endif %}
+
+      {% comment %}
+      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+        {%- liquid
+          if cart == empty
+            render 'icon-cart-empty'
+          else
+            render 'icon-cart'
+          endif
+        -%}
+        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+        {%- if cart != empty -%}
+          <div class="cart-count-bubble">
+            {%- if cart.item_count < 100 -%}
+              <span aria-hidden="true">{{ cart.item_count }}</span>
+            {%- endif -%}
+            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+          </div>
+        {%- endif -%}
+      </a>
+      {% endcomment %}
     </div>
-
-
   </header>
 </{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
 
@@ -795,6 +799,38 @@
         }
       } else if (scrollTop <= this.headerBounds.top) {
         this.header.classList.remove('scrolled-past-header');
+        this.header.querySelector('.header-wrapper').classList.add('transparent-header');
+        requestAnimationFrame(this.reset.bind(this));
+      }
+
+      this.currentScrollTop = scrollTop;
+    }
+
+    onLoad() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (this.predictiveSearch && this.predictiveSearch.isOpen) return;
+
+      if (scrollTop > this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
+        this.header.classList.add('scrolled-past-header');
+        if (this.preventHide) return;
+        requestAnimationFrame(this.hide.bind(this));
+      } else if (scrollTop < this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
+        this.header.classList.add('scrolled-past-header');
+        if (!this.preventReveal) {
+          requestAnimationFrame(this.reveal.bind(this));
+        } else {
+          window.clearTimeout(this.isScrolling);
+
+          this.isScrolling = setTimeout(() => {
+            this.preventReveal = false;
+          }, 66);
+
+          requestAnimationFrame(this.hide.bind(this));
+        }
+      } else if (scrollTop <= this.headerBounds.top) {
+        this.header.classList.remove('scrolled-past-header');
+        this.header.querySelector('.header-wrapper').classList.add('transparent-header');
         requestAnimationFrame(this.reset.bind(this));
       }
 
@@ -831,7 +867,29 @@
   }
 
   customElements.define('sticky-header', StickyHeader);
+
 {% endjavascript %}
+
+<script>
+  if (window.innerWidth > 991) {
+    window.addEventListener('load', () => {
+      const main_header = document.querySelector('.header-wrapper');
+      const main_header_section = document.querySelector('.section-header');
+      const scrollTop = window.pageYOffset || main_header.scrollTop;
+      if (scrollTop === 0) {
+        main_header.classList.add('transparent-header');
+      } else {
+        main_header.classList.remove('transparent-header');
+      }
+      window.addEventListener('load', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      })
+    })
+  }
+
+
+  
+</script>
 
 <script type="application/ld+json">
   {
@@ -913,7 +971,7 @@
     {
       "type": "checkbox",
       "id": "enable_phone_number",
-      "default": false,
+      "default": true,
       "label": "Enable phone number and whatsapp"
     },
     {

@@ -13,6 +13,9 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  #shopify-section-{{ section.id }} .image-with-text__content {
+    background: {{ section.settings.background_color }};
+  }
 {%- endstyle -%}
 
 <div class="image-with-text image-with-text--{{ section.settings.content_layout }} page-width isolate{% if settings.text_boxes_border_thickness > 0 and settings.text_boxes_border_opacity > 0 and settings.media_border_thickness > 0 and settings.media_border_opacity > 0 %} collapse-borders{% endif %}{% unless section.settings.color_scheme == 'background-1' and settings.media_border_thickness > 0 and settings.text_boxes_shadow_opacity == 0 and settings.text_boxes_border_thickness == 0 or settings.text_boxes_border_opacity == 0 %} collapse-corners{% endunless %} section-{{ section.id }}-padding">
@@ -81,6 +84,24 @@
     </div>
   </div>
 </div>
+
+<script>
+  const observer_image_with_text = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const heading = entry.target.querySelector('.image-with-text__content');
+
+      if (entry.isIntersecting) {
+          heading.classList.add("animate__animated","animate__fadeIn","animate__delay-1s");
+      return; // if we added the class, exit the function
+      }
+
+      // We're not intersecting, so remove the class!
+      heading.classList.remove("animate__animated","animate__fadeIn","animate__delay-1s");
+    });
+  });
+
+  observer_image_with_text.observe(document.querySelector('.image-with-text'));
+</script>
 
 {% schema %}
 {
@@ -212,6 +233,12 @@
       ],
       "default": "no-overlap",
       "label": "t:sections.image-with-text.settings.content_layout.label"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color of text field",
+      "default": "#dbb75d"
     },
     {
       "type": "select",

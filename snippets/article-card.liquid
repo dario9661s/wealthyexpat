@@ -30,17 +30,50 @@
         card article-card
         card--{{ settings.blog_card_style }}
         {% if media_height and media_height != 'adapt' %} article-card__image--{{ media_height }}{% endif %}
-        {% if article.image and show_image %} card--media{% else %} card--text{% endif %}
+        {% if article.image or blog_image and show_image %} card--media{% else %} card--text{% endif %}
         {% if settings.blog_card_style == 'card' %} color-{{ settings.blog_card_color_scheme }} gradient{% endif %}
         {% if settings.blog_card_style == 'card' and media_height == nil and article.image == empty or show_image == false %} ratio{% endif %}
       "
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
     >
       <div
-        class="card__inner {% if settings.blog_card_style == 'standard' %} color-{{ settings.blog_card_color_scheme }} gradient{% endif %}{% if article.image and show_image or settings.blog_card_style == 'standard' %} ratio{% endif %}"
+        class="card__inner {% if settings.blog_card_style == 'standard' %} color-{{ settings.blog_card_color_scheme }} gradient{% endif %}{% if article.image and show_image or blog_image or settings.blog_card_style == 'standard' %} ratio{% endif %}"
         style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
       >
-        {%- if show_image == true and article.image -%}
+
+        {% if blog_image != blank %}
+          <div class="article-card__image-wrapper card__media">
+            <div
+              class="article-card__image media media--hover-effect"
+              {% if section.settings.media_height == 'adapt' %}
+                style="padding-bottom: {{ 1 | divided_by: blog_image.aspect_ratio | times: 100 }}%;"
+              {% endif %}
+            >
+              {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+              <img
+                srcset="
+                  {%- if blog_image.src.width >= 165 -%}{{ blog_image.src | image_url: width: 165 }} 165w,{%- endif -%}
+                  {%- if blog_image.src.width >= 360 -%}{{ blog_image.src | image_url: width: 360 }} 360w,{%- endif -%}
+                  {%- if blog_image.src.width >= 533 -%}{{ blog_image.src | image_url: width: 533 }} 533w,{%- endif -%}
+                  {%- if blog_image.src.width >= 720 -%}{{ blog_image.src | image_url: width: 720 }} 720w,{%- endif -%}
+                  {%- if blog_image.src.width >= 1000 -%}{{ blog_image.src | image_url: width: 1000 }} 1000w,{%- endif -%}
+                  {%- if blog_image.src.width >= 1500 -%}{{ blog_image.src | image_url: width: 1500 }} 1500w,{%- endif -%}
+                  {{ blog_image.src | image_url }} {{ blog_image.src.width }}w
+                "
+                src="{{ blog_image.src | image_url: width: 533 }}"
+                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                alt="{{ blog_image.src.alt | escape }}"
+                class="motion-reduce"
+                {% unless lazy_load == false %}
+                  loading="lazy"
+                {% endunless %}
+                width="{{ blog_image.width }}"
+                height="{{ blog_image.height }}"
+              >
+              {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
+            </div>
+          </div>
+        {% elsif show_image == true and article.image %}
           <div class="article-card__image-wrapper card__media">
             <div
               class="article-card__image media media--hover-effect"
@@ -128,15 +161,21 @@
             {%- endif -%}
           </div>
           {%- if show_excerpt -%}
-            {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
+            {% if excrept_text != blank %}
               <p class="article-card__excerpt rte-width">
-                {%- if article.excerpt.size > 0 -%}
-                  {{ article.excerpt | strip_html | truncatewords: 30 }}
-                {%- else -%}
-                  {{ article.content | strip_html | truncatewords: 30 }}
-                {%- endif -%}
+                {{ excrept_text }}
               </p>
-            {%- endif -%}
+            {% else %}
+              {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
+                <p class="article-card__excerpt rte-width">
+                  {%- if article.excerpt.size > 0 -%}
+                    {{ article.excerpt | strip_html | truncatewords: 30 }}
+                  {%- else -%}
+                    {{ article.content | strip_html | truncatewords: 30 }}
+                  {%- endif -%}
+                </p>
+              {%- endif -%}
+            {% endif %}
             <div class="article-card__footer">
               {%- if article.comments_count > 0 and blog.comments_enabled? -%}
                 <span>{{ 'blogs.article.comments' | t: count: article.comments_count }}</span>

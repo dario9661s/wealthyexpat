@@ -176,7 +176,7 @@
 
 .banner--adapt,
 .banner--adapt_image.banner--mobile-bottom .banner__media:not(.placeholder) {
-  height: auto;
+  height: 100vh;
 }
 
 @media screen and (max-width: 749px) {
@@ -435,4 +435,38 @@
 
 .banner__box > * + .banner__buttons {
   margin-top: 2rem;
+}
+
+/* BANNER CUSTOM CSS */
+
+.banner__head {
+  line-height: 48px;
+}
+
+@media screen and (max-width: 1199px) {
+  .banner__head {
+    font-size: 48px;
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .banner__head {
+    line-height: 1.25;
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .banner__head {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .banner__head {
+    font-size: 38px;
+  }
+}
+
+.banner__text {
+  line-height: 28px;
 }

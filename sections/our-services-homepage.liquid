@@ -128,9 +128,9 @@
     width: 0;
   }
 
-  @media screen and (max-width: 960px) {
-    .t920__separator {
-      display: none;
+  @media screen and (max-width: 1216px) {
+    .t920__row.row__odd .t-col_5 {
+      max-width: 500px;
     }
   }
   
@@ -142,21 +142,24 @@
         margin-right: 10px;
         width: 100%;
     }
-  }
-
-  @media screen and (max-width: 1200px) {
     .t-col_5 {
-      max-width: 380px;
+      max-width: 520px;
     }
-  }
-
-  @media screen and (max-width: 1200px) {
     .t-prefix_1 {
       padding-left: 80px;
     }
   }
 
+  @media screen and (max-width: 1057px) {
+    .t920__row.row__odd .t-col_5 {
+      max-width: 450px;
+    }
+  }
+
   @media screen and (max-width: 960px) {
+    .t920__separator {
+      display: none;
+    }
     .t-col {
       display: block;
       float: none;
@@ -167,18 +170,23 @@
       max-width: 100%;
       box-sizing: border-box;
     }
-  }
-
-  @media screen and (max-width: 960px) {
     .t-col_1, .t-col_2, .t-col_3, .t-col_4, .t-col_5, .t-col_6, .t-col_7, .t-col_8, .t-col_9, .t-col_10, .t-col_11, .t-col_12 {
       width: 100%;
       max-width: 100%;
     }
-  }
-
-  @media screen and (max-width: 960px) {
+    .t920__row.row__odd .t-col_5 {
+      max-width: 100%;
+      width: 100%;
+    }
     .t920__col {
       margin-bottom: 45px;
+    }
+    .t920__title {
+      z-index: 2;
+      position: relative;
+      font-weight: 700;
+      padding-top: 65px;
+      padding-bottom: 10px;
     }
   }
 
@@ -225,13 +233,15 @@
     #shopify-section-{{ section.id }} .swiper.mySwiper {
       width: 100%;
     }
+    #shopify-section-{{ section.id }} .swiper-pagination {
+      bottom: 0;
+    }
   }
-
 </style>
 
 <div class="t-section__container_heading t-container">
   {% if section.settings.heading != blank %}
-    <div class="heading_container">
+    <div class="animate__animated animate__fadeInDown heading_container">
       {% if section.settings.heading_bottom_margin %}
         <span class="our-services_heading">{{ section.settings.heading }}</span>
         <div class="about-us_heading_and_paragraph_split"></div>
@@ -248,7 +258,7 @@
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
         {% for block in section.blocks %}
-          <li class="swiper-slide">
+          <li class="animate__animated animate__fadeInDown swiper-slide">
             <div class="">
               <div class="t920__itemwrapper">
                 <div class="t920__wrapper">
@@ -270,7 +280,7 @@
     {% for block in section.blocks %}
       {% capture thecycle %}{% cycle 'even', 'odd' %}{% endcapture %}
         {% if thecycle == 'even' %}
-          <li class="t920__row row__even">
+          <li class="animate__animated animate__fadeInDown t920__row row__even">
             <div class="t920__col t-col t-prefix_1 t-col_5 t-animate t-animate__chain_first-in-row t-animate_started t-animate__chain_showed">
               <div class="t920__itemwrapper">
                 <div class="t920__wrapper">
@@ -285,7 +295,7 @@
           </li>
           <div class="t-clear t920__separator"> </div>
         {% else %}
-          <li class="t920__row row__odd">
+          <li class="animate__animated animate__fadeInDown t920__row row__odd">
             <div class="t920__offset t-col t-col_5 t-prefix_1"> </div>
             <div class="t920__col t-col t-col_5 t-animate t-animate__chain_first-in-row t-animate_started t-animate__chain_showed">
               <div class="t920__itemwrapper">
@@ -325,11 +335,52 @@
       }
     }
   });
+
+  const observer_services = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    const heading = entry.target.querySelector('.heading_container');
+    const blockimg = entry.target.querySelectorAll(".t920__row");
+    const blockheading = entry.target.querySelectorAll(".t920__title");
+    const blockText = entry.target.querySelectorAll(".t920__descr");
+
+    if (entry.isIntersecting) {
+        heading.classList.add("animate__animated","animate__fadeInDown","animate__delay-0.5s");
+        blockimg.forEach(bImg => {
+            bImg.classList.add("animate__animated", "animate__fadeIn", "animate__delay-1s");
+        })
+        blockheading.forEach(bHeading => {
+            bHeading.classList.add("animate__animated", "animate__fadeIn", "animate__delay-1s");
+
+        })
+        blockText.forEach(bText => {
+            bText.classList.add("animate__animated", "animate__fadeInUp", "animate__delay-1s");    
+        })
+	  return; // if we added the class, exit the function
+    }
+
+    // We're not intersecting, so remove the class!
+    heading.classList.remove("animate__animated","animate__fadeInDown","animate__delay-0.5s");
+    blockimg.forEach(bImg => {
+        bImg.classList.remove("animate__animated", "animate__fadeIn", "animate__delay-1s");
+    })
+    blockheading.forEach(bHeading => {
+        bHeading.classList.remove("animate__animated", "animate__fadeIn", "animate__delay-1s");
+
+    })
+    blockText.forEach(bText => {
+        bText.classList.remove("animate__animated", "animate__fadeInUp", "animate__delay-1s");    
+    })
+  });
+});
+
+observer_services.observe(document.querySelector('.our-services'));
+
 </script>
 
 {% schema %}
   {
     "name": "Our services",
+    "class": "our-services",
     "settings": [
       {
           "type": "text",

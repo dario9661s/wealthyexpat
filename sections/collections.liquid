@@ -1,4 +1,8 @@
 <style>
+    #shopify-section-{{ section.id }} {
+      margin-top: {{ section.settings.margin_top }}px;
+      margin-bottom: {{ section.settings.margin_bottom }}px;
+    }
     .collection-container {
         display: grid;
         grid-gap: 10px;
@@ -16,10 +20,27 @@
         flex-direction: column;
         text-align: center;
     }
+    .collection-link {
+      text-decoration: none;
+      color: {{ section.settings.url_color }};
+    }
+    .collection-container svg {
+      width: 1.8rem;
+      height: auto;
+      vertical-align: middle;
+      margin-left: 1.5rem;
+    }
+    .collection-container .icon__caret {
+      transform: rotate(-90deg);
+    }
     @media(max-width: 800px) {
         .collection-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
+        }
+        #shopify-section-{{ section.id }} {
+          margin-top: {{ section.settings.margin_top_mobile }}px;
+          margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
         }
     }
 </style>
@@ -29,10 +50,68 @@
             {% assign blcokTitle = block.settings.text %}
             {% assign blockImg = block.settings.img %}
             <!--Block-->
-            <div class="collection-item">
-                <img src="{{ blockImg | img_url : "300x"}}" alt="img">
-                <p>{{ blcokTitle }}</p>
-            </div>
+            {% if block.settings.collection_url != blank %}
+              <a class="collection-link" href="{{ block.settings.collection_url }}">
+                <div class="collection-item">
+                  {% if blockImg != blank %}
+                    <img
+                      class="global-media-settings global-media-settings--no-shadow"
+                      srcset="{%- if blockImg.width >= 550 -%}{{ blockImg | image_url: width: 550 }} 550w,{%- endif -%}
+                              {%- if blockImg.width >= 1100 -%}{{ blockImg | image_url: width: 1100 }} 1100w,{%- endif -%}
+                              {%- if blockImg.width >= 1445 -%}{{ blockImg | image_url: width: 1445 }} 1445w,{%- endif -%}
+                              {%- if blockImg.width >= 1680 -%}{{ blockImg | image_url: width: 1680 }} 1680w,{%- endif -%}
+                              {%- if blockImg.width >= 2048 -%}{{ blockImg | image_url: width: 2048 }} 2048w,{%- endif -%}
+                              {%- if blockImg.width >= 2200 -%}{{ blockImg | image_url: width: 2200 }} 2200w,{%- endif -%}
+                              {%- if blockImg.width >= 2890 -%}{{ blockImg | image_url: width: 2890 }} 2890w,{%- endif -%}
+                              {%- if blockImg.width >= 4096 -%}{{ blockImg | image_url: width: 4096 }} 4096w,{%- endif -%}
+                              {{ blockImg | image_url }} {{ blockImg.width }}w"
+                      sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
+                      src="{{ blockImg | image_url: width: 1445 }}"
+                      alt="{{ media.alt | escape }}"
+                      loading="lazy"
+                      width="1100"
+                      height="{{ 1100 | divided_by: blockImg.aspect_ratio | ceil }}"
+                      data-media-id="{{ media.id }}"
+                    >
+                  {% endif %}
+                  <p class="collection-link">
+                    {{ blcokTitle }}
+                    {% if section.settings.arrow_select != 'none' %}
+                      {% assign snippet_value = section.settings.arrow_select | prepend: 'icon-' %}
+                      {% capture snipet_content %}{% include snippet_value %}{% endcapture %}
+                        {{ snipet_content }}
+                    {% endif %}
+                  </p>
+                </div>
+              </a>
+            {% else %}
+              <div class="collection-item">
+                {% if blockImg != blank %}
+                  <img
+                    class="global-media-settings global-media-settings--no-shadow"
+                    srcset="{%- if blockImg.width >= 550 -%}{{ blockImg | image_url: width: 550 }} 550w,{%- endif -%}
+                            {%- if blockImg.width >= 1100 -%}{{ blockImg | image_url: width: 1100 }} 1100w,{%- endif -%}
+                            {%- if blockImg.width >= 1445 -%}{{ blockImg | image_url: width: 1445 }} 1445w,{%- endif -%}
+                            {%- if blockImg.width >= 1680 -%}{{ blockImg | image_url: width: 1680 }} 1680w,{%- endif -%}
+                            {%- if blockImg.width >= 2048 -%}{{ blockImg | image_url: width: 2048 }} 2048w,{%- endif -%}
+                            {%- if blockImg.width >= 2200 -%}{{ blockImg | image_url: width: 2200 }} 2200w,{%- endif -%}
+                            {%- if blockImg.width >= 2890 -%}{{ blockImg | image_url: width: 2890 }} 2890w,{%- endif -%}
+                            {%- if blockImg.width >= 4096 -%}{{ blockImg | image_url: width: 4096 }} 4096w,{%- endif -%}
+                            {{ blockImg | image_url }} {{ blockImg.width }}w"
+                    sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
+                    src="{{ blockImg | image_url: width: 1445 }}"
+                    alt="{{ media.alt | escape }}"
+                    loading="lazy"
+                    width="1100"
+                    height="{{ 1100 | divided_by: blockImg.aspect_ratio | ceil }}"
+                    data-media-id="{{ media.id }}"
+                  >
+                {% endif %}
+                <p class="collection-link">
+                  {{ blcokTitle }}
+                </p>
+              </div>
+            {% endif %}
         {% endfor %}
     {% endif %}
 
@@ -43,7 +122,74 @@
 {
   "name": "Collections",
   "class": "collections-section",
-  "settings": [],
+  "settings": [
+    {
+      "type": "color",
+      "id": "url_color",
+      "default": "#000000",
+      "label": "Text color of the link"
+    },
+    {
+      "type": "select",
+      "id": "arrow_select",
+      "label": "Select style of arrow",
+      "default": "caret",
+      "options": [
+        {
+          "label": "Caret",
+          "value": "caret"
+        },
+        {
+          "label": "Arrow",
+          "value": "arrow"
+        },
+        {
+          "label": "None",
+          "value": "none"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "unit": "px",
+      "min": 0,
+      "max": 100,
+      "default": 20,
+      "step": 1,
+      "label": "Top padding of the section"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "unit": "px",
+      "min": 0,
+      "max": 100,
+      "default": 20,
+      "step": 1,
+      "label": "Bottom padding of the section"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "unit": "px",
+      "min": 0,
+      "max": 100,
+      "default": 20,
+      "step": 1,
+      "label": "Top padding of the section on mobile"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "unit": "px",
+      "min": 0,
+      "max": 100,
+      "default": 20,
+      "step": 1,
+      "label": "Bottom padding of the section on mobile"
+    }
+  ],
 
   "blocks": [
     {
@@ -60,6 +206,11 @@
           "id": "text",
           "label": "Text",
           "default": "Solutions is the latest software Sigma?"
+        },
+        {
+          "type": "url",
+          "id": "collection_url",
+          "label": "Url that it leads to"
         }
       ]
     }

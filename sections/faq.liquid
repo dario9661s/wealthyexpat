@@ -151,6 +151,10 @@
         text-align: center;
     }
 
+    .our-services_heading {
+      color: {{ section.settings.title_color }};
+    }
+
     @media screen and (max-width: 1024px) {
         .accordion.block {
             max-width: 650px;
@@ -243,7 +247,25 @@
             }
         });
     }
+
+  const observer_faq = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const heading = entry.target.querySelector('.heading_container');
+
+      if (entry.isIntersecting) {
+          heading.classList.add("animate__animated","animate__fadeInDown","animate__delay-0.5s");
+      return; // if we added the class, exit the function
+      }
+
+      // We're not intersecting, so remove the class!
+      heading.classList.remove("animate__animated","animate__fadeInDown","animate__delay-0.5s");
+    });
+  });
+
+  observer_faq.observe(document.querySelector('.moment-section'));
+
 </script>
+
 {% schema %}
 {
   "name": "Moment Section",
@@ -285,6 +307,12 @@
       ],
       "default": "h1",
       "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Color of the heading",
+      "default": "#000000"
     },
     {
       "type": "range",

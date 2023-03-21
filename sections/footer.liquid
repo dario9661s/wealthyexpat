@@ -2,6 +2,9 @@
 {{ 'section-footer.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
+  #shopify-section-{{ section.id }} {
+    background: {{ section.settings.footer_background }};
+  }
   .footer {
     margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
   }
@@ -77,7 +80,6 @@
       padding-right: 10px;
       column-gap: 10px;
       width: 100%;
-      max-width: 100%;
     }
     .footer-map {
       display: flex;
@@ -90,9 +92,6 @@
       display: flex;
       align-items: center;
     }
-  }
-  footer {
-    background: {{ section.settings.footer_background }};
   }
 
   footer .list-menu.list-menu--inline span {
@@ -281,6 +280,34 @@
 
   customElements.define('localization-form', LocalizationForm);
 {% endjavascript %}
+
+<script>
+
+const observer_footer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    const text_left = entry.target.querySelector('.footer-content');
+    const footer_map = entry.target.querySelector('.footer-map');
+    const footer_buttons = entry.target.querySelector('.footer-buttons');
+
+    if (entry.isIntersecting) {
+      text_left.classList.add("animate__animated","animate__fadeInUp","animate__delay-0.5s");
+      footer_map.classList.add("animate__animated","animate__fadeIn","animate__delay-1s");
+      footer_buttons.classList.add("animate__animated","animate__fadeInUp","animate__delay-0.5s");
+
+    return; // if we added the class, exit the function
+    }
+
+    // We're not intersecting, so remove the class!
+    text_left.classList.remove("animate__animated","animate__fadeInUp","animate__delay-0.5s");
+    footer_map.classList.remove("animate__animated","animate__fadeIn","animate__delay-1s");
+    footer_buttons.classList.remove("animate__animated","animate__fadeInUp","animate__delay-0.5s");
+
+  });
+});
+
+observer_footer.observe(document.querySelector('footer'));
+
+</script>
 
 {% schema %}
 {
