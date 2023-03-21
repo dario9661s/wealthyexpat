@@ -1,0 +1,211 @@
+<style>
+  #shopify-section-{{ section.id }} {
+        margin-top: {{ section.settings.margin_top }}px;
+        margin-bottom: {{ section.settings.margin_bottom }}px;
+    }
+    .quiz-wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: black;
+    }
+    .quiz-wrapper_heading_wrapp{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .quiz-wrapper_heading{
+        font-weight: 600;
+        font-family: Arial;
+        font-size: 52px;
+    }
+    .quiz-wrapper_explanation{
+        font-size: 20px;
+        font-family: Arial;
+        text-overflow: ellipsis;
+    }
+     @media screen and (max-width: 960px){
+        #shopify-section-{{ section.id }} {
+            margin-top: {{ section.settings.margin_top_mobile }}px;
+            margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+        }
+        .quiz-wrapper{
+
+        }
+     }
+
+</style>
+
+
+<div class="quiz--{{section.id}}">
+    <div class="quiz-wrapper">
+        <div class="quiz-wrapper_heading_wrapp">
+            <span class="quiz-wrapper_heading">{{section.settings.heading_text}}</span>
+            <span class="quiz-wrapper_explanation">{{section.settings.heading_explanation}}</span>
+        </div>
+        <div class="quiz-questions-wrapper">
+            <form class="quiz-questions-form" action="" id="becomeClientForm">
+                {% for block in section.blocks %}
+                    <div class="quiz-question-wrapp">
+                        {% if block.settings.slide_question != blank %}
+                            <span>{{block.settings.slide_question}}</span>
+                            {% if block.settings.slide_option1 != blank %}
+                                <div class="quiz-question-label-wrap1"> 
+                                    <input class="quiz-checkbox" type="checkbox" id="q1-{{block.id}}" name="q1" value="{{block.settings.slide_option1}}">
+                                    <label for="q1-{{block.id}}"> {{block.settings.slide_option1}}</label>
+                                </div>
+                            {% endif %}
+                            {% if block.settings.slide_option2 != blank %}
+                                <div class="quiz-question-label-wrap2"> 
+                                    <input class="quiz-checkbox" type="checkbox" id="q2-{{block.id}}" name="q2" value="{{block.settings.slide_option2}}">
+                                    <label for="q2-{{block.id}}"> {{block.settings.slide_option2}}</label>
+                                </div>
+                            {% endif %}
+                            {% if block.settings.slide_option3 != blank %}
+                                <div class="quiz-question-label-wrap3"> 
+                                    <input class="quiz-checkbox" type="checkbox" id="q3-{{block.id}}" name="q3" value="{{block.settings.slide_option3}}">
+                                    <label for="q3-{{block.id}}"> {{block.settings.slide_option3}}</label>
+                                </div>
+                            {% endif %}
+                            {% comment %} <span>{{section.settings.slide_option1}}</span>
+                            <span>{{section.settings.slide_option2}}</span>
+                            <span>{{section.settings.slide_option3}}</span> {% endcomment %}
+                            <span class="quiz-answer">{{ block.settings.slide_answer }}</span>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    const becomeClientForm = document.getElementById("becomeClientForm");
+    becomeClientForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        console.log("Form submitted");
+        let checkboxes = document.querySelectorAll(".quiz-checkbox");
+        let checkboxesChecked = [];
+        // loop over them all
+        for (let i=0; i<checkboxes.length; i++) {
+            // And stick the checked ones onto an array...
+            if (checkboxes[i].checked) {
+                checkboxesChecked.push(checkboxes[i]);
+            }
+        }
+        console.log(checkboxesChecked);
+    })
+
+</script>
+
+
+
+
+{% schema %}
+{
+    "name": "Become a client form",
+    "max_blocks": 15,
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading_text",
+            "label": "Quiz heading text"
+        },
+        {
+            "type": "text",
+            "id": "heading_explanation",
+            "label": "Quiz heading text explanation"
+        },
+        {
+            "type": "text",
+            "id": "heading_success_link",
+            "label": "Quiz success link"
+        },
+        {
+            "type": "text",
+            "id": "heading_fail_link",
+            "label": "Quiz fail link"
+        },
+        {
+        "type": "range",
+        "id": "margin_top",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "default": 0,
+        "step": 1,
+        "label": "Top padding of the section"
+        },
+        {
+        "type": "range",
+        "id": "margin_bottom",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "default": 0,
+        "step": 1,
+        "label": "Bottom padding of the section"
+        },
+        {
+        "type": "range",
+        "id": "margin_top_mobile",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "default": 0,
+        "step": 1,
+        "label": "Top padding of the section on mobile"
+        },
+        {
+        "type": "range",
+        "id": "margin_bottom_mobile",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "default": 0,
+        "step": 1,
+        "label": "Bottom padding of the section on mobile"
+        }
+    ],
+    "blocks": [
+      {
+        "type": "slide",
+        "name": "Slide",
+        "settings": [
+            {
+                "type": "text",
+                "id": "slide_question",
+                "label": "Question"
+            },
+            {
+                "type": "text",
+                "id": "slide_option1",
+                "label": "Option one"
+            },
+            {
+                "type": "text",
+                "id": "slide_option2",
+                "label": "Option two"
+            },
+            {
+                "type": "text",
+                "id": "slide_option3",
+                "label": "Option three"
+            },
+            {
+                "type": "text",
+                "id": "slide_answer",
+                "label": "Correct answer/answers"
+            }
+        ]
+      }
+    ],
+ "presets": [
+      {
+        "name": "Become a client form"
+      }
+    ]
+}
+{% endschema %}
