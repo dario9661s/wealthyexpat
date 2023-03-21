@@ -36,8 +36,6 @@
      }
 
 </style>
-
-
 <div class="quiz--{{section.id}}">
     <div class="quiz-wrapper">
         <div class="quiz-wrapper_heading_wrapp">
@@ -47,24 +45,26 @@
         <div class="quiz-questions-wrapper">
             <form class="quiz-questions-form" action="" id="becomeClientForm">
                 {% for block in section.blocks %}
+                    {% comment %} added input for the values of the answer for the block {%endcomment%}
+                    <input id="answer-{{ block.id }}" type="hidden" value="false,false,false">
                     <div class="quiz-question-wrapp">
                         {% if block.settings.slide_question != blank %}
                             <span>{{block.settings.slide_question}}</span>
                             {% if block.settings.slide_option1 != blank %}
-                                <div class="quiz-question-label-wrap1"> 
-                                    <input class="quiz-checkbox" type="checkbox" id="q1-{{block.id}}" name="q1" value="{{block.settings.slide_option1}}">
+                                <div class="quiz-question-label-wrap1">
+                                    <input onchange="validateBlock(event, '{{ block.settings.slide_option1 }}', '{{ block.settings.slide_answer }}', '{{ block.id }}', 1)" class="quiz-checkbox" type="checkbox" id="q1-{{block.id}}" name="q-{{block.id}}" value="{{block.settings.slide_option1}}">
                                     <label for="q1-{{block.id}}"> {{block.settings.slide_option1}}</label>
                                 </div>
                             {% endif %}
                             {% if block.settings.slide_option2 != blank %}
-                                <div class="quiz-question-label-wrap2"> 
-                                    <input class="quiz-checkbox" type="checkbox" id="q2-{{block.id}}" name="q2" value="{{block.settings.slide_option2}}">
+                                <div class="quiz-question-label-wrap2">
+                                    <input onchange="validateBlock(event, '{{ block.settings.slide_option2 }}', '{{ block.settings.slide_answer }}', '{{ block.id }}', 2)"  class="quiz-checkbox" type="checkbox" id="q2-{{block.id}}" name="q-{{block.id}}" value="{{block.settings.slide_option2}}">
                                     <label for="q2-{{block.id}}"> {{block.settings.slide_option2}}</label>
                                 </div>
                             {% endif %}
                             {% if block.settings.slide_option3 != blank %}
-                                <div class="quiz-question-label-wrap3"> 
-                                    <input class="quiz-checkbox" type="checkbox" id="q3-{{block.id}}" name="q3" value="{{block.settings.slide_option3}}">
+                                <div class="quiz-question-label-wrap3">
+                                    <input onchange="validateBlock('{{ block.settings.slide_option3 }}', '{{ block.settings.slide_answer }}', '{{ block.id }}')"  class="quiz-checkbox" type="checkbox" id="q3-{{block.id}}" name="q-{{block.id}}" value="{{block.settings.slide_option3}}">
                                     <label for="q3-{{block.id}}"> {{block.settings.slide_option3}}</label>
                                 </div>
                             {% endif %}
@@ -82,6 +82,18 @@
 </div>
 
 <script>
+    function validateBlock (event, answer, correct, blockId, index) {
+        {% comment %} set correct answer to format: "true,false,false" {%endcomment%}
+
+        const answerValues = document.querySelector(`#answer-${blockId}`)
+        console.log(answerValues)
+        console.log(answerValues.value.split(",")[index])
+
+
+
+
+    }
+
     const becomeClientForm = document.getElementById("becomeClientForm");
     becomeClientForm.addEventListener("submit", (e) => {
         e.preventDefault();
