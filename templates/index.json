@@ -59,21 +59,24 @@
           "type": "slide",
           "settings": {
             "slide_heading": "Tax Free Company and 0% Tax Residence",
-            "slide_text": "We make the process of incorporating a company abroad easy, simple, and straightforward. We help you achieve 0% tax residence through careful planning and efficient delivery."
+            "slide_text": "We make the process of incorporating a company abroad easy, simple, and straightforward. We help you achieve 0% tax residence through careful planning and efficient delivery.",
+            "block_url": ""
           }
         },
         "6e0920d9-80af-440e-a818-817eb5f4ef07": {
           "type": "slide",
           "settings": {
             "slide_heading": "Citizenship by Investment",
-            "slide_text": "We manage the citizenship process along with our citizenship lawyers and ensure the application and approval process goes smoothly."
+            "slide_text": "We manage the citizenship process along with our citizenship lawyers and ensure the application and approval process goes smoothly.",
+            "block_url": ""
           }
         },
         "ccb9f4d2-1cba-4ed5-bb54-aaaf36a3a175": {
           "type": "slide",
           "settings": {
             "slide_heading": "Wealthy Expat Mentorship",
-            "slide_text": "A private community of wealthy investors and entrepreneurs where we discuss the latest tax avoidance strategies, new tax sheltering opportunities, and asset protection insights you need to know from industry leaders."
+            "slide_text": "A private community of wealthy investors and entrepreneurs where we discuss the latest tax avoidance strategies, new tax sheltering opportunities, and asset protection insights you need to know from industry leaders.",
+            "block_url": ""
           }
         }
       },
@@ -84,8 +87,14 @@
       ],
       "settings": {
         "heading": "Our services",
+        "heading_bottom_margin": true,
+        "quiz_helper": "",
         "heading_size": "h1",
-        "enable_slider": false
+        "enable_slider": false,
+        "margin_top": 20,
+        "margin_bottom": 20,
+        "margin_top_mobile": 20,
+        "margin_bottom_mobile": 20
       }
     },
     "e7953e76-1a0a-4d08-903c-db508e48c46f": {
@@ -97,7 +106,9 @@
             "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
             "slide_heading": "Iman Gadzhi",
             "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai.",
-            "job": "Owner of IAG Media, marketer with 1.7+ Million followers on Youtube"
+            "job": "Owner of IAG Media, marketer with 1.7+ Million followers on Youtube",
+            "social_media": "youtube",
+            "social_media_url": ""
           }
         },
         "0cfdfeab-2cff-46c8-865f-fc4ef74cf108": {
@@ -106,7 +117,9 @@
             "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
             "slide_heading": "Iman Gadzhi",
             "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai.",
-            "job": "Owner of IAG Media, marketer with 1.7+ Million followers on Youtube"
+            "job": "Owner of IAG Media, marketer with 1.7+ Million followers on Youtube",
+            "social_media": "youtube",
+            "social_media_url": ""
           }
         },
         "0045f251-3755-40d3-860e-7414d4a89ee3": {
@@ -115,7 +128,9 @@
             "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
             "slide_heading": "Iman Gadzhi",
             "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai.",
-            "job": "Owner of IAG Media, marketer with 1.7+ Million followers on Youtube"
+            "job": "Owner of IAG Media, marketer with 1.7+ Million followers on Youtube",
+            "social_media": "youtube",
+            "social_media_url": ""
           }
         },
         "a04bd3c3-75d6-4446-81c2-e44d05d73d79": {
@@ -124,7 +139,9 @@
             "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
             "slide_heading": "Iman Gadzhi",
             "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai.",
-            "job": "Owner of IAG Media, marketer with 1.7+ Million followers on Youtube"
+            "job": "Owner of IAG Media, marketer with 1.7+ Million followers on Youtube",
+            "social_media": "youtube",
+            "social_media_url": ""
           }
         }
       },
@@ -136,7 +153,12 @@
       ],
       "settings": {
         "heading": "Section heading",
-        "heading_size": "h1"
+        "heading_bottom_margin": true,
+        "heading_size": "h1",
+        "margin_top": 20,
+        "margin_bottom": 20,
+        "margin_top_mobile": 20,
+        "margin_bottom_mobile": 20
       }
     },
     "448b6ebb-7cbc-4e18-9ce6-2538fc087669": {
@@ -186,9 +208,20 @@
         "eae85189-4614-45b2-8ab1-050cfbdf7e88"
       ],
       "settings": {
-        "title": "we are pixer",
+        "title": "FAQ",
+        "heading_bottom_margin": true,
+        "heading_size": "h1",
+        "title_color": "#000000",
+        "faq_heading_size": 24,
+        "faq_heading_size_mobile": 24,
+        "paragraph_font_size": 20,
+        "paragraph_font_size_mobile": 16,
         "mainHeading": "we are happy to assist <br> you all time <span>moment<\/span>",
-        "paragraph": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed. So some forward-looking CIOs are putting."
+        "paragraph": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed. So some forward-looking CIOs are putting.",
+        "margin_top": 20,
+        "margin_bottom": 20,
+        "margin_top_mobile": 20,
+        "margin_bottom_mobile": 20
       }
     }
   },

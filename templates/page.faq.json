@@ -63,10 +63,10 @@
         "710bb554-6043-4b4f-8505-ffe31c609013"
       ],
       "settings": {
-        "title": "",
-        "heading_bottom_margin": true,
+        "title": "FAQ",
+        "heading_bottom_margin": false,
         "heading_size": "h1",
-        "title_color": "#000000",
+        "title_color": "#8a3636",
         "faq_heading_size": 24,
         "faq_heading_size_mobile": 24,
         "paragraph_font_size": 20,
