@@ -46,7 +46,53 @@
       ],
       "settings": {
         "about-us-heading": "About us",
-        "about-us-paragraph": "Wealthy Expat is a company which assists with citizenship, tax reduction strategies and asset protection by all means necessary. We make this process simple, secure and 100% guaranteed. Our clients are high net worth investors, entrepreneurs and business owners who seek total financial and business freedom."
+        "about-us-paragraph": "Wealthy Expat is a company which assists with citizenship, tax reduction strategies and asset protection by all means necessary. We make this process simple, secure and 100% guaranteed. Our clients are high net worth investors, entrepreneurs and business owners who seek total financial and business freedom.",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
+      }
+    },
+    "16c0ae63-709a-4765-9d8c-1cada25093f7": {
+      "type": "background-with-text",
+      "blocks": {
+        "04890a6d-37f7-4ae0-bc0e-665f38e7d783": {
+          "type": "slide",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/check.svg",
+            "slide_heading": "A to Z Process with No Hassle",
+            "slide_text": "We take care of the entire company formation and tax residence process.Our goal is that the hardest thing you need to do is sign a few papers."
+          }
+        },
+        "fdeeaf57-de25-4a5d-92dc-7206fd66b351": {
+          "type": "slide",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/clock.svg",
+            "slide_heading": "VIP Service 24\/7",
+            "slide_text": "We provide ONLY VIP and Premium services with every single client. We promise fast and hassle-free, and we deliver."
+          }
+        },
+        "b17b0517-f080-4c9e-9454-2a2c2cc616b6": {
+          "type": "slide",
+          "settings": {
+            "block_image": "shopify:\/\/shop_images\/check.svg",
+            "slide_heading": "Complete Package",
+            "slide_text": "We don't just \"set up a company\" for you.We ensure that the company, residence and immigration setup you're choosing is the best one for you."
+          }
+        }
+      },
+      "block_order": [
+        "04890a6d-37f7-4ae0-bc0e-665f38e7d783",
+        "fdeeaf57-de25-4a5d-92dc-7206fd66b351",
+        "b17b0517-f080-4c9e-9454-2a2c2cc616b6"
+      ],
+      "settings": {
+        "bg_image": "shopify:\/\/shop_images\/about-us-background.jpg",
+        "heading_text": "Our advantages",
+        "margin_top": 0,
+        "margin_bottom": 100,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
       }
     },
     "4e89b3f0-a6d7-4cfd-8122-7620d1a79b6a": {
@@ -88,6 +134,7 @@
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "content_layout": "no-overlap",
+        "background_color": "#dbb75d",
         "color_scheme": "background-1",
         "mobile_content_alignment": "left",
         "padding_top": 36,
@@ -146,52 +193,18 @@
         "c7493efb-89f1-4932-b6e1-21e3202ec88a"
       ],
       "settings": {
-      }
-    },
-    "16c0ae63-709a-4765-9d8c-1cada25093f7": {
-      "type": "background-with-text",
-      "blocks": {
-        "04890a6d-37f7-4ae0-bc0e-665f38e7d783": {
-          "type": "slide",
-          "settings": {
-            "block_image": "shopify:\/\/shop_images\/check.svg",
-            "slide_heading": "A to Z Process with No Hassle",
-            "slide_text": "We take care of the entire company formation and tax residence process.Our goal is that the hardest thing you need to do is sign a few papers."
-          }
-        },
-        "fdeeaf57-de25-4a5d-92dc-7206fd66b351": {
-          "type": "slide",
-          "settings": {
-            "block_image": "shopify:\/\/shop_images\/clock.svg",
-            "slide_heading": "VIP Service 24\/7",
-            "slide_text": "We provide ONLY VIP and Premium services with every single client. We promise fast and hassle-free, and we deliver."
-          }
-        },
-        "b17b0517-f080-4c9e-9454-2a2c2cc616b6": {
-          "type": "slide",
-          "settings": {
-            "block_image": "shopify:\/\/shop_images\/check.svg",
-            "slide_heading": "Complete Package",
-            "slide_text": "We don't just \"set up a company\" for you.We ensure that the company, residence and immigration setup you're choosing is the best one for you."
-          }
-        }
-      },
-      "block_order": [
-        "04890a6d-37f7-4ae0-bc0e-665f38e7d783",
-        "fdeeaf57-de25-4a5d-92dc-7206fd66b351",
-        "b17b0517-f080-4c9e-9454-2a2c2cc616b6"
-      ],
-      "settings": {
-        "bg_image": "shopify:\/\/shop_images\/about-us-background.jpg",
-        "heading_text": "Our advantages"
+        "margin_top": 20,
+        "margin_bottom": 20,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
       }
     }
   },
   "order": [
     "main",
     "eaf18d29-736e-4e67-9014-4828e8ef9fa0",
+    "16c0ae63-709a-4765-9d8c-1cada25093f7",
     "4e89b3f0-a6d7-4cfd-8122-7620d1a79b6a",
-    "76c67aa6-880e-4a89-9cd4-94df8fb02ed7",
-    "16c0ae63-709a-4765-9d8c-1cada25093f7"
+    "76c67aa6-880e-4a89-9cd4-94df8fb02ed7"
   ]
 }
