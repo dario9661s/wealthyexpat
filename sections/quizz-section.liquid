@@ -1,0 +1,489 @@
+<style>
+  #shopify-section-{{  section.id }} {
+    color: #000000;
+    font-family: Arial;
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
+  .quiz_test {
+    background-color: {{ section.settings.background_color }};
+  }
+  .quiz_button {
+    font-size: 1.5rem;
+    letter-spacing: .1rem;
+    line-height: calc(1 + .2 / var(--font-body-scale));
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    padding: 0 3rem;
+    cursor: pointer;
+    font: inherit;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: box-shadow var(--duration-short) ease;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: rgb(219, 183, 93);
+  }
+  .form-control {
+    text-align: {{ section.settings.text_alignment }};
+  }
+  .button--container {
+    text-align: {{ section.settings.button_alignment }};
+    margin-top: 3.5rem;
+  }
+  .quiz_options {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0.5rem 0;
+  }
+  .quiz_select {
+    border-radius: 0;
+    height: 30px;
+    border: solid 1px black;
+    background: #fff;
+    font-size: inherit;
+    color: black;
+    line-height: 15px;
+    box-shadow: none;
+    background: #fff;
+    max-width: 250px;
+    margin: 0 auto;
+    min-width: 150px;
+  }
+  @media screen and (max-width: 991px) {
+    #shopify-section-{{  section.id }} {
+      margin-top: {{ section.settings.margin_top_mobile }}px;
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+    }
+  }
+  .accordion-box{
+        position:relative;
+    }
+
+    .accordion-box .heading{
+        position:relative;
+        color:#000000;
+        font-size:28px;
+        font-weight:600;
+        margin-bottom:45px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .accordion-box .block{
+        position: relative;
+        padding-top: 22px;
+    }
+
+    .accordion-box .block:last-child{
+        border-bottom: 0px;
+    }
+
+    .accordion-box .text {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    .accordion-box .block .acc-btn{
+      text-align: left;
+        /* padding-left:50px; */
+        padding-right: 50px;
+        position:relative;
+        cursor:pointer;
+        line-height:1.35;
+        color:#000000;
+        font-weight:600;
+        transition:all 500ms ease;
+        
+        -ms-transition:all 500ms ease;
+        -o-transition:all 500ms ease;
+        -moz-transition:all 500ms ease;
+        -webkit-transition:all 500ms ease;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .accordion-box .block .icon-outer{
+        position:absolute;
+        right:0px;
+        top:50%;
+        transform: translate(0, -50%);
+        width:30px;
+        height:30px;
+        text-align:center;
+        border-radius:50%;
+        font-size:14px;
+        color:#ffffff;
+        transition:all 500ms ease;
+        -moz-transition:all 500ms ease;
+        -webkit-transition:all 500ms ease;
+        -ms-transition:all 500ms ease;
+        -o-transition:all 500ms ease;
+        background: #dbb75d;
+        /*background-image: -ms-linear-gradient(left, #FF8442 0%, #f4369e 100%);*/
+        /*background-image: -moz-linear-gradient(left, #FF8442 0%, #f4369e 100%);*/
+        /*background-image: -o-linear-gradient(left, #FF8442 0%, #f4369e 100%);*/
+        /*background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #FF8442), color-stop(100, #f4369e));*/
+        /*background-image: -webkit-linear-gradient(left, #FF8442 0%, #f4369e 100%);*/
+        /*background-image: linear-gradient(to right, #FF8442 0%, #f4369e 100%);*/
+    }
+
+    .accordion-box .block .icon-outer .icon{
+        position: absolute;
+        left: 0px;
+        top: 50%;
+        margin-top: -15px;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        border-radius: 50%;
+        line-height: 30px;
+        font-size: 14px;
+        color: #ffffff;
+    }
+
+    .accordion-box .block .icon-outer .icon-plus{
+        opacity:1;
+    }
+
+    .accordion-box .block .icon-outer .icon-minus{
+        /*opacity:0;*/
+        transition: all ease 0.3s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 6px;
+        color:#ffffff;
+        font-weight:400;
+    }
+
+    .accordion-box .block .acc-btn.active .icon-outer .icon-minus{
+       transform: rotate(135deg);
+    }
+
+    .accordion-box .block .acc-btn.active .icon-outer .icon-plus{
+        opacity:0;
+    }
+
+    .accordion-box .block .acc-btn.active .icon-outer{
+        border-color:#ff3548;
+        color:#ff3548;
+    }
+
+    .accordion-box .block .acc-content{
+        position:relative;
+        display:none;
+    }
+
+    .accordion-box .block .acc-content .content-text{
+        padding-bottom:6px;
+    }
+
+    .accordion-box .block .acc-content.current{
+        display:block;
+    }
+
+    .accordion-box .block .content{
+        position:relative;
+        font-size:14px;
+        padding:25px 0px 0px 0px;
+    }
+
+    .accordion-box .block .content p{
+        margin-bottom:0px;
+        line-height:1.55;
+        font-size: {{ section.settings.paragraph_font_size }}px;
+        color:#555555;
+        padding-left:50px;
+    }
+
+    .accordion-box .block .content p:last-child{
+        margin-bottom:0px;
+    }
+
+    .accordion-box.style-two .block .icon-outer{
+        background-image:none;
+        background-color:#eb2f5b;
+    }
+    .faq-title {
+        text-align: center;
+    }
+
+    .our-services_heading {
+      color: {{ section.settings.title_color }};
+    }
+
+    @media screen and (max-width: 1024px) {
+        .accordion.block {
+            max-width: 650px;
+        }
+    }
+
+    @media screen and (max-width: 961px) {
+        .accordion.block {
+            padding-right: 30px;
+        }
+        .accordion-box .block .acc-btn {
+            padding-left: 0;
+        }
+
+    }
+
+    @media screen and (max-width: 776px) {
+        .accordion-box .block .acc-btn {
+        }
+        .accordion-box .block .content p {
+            padding-left: 0;
+        }
+    }
+</style>
+
+<div class="quiz_test page-width">
+  <form id="quiz__form">
+    <div class="form-control">
+          <ul class="accordion-box">
+          {% for field in shop.metaobjects.questions.values %}
+            {% if field.dropdown.value %}
+              <div class="accordion block ">
+                <div class="label_and_dropdown quiz_options">
+                  <div class="acc-btn">
+                    {{ field.question }}
+                    <div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus">{% include 'icon-plus' %}</span></div></div>
+                    <div class="acc-content">
+                      <div class="content">
+                          <div class="text">
+                            <select class="quiz_select" id="dropdown-{{ forloop.index }}">
+                              {% for possible_answer in field.answers.value %}
+                                <option class="quiz_option" {% if forloop.first %}checked{% endif %} value="{{ possible_answer }}" {% if forloop.first %}selected{% endif %} >{{ possible_answer }}</option>
+                              {% endfor %}
+                            </select>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            {% else %}
+              <div class="accordion block">
+                <div class="label_and_input quiz_options">
+                  <div class="acc-btn">{{ field.question }}<div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus">{% include 'icon-plus' %}</span></div></div>
+                  <div class="acc-content">
+                    <div class="content">
+                        <div class="text">
+                          {% for possible_answer in field.answers.value %}
+                            <div class="possible-answer-input">
+                              <input type="checkbox" id="{{ possible_answer }}-{{ section.id }}-{{ forloop.index }}" name="answer" value="{{ possible_answer }}"></input>
+                              <label for="{{ possible_answer }}-{{ section.id }}-{{ forloop.index }}">{{ possible_answer }}</label>
+                            </div>
+                          {% endfor %}
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+      </div>
+
+    <div class="button--container">
+      <button type="submit" class="quiz_button button button--secondary">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+
+{%- capture correct_answers -%}
+[{%- for field in shop.metaobjects.questions.values -%}{"wanted_answer":"{%- for correct_answer in field.correct_answer.value -%}{{- correct_answer -}}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}"}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]{%- endcapture -%}
+
+<script>
+  const answers = JSON.parse('{{ correct_answers }}');
+  let correctAnswers = [];
+  for (k = 0; k < answers.length; k++) {
+    if (answers[k].wanted_answer.includes(','))
+    {
+      let multiple_answers = answers[k].wanted_answer.split(',');
+      for (m = 0; m < multiple_answers.length; m++) {
+        correctAnswers.push(multiple_answers[m])
+      }
+    }
+    else 
+    {
+      correctAnswers.push(answers[k].wanted_answer);
+    }
+  }
+  const quizForm = document.querySelector('#quiz__form');
+  const quizButton = quizForm.querySelector('.quiz_button');
+
+  function arrayCompare(_arr1, _arr2) {
+    if (
+      !Array.isArray(_arr1)
+      || !Array.isArray(_arr2)
+      || _arr1.length !== _arr2.length
+      ) {
+        return false;
+      }
+    
+    // .concat() to not mutate arguments
+    const arr1 = _arr1.concat().sort();
+    const arr2 = _arr2.concat().sort();
+    
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] !== arr2[i]) {
+            return false;
+         }
+    }
+    
+    return true;
+  }
+
+  quizForm.addEventListener('submit', (e) => {
+    let correctAnswerArray = [];
+    e.preventDefault();
+    e.stopPropagation()
+    const quizSelect = quizForm.querySelectorAll('.quiz_select');
+    const quizInput = quizForm.querySelectorAll('input[name="answer"]');
+    quizSelect.forEach(select => {
+      correctAnswerArray.push(select.value);
+    });
+    quizInput.forEach(input => {
+      if (input.checked) {
+        correctAnswerArray.push(input.value);
+      }
+    });
+    let allCorrectAnswers = arrayCompare(correctAnswers, correctAnswerArray);
+    if (allCorrectAnswers) {
+      window.location.href = '{{ section.settings.correct_answers_url }}';
+    } else {
+      window.location.href = '{{ section.settings.incorrect_answers_url }}';
+    }
+  })
+
+  if($('.accordion-box').length){
+    $(".accordion-box").on('click', '.acc-btn', function() {
+        var outerBox = $(this).parents('.accordion-box');
+        var target = $(this).parents('.accordion');
+        if($(this).hasClass('active')!==true){
+            $(outerBox).find('.accordion .acc-btn').removeClass('active');
+        }
+        if ($(this).hasClass('active')) {
+            $(this).removeClass('active');
+            target.removeClass('active-block');
+            $(this).next('.acc-content').slideUp(300);
+        }
+        if ($(this).next('.acc-content').is(':visible')){
+            return false;
+        }else{
+            $(this).addClass('active');
+            $(outerBox).find('.accordion .acc-btn').addClass('active');
+            $(outerBox).children('.accordion').removeClass('active-block');
+            $(outerBox).find('.accordion').children('.acc-content').slideUp(300);
+            target.addClass('active-block');
+            $(this).next('.acc-content').slideDown(300);
+        }
+    });
+  }
+
+</script>
+
+{% schema %}
+  {
+    "name": "Quiz",
+    "settings": [
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color of the section"
+      },
+      {
+        "type": "url",
+        "label": "Takes clients to this link if they pass the quiz",
+        "id": "correct_answers_url"
+      },
+      {
+        "type": "url",
+        "label": "Takes clients to this link if they don't pass the quiz",
+        "id": "incorrect_answers_url"
+      },
+      {
+        "type": "select",
+        "id": "text_alignment",
+        "options": [
+          {
+            "label": "Left",
+            "value": "left"
+          },
+          {
+            "label": "Center",
+            "value": "center"
+          }
+        ],
+        "default": "center",
+        "label": "Text alignment"
+      },
+      {
+        "type": "select",
+        "id": "button_alignment",
+        "options": [
+          {
+            "label": "Left",
+            "value": "left"
+          },
+          {
+            "label": "Center",
+            "value": "center"
+          }
+        ],
+        "default": "center",
+        "label": "Button alignment"
+      },
+      {
+        "type": "range",
+        "id": "margin_top",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "default": 20,
+        "step": 1,
+        "label": "Top padding of the section"
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "default": 20,
+        "step": 1,
+        "label": "Bottom padding of the section"
+      },
+      {
+        "type": "range",
+        "id": "margin_top_mobile",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "default": 20,
+        "step": 1,
+        "label": "Top padding of the section on mobile"
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom_mobile",
+        "unit": "px",
+        "min": 0,
+        "max": 100,
+        "default": 20,
+        "step": 1,
+        "label": "Bottom padding of the section on mobile"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Quiz"
+      }
+    ]
+  }
+{% endschema %}
