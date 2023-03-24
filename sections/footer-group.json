@@ -25,8 +25,8 @@
         "cd9d606e-2c28-484f-9c76-114917e8ab03"
       ],
       "settings": {
-        "footer_background": "#656565",
-        "footer_text_color": "#FFFFFF",
+        "footer_background": "#000000",
+        "footer_text_color": "#ffffff",
         "button_text_color": "#000000",
         "button_background_color": "#dbb75d",
         "footer_richtext": "<p><strong>Our Office:<\/strong><\/p><p><br\/>201 The Dome Tower<br\/>Cluster N JLT Dubai UAE<\/p>",
