@@ -25,10 +25,82 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
+    },
+    "a1161e3c-abaf-441e-a6e0-f5cf629dc6f0": {
+      "type": "faq",
+      "blocks": {
+        "2643d3f1-3f43-4467-bca0-59fc50b50ec2": {
+          "type": "accordionBlock",
+          "settings": {
+            "accordionTitle": "Solutions is the latest software Sigma?",
+            "accordionParagraph": "The argument in favor of using to filler text goes something is that anybody can do it."
+          }
+        },
+        "285de8c3-95be-484b-99c7-4d2fc39f01e9": {
+          "type": "accordionBlock",
+          "settings": {
+            "accordionTitle": "Solutions is the latest software Sigma?",
+            "accordionParagraph": "The argument in favor of using to filler text goes something is that anybody can do it."
+          }
+        },
+        "3fd3dcec-5c1a-4873-a5a8-d6ceb170aaed": {
+          "type": "accordionBlock",
+          "settings": {
+            "accordionTitle": "Solutions is the latest software Sigma?",
+            "accordionParagraph": "The argument in favor of using to filler text goes something is that anybody can do it."
+          }
+        },
+        "2a3927d2-a662-4e20-ae3a-4a9fc86bd2da": {
+          "type": "accordionBlock",
+          "settings": {
+            "accordionTitle": "Solutions is the latest software Sigma?",
+            "accordionParagraph": "The argument in favor of using to filler text goes something is that anybody can do it."
+          }
+        },
+        "2388148c-1dad-4bd7-afa6-37a359f32688": {
+          "type": "accordionBlock",
+          "settings": {
+            "accordionTitle": "Solutions is the latest software Sigma?",
+            "accordionParagraph": "The argument in favor of using to filler text goes something is that anybody can do it."
+          }
+        },
+        "3805f877-349d-404d-afde-05edbafceaa6": {
+          "type": "accordionBlock",
+          "settings": {
+            "accordionTitle": "Solutions is the latest software Sigma?",
+            "accordionParagraph": "The argument in favor of using to filler text goes something is that anybody can do it."
+          }
+        }
+      },
+      "block_order": [
+        "2643d3f1-3f43-4467-bca0-59fc50b50ec2",
+        "285de8c3-95be-484b-99c7-4d2fc39f01e9",
+        "3fd3dcec-5c1a-4873-a5a8-d6ceb170aaed",
+        "2a3927d2-a662-4e20-ae3a-4a9fc86bd2da",
+        "2388148c-1dad-4bd7-afa6-37a359f32688",
+        "3805f877-349d-404d-afde-05edbafceaa6"
+      ],
+      "settings": {
+        "title": "we are pixer",
+        "heading_bottom_margin": true,
+        "heading_size": "h1",
+        "title_color": "#000000",
+        "faq_heading_size": 24,
+        "faq_heading_size_mobile": 24,
+        "paragraph_font_size": 20,
+        "paragraph_font_size_mobile": 16,
+        "mainHeading": "we are happy to assist <br> you all time <span>moment<\/span>",
+        "paragraph": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed. So some forward-looking CIOs are putting.",
+        "margin_top": 20,
+        "margin_bottom": 20,
+        "margin_top_mobile": 20,
+        "margin_bottom_mobile": 20
+      }
     }
   },
   "order": [
     "announcement-bar",
-    "header"
+    "header",
+    "a1161e3c-abaf-441e-a6e0-f5cf629dc6f0"
   ]
 }
