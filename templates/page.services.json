@@ -6,9 +6,97 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "2ad30a48-a359-459c-b6c3-2327f6e6b87a": {
+      "type": "collections",
+      "blocks": {
+        "19ad0bbf-3c93-4a53-b4bd-096e675a5746": {
+          "type": "accordionBlock",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/row-of-young-adults-at-work.jpg",
+            "text": "Solutions is the latest software Sigma?",
+            "collection_url": ""
+          }
+        },
+        "894fb0a4-de6e-49a4-b16f-5b97efc58697": {
+          "type": "accordionBlock",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/photo_2022-07-29_08.webp",
+            "text": "Solutions is the latest software Sigma?",
+            "collection_url": ""
+          }
+        },
+        "627c3614-287a-4e12-b9f4-ac034a1f47fc": {
+          "type": "accordionBlock",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/about-us-background.jpg",
+            "text": "Solutions is the latest software Sigma?",
+            "collection_url": ""
+          }
+        },
+        "0efd8256-e98f-4031-a23c-9c6772ad2da0": {
+          "type": "accordionBlock",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
+            "text": "Solutions is the latest software Sigma?",
+            "collection_url": ""
+          }
+        },
+        "0a5f74f5-47a3-4e90-b275-87a0d54f5489": {
+          "type": "accordionBlock",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/about-us-background.jpg",
+            "text": "Solutions is the latest software Sigma?",
+            "collection_url": ""
+          }
+        },
+        "29d06521-f14a-4903-9e0d-17959fee0fca": {
+          "type": "accordionBlock",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/photo_2022-07-29_08.webp",
+            "text": "Solutions is the latest software Sigma?",
+            "collection_url": ""
+          }
+        },
+        "ab4bf8bc-1b18-42ef-9ae0-20e7cb6cdd81": {
+          "type": "accordionBlock",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/row-of-young-adults-at-work.jpg",
+            "text": "Solutions is the latest software Sigma?",
+            "collection_url": ""
+          }
+        },
+        "77358dad-26cb-44a6-b06e-5804d4b808e4": {
+          "type": "accordionBlock",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
+            "text": "Solutions is the latest software Sigma?",
+            "collection_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "19ad0bbf-3c93-4a53-b4bd-096e675a5746",
+        "894fb0a4-de6e-49a4-b16f-5b97efc58697",
+        "627c3614-287a-4e12-b9f4-ac034a1f47fc",
+        "0efd8256-e98f-4031-a23c-9c6772ad2da0",
+        "0a5f74f5-47a3-4e90-b275-87a0d54f5489",
+        "29d06521-f14a-4903-9e0d-17959fee0fca",
+        "ab4bf8bc-1b18-42ef-9ae0-20e7cb6cdd81",
+        "77358dad-26cb-44a6-b06e-5804d4b808e4"
+      ],
+      "settings": {
+        "url_color": "#000000",
+        "arrow_select": "caret",
+        "margin_top": 20,
+        "margin_bottom": 20,
+        "margin_top_mobile": 20,
+        "margin_bottom_mobile": 20
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "2ad30a48-a359-459c-b6c3-2327f6e6b87a"
   ]
 }
