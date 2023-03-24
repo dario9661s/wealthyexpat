@@ -108,7 +108,7 @@
             "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai.",
             "job": "Owner of IAG Media, marketer with 1.7+ Million followers on Youtube",
             "social_media": "youtube",
-            "social_media_url": ""
+            "social_media_url": "shopify:\/\/pages\/contact"
           }
         },
         "0cfdfeab-2cff-46c8-865f-fc4ef74cf108": {
@@ -163,6 +163,7 @@
     },
     "448b6ebb-7cbc-4e18-9ce6-2538fc087669": {
       "type": "faq",
+      "disabled": true,
       "blocks": {
         "2cc1b956-5dc3-4659-ba43-c27a49e3778a": {
           "type": "accordionBlock",
