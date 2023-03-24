@@ -81,9 +81,9 @@
         "3805f877-349d-404d-afde-05edbafceaa6"
       ],
       "settings": {
-        "title": "we are pixer",
+        "title": "",
         "heading_bottom_margin": true,
-        "heading_size": "h1",
+        "heading_size": "h0",
         "title_color": "#000000",
         "faq_heading_size": 24,
         "faq_heading_size_mobile": 24,
