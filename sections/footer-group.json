@@ -4,6 +4,26 @@
   "sections": {
     "footer": {
       "type": "footer",
+      "blocks": {
+        "300d160a-492d-4d3f-8016-de402a01762c": {
+          "type": "cta_button",
+          "settings": {
+            "button_text": "Become a Client",
+            "button_url": ""
+          }
+        },
+        "cd9d606e-2c28-484f-9c76-114917e8ab03": {
+          "type": "cta_button",
+          "settings": {
+            "button_text": "Become a Client",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "300d160a-492d-4d3f-8016-de402a01762c",
+        "cd9d606e-2c28-484f-9c76-114917e8ab03"
+      ],
       "settings": {
         "footer_background": "#656565",
         "footer_text_color": "#FFFFFF",
