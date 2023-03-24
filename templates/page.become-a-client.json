@@ -6,9 +6,24 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "022d2d35-6b49-407e-bad9-2ee7df5ffa3f": {
+      "type": "quizz-section",
+      "settings": {
+        "background_color": "",
+        "correct_answers_url": "https:\/\/calendly.com\/jovana-11\/wealthyexpatcall?month=2023-03",
+        "incorrect_answers_url": "https:\/\/google.com",
+        "text_alignment": "center",
+        "button_alignment": "center",
+        "margin_top": 20,
+        "margin_bottom": 20,
+        "margin_top_mobile": 20,
+        "margin_bottom_mobile": 20
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "022d2d35-6b49-407e-bad9-2ee7df5ffa3f"
   ]
 }
