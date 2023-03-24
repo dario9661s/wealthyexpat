@@ -11,6 +11,10 @@
       "type": "header",
       "settings": {
         "color_scheme": "inverse",
+        "enable_phone_number": true,
+        "phone_number_url": "tel:+971504857297",
+        "phone_number_text": "+971504857297",
+        "whatsapp_url": "https:\/\/api.whatsapp.com\/send\/?phone=971504857297&text=Hey+Wealthy+Expat%21+I%27m+interested+in+...&type=phone_number&app_absent=0",
         "logo_position": "middle-left",
         "menu": "wealthy-header-menu",
         "menu_type_desktop": "dropdown",
