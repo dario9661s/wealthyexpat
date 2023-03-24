@@ -242,7 +242,7 @@
 </style>
 
 <div class="quiz_test page-width">
-  <form id="quiz__form">
+  <div id="quiz__form">
     <div class="form-control">
           <ul class="accordion-box">
           {% for field in shop.metaobjects.questions.values %}
@@ -285,6 +285,7 @@
               </div>
             {% endif %}
           {% endfor %}
+          </ul>
       </div>
 
     <div class="button--container">
@@ -292,14 +293,14 @@
         Submit
       </button>
     </div>
-  </form>
+  </div>
 </div>
 
 {%- capture correct_answers -%}
 [{%- for field in shop.metaobjects.questions.values -%}{"wanted_answer":"{%- for correct_answer in field.correct_answer.value -%}{{- correct_answer -}}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}"}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]{%- endcapture -%}
 
 <script>
-  const answers = JSON.parse('{{ correct_answers }}');
+  const answers = JSON.parse(`{{ correct_answers }}`);
   let correctAnswers = [];
   for (k = 0; k < answers.length; k++) {
     if (answers[k].wanted_answer.includes(','))
@@ -315,7 +316,7 @@
     }
   }
   const quizForm = document.querySelector('#quiz__form');
-  const quizButton = quizForm.querySelector('.quiz_button');
+  // const quizButton = quizForm.querySelector('.quiz_button');
 
   function arrayCompare(_arr1, _arr2) {
     if (

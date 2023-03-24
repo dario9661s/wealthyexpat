@@ -1,19 +1,5 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
-
 <div class="customer register section-{{ section.id }}-padding">
   <svg style="display: none">
     <symbol id="icon-error" viewBox="0 0 13 13">
@@ -51,14 +37,14 @@
     {%- endif -%}
     <div class="field">
       <input
-        type="text"
-        name="customer[first_name]"
-        id="RegisterForm-FirstName"
-        {% if form.first_name %}
-          value="{{ form.first_name }}"
-        {% endif %}
-        autocomplete="given-name"
-        placeholder="{{ 'customer.register.first_name' | t }}"
+              type="text"
+              name="customer[first_name]"
+              id="RegisterForm-FirstName"
+              {% if form.first_name %}
+                value="{{ form.first_name }}"
+              {% endif %}
+              autocomplete="given-name"
+              placeholder="{{ 'customer.register.first_name' | t }}"
       >
       <label for="RegisterForm-FirstName">
         {{ 'customer.register.first_name' | t }}
@@ -66,14 +52,14 @@
     </div>
     <div class="field">
       <input
-        type="text"
-        name="customer[last_name]"
-        id="RegisterForm-LastName"
-        {% if form.last_name %}
-          value="{{ form.last_name }}"
-        {% endif %}
-        autocomplete="family-name"
-        placeholder="{{ 'customer.register.last_name' | t }}"
+              type="text"
+              name="customer[last_name]"
+              id="RegisterForm-LastName"
+              {% if form.last_name %}
+                value="{{ form.last_name }}"
+              {% endif %}
+              autocomplete="family-name"
+              placeholder="{{ 'customer.register.last_name' | t }}"
       >
       <label for="RegisterForm-LastName">
         {{ 'customer.register.last_name' | t }}
@@ -81,21 +67,21 @@
     </div>
     <div class="field">
       <input
-        type="email"
-        name="customer[email]"
-        id="RegisterForm-email"
-        {% if form.email %}
-          value="{{ form.email }}"
-        {% endif %}
-        spellcheck="false"
-        autocapitalize="off"
-        autocomplete="email"
-        aria-required="true"
-        {% if form.errors contains 'email' %}
-          aria-invalid="true"
-          aria-describedby="RegisterForm-email-error"
-        {% endif %}
-        placeholder="{{ 'customer.register.email' | t }}"
+              type="email"
+              name="customer[email]"
+              id="RegisterForm-email"
+              {% if form.email %}
+                value="{{ form.email }}"
+              {% endif %}
+              spellcheck="false"
+              autocapitalize="off"
+              autocomplete="email"
+              aria-required="true"
+              {% if form.errors contains 'email' %}
+                aria-invalid="true"
+                aria-describedby="RegisterForm-email-error"
+              {% endif %}
+              placeholder="{{ 'customer.register.email' | t }}"
       >
       <label for="RegisterForm-email">
         {{ 'customer.register.email' | t }}
@@ -112,15 +98,15 @@
     {%- endif -%}
     <div class="field">
       <input
-        type="password"
-        name="customer[password]"
-        id="RegisterForm-password"
-        aria-required="true"
-        {% if form.errors contains 'password' %}
-          aria-invalid="true"
-          aria-describedby="RegisterForm-password-error"
-        {% endif %}
-        placeholder="{{ 'customer.register.password' | t }}"
+              type="password"
+              name="customer[password]"
+              id="RegisterForm-password"
+              aria-required="true"
+              {% if form.errors contains 'password' %}
+                aria-invalid="true"
+                aria-describedby="RegisterForm-password-error"
+              {% endif %}
+              placeholder="{{ 'customer.register.password' | t }}"
       >
       <label for="RegisterForm-password">
         {{ 'customer.register.password' | t }}
@@ -136,42 +122,10 @@
       </span>
     {%- endif -%}
 
-
+    {% section "quizz-section" %}
 
     <button>
       {{ 'customer.register.submit' | t }}
     </button>
   {%- endform -%}
 </div>
-
-{% schema %}
-{
-  "name": "t:sections.main-register.name",
-  "settings": [
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
-    }
-  ]
-}
-{% endschema %}
