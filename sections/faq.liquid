@@ -224,45 +224,29 @@
 </ul>
 
 <script>
-    if($('.accordion-box').length){
-        $(".accordion-box").on('click', '.acc-btn', function() {
-            var outerBox = $(this).parents('.accordion-box');
-            var target = $(this).parents('.accordion');
-            if($(this).hasClass('active')!==true){
-                $(outerBox).find('.accordion .acc-btn').removeClass('active');
-            }
-            if ($(this).hasClass('active')) {
-                $(this).removeClass('active');
-                target.removeClass('active-block');
-                $(this).next('.acc-content').slideUp(300);
-            }
-            if ($(this).next('.acc-content').is(':visible')){
-                return false;
-            }else{
-                $(this).addClass('active');
-                $(outerBox).children('.accordion').removeClass('active-block');
-                $(outerBox).find('.accordion').children('.acc-content').slideUp(300);
-                target.addClass('active-block');
-                $(this).next('.acc-content').slideDown(300);
-            }
-        });
-    }
-
-  const observer_faq = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      const heading = entry.target.querySelector('.heading_container');
-
-      if (entry.isIntersecting) {
-          heading.classList.add("animate__animated","animate__fadeInDown","animate__delay-0.5s");
-      return; // if we added the class, exit the function
-      }
-
-      // We're not intersecting, so remove the class!
-      heading.classList.remove("animate__animated","animate__fadeInDown","animate__delay-0.5s");
-    });
-  });
-
-  observer_faq.observe(document.querySelector('.moment-section'));
+  if($('.accordion-box').length){
+      $(".accordion-box").on('click', '.acc-btn', function() {
+          var outerBox = $(this).parents('.accordion-box');
+          var target = $(this).parents('.accordion');
+          if($(this).hasClass('active')!==true){
+              $(outerBox).find('.accordion .acc-btn').removeClass('active');
+          }
+          if ($(this).hasClass('active')) {
+              $(this).removeClass('active');
+              target.removeClass('active-block');
+              $(this).next('.acc-content').slideUp(300);
+          }
+          if ($(this).next('.acc-content').is(':visible')){
+              return false;
+          }else{
+              $(this).addClass('active');
+              $(outerBox).children('.accordion').removeClass('active-block');
+              $(outerBox).find('.accordion').children('.acc-content').slideUp(300);
+              target.addClass('active-block');
+              $(this).next('.acc-content').slideDown(300);
+          }
+      });
+  }
 
 </script>
 

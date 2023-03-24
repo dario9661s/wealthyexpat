@@ -69,7 +69,7 @@
   }
 
 </style>
-<div class="animate__animated animate__fadeIn hp-reviews page-width">
+<div class="hp-reviews page-width">
   {% if section.settings.heading != blank %}
     <div class="heading_container">
       {% if section.settings.heading_bottom_margin %}
@@ -131,67 +131,6 @@
       }
     }
   });
-
-  const observer_reviews = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      const heading_one = entry.target.querySelector('.heading_container');
-      const blockimg = entry.target.querySelectorAll(".helper_class");
-      const blockheading = entry.target.querySelectorAll(".helper_class img");
-      const blockText = entry.target.querySelectorAll(".helper_class p");
-      const blockH = entry.target.querySelectorAll(".helper_class h3");
-      const blockSpan = entry.target.querySelectorAll(".helper_class span");
-      const blockLink = entry.target.querySelectorAll(".helper_class a");
-
-  
-      if (entry.isIntersecting) {
-          heading_one.classList.add("animate__animated","animate__fadeInDown","animate__delay-0.5s");
-          blockimg.forEach(bImg => {
-              bImg.classList.add("animate__animated", "animate__fadeIn", "animate__delay-1s");
-          })
-          blockheading.forEach(bHeading => {
-              bHeading.classList.add("animate__animated", "animate__fadeIn", "animate__delay-1s");
-  
-          })
-          blockText.forEach(bText => {
-              bText.classList.add("animate__animated", "animate__fadeInUp", "animate__delay-1s");    
-          })
-          blockH.forEach(bText => {
-            bText.classList.add("animate__animated", "animate__fadeInUp", "animate__delay-1s");    
-          })
-          blockSpan.forEach(bText => {
-            bText.classList.add("animate__animated", "animate__fadeInUp", "animate__delay-1s");    
-          })
-          blockLink.forEach(bText => {
-            bText.classList.add("animate__animated", "animate__fadeInUp", "animate__delay-1s");    
-          })
-      return; // if we added the class, exit the function
-      }
-  
-      // We're not intersecting, so remove the class!
-      heading_one.classList.remove("animate__animated","animate__fadeInDown","animate__delay-0.5s");
-      blockimg.forEach(bImg => {
-          bImg.classList.remove("animate__animated", "animate__fadeIn", "animate__delay-1s");
-      })
-      blockheading.forEach(bHeading => {
-          bHeading.classList.remove("animate__animated", "animate__fadeIn", "animate__delay-1s");
-  
-      })
-      blockText.forEach(bText => {
-          bText.classList.remove("animate__animated", "animate__fadeInUp", "animate__delay-2s");    
-      })
-      blockH.forEach(bText => {
-        bText.classList.remove("animate__animated", "animate__fadeInUp", "animate__delay-1s");    
-      })
-      blockSpan.forEach(bText => {
-        bText.classList.remove("animate__animated", "animate__fadeInUp", "animate__delay-1s");    
-      })
-      blockLink.forEach(bText => {
-        bText.classList.remove("animate__animated", "animate__fadeInUp", "animate__delay-1s");    
-      })
-    });
-  });
-  
-  observer_reviews.observe(document.querySelector('.hp-reviews'));
 
 </script>
 

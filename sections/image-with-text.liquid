@@ -85,24 +85,6 @@
   </div>
 </div>
 
-<script>
-  const observer_image_with_text = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      const heading = entry.target.querySelector('.image-with-text__content');
-
-      if (entry.isIntersecting) {
-          heading.classList.add("animate__animated","animate__fadeIn","animate__delay-1s");
-      return; // if we added the class, exit the function
-      }
-
-      // We're not intersecting, so remove the class!
-      heading.classList.remove("animate__animated","animate__fadeIn","animate__delay-1s");
-    });
-  });
-
-  observer_image_with_text.observe(document.querySelector('.image-with-text'));
-</script>
-
 {% schema %}
 {
   "name": "t:sections.image-with-text.name",

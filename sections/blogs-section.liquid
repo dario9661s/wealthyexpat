@@ -30,6 +30,10 @@
     flex-direction: column;
   }
 
+  #shopify-section-{{ section.id }} .card__information {
+    text-align: {{ section.settings.blog_text_align }};
+  }
+
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
@@ -114,13 +118,15 @@
 
                 {%- render 'article-card',
                   article: article,
+                  blog_image: section.settings.blog_image
                   media_height: section.settings.image_height,
                   media_aspect_ratio: article.image.aspect_ratio,
                   show_image: section.settings.show_image,
                   show_date: section.settings.show_date,
                   show_author: section.settings.show_author,
+                  excrept_text: section.settings.excrept_text,
                   show_excerpt: true
-                -%}
+              -%}
 
               {% endif %}
             </div>
@@ -152,31 +158,6 @@
         </div>
   </div>
 </div>
-
-<script>
-  const observer_blogs_section = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      const heading = entry.target.querySelector('.title-wrapper-with-link');
-      const blockimg = entry.target.querySelectorAll(".main-blog");
-  
-      if (entry.isIntersecting) {
-          heading.classList.add("animate__animated","animate__fadeInDown","animate__delay-0.5s");
-          blockimg.forEach(bImg => {
-              bImg.classList.add("animate__animated", "animate__fadeIn", "animate__delay-1s");
-          })
-      return; // if we added the class, exit the function
-      }
-  
-      // We're not intersecting, so remove the class!
-      heading.classList.remove("animate__animated","animate__fadeInDown","animate__delay-0.5s");
-      blockimg.forEach(bImg => {
-          bImg.classList.remove("animate__animated", "animate__fadeIn", "animate__delay-1s");
-      })
-    });
-  });
-  
-  observer_blogs_section.observe(document.querySelector('.blogs-section--container'));
-</script>
 
 {% schema %}
 {
@@ -211,6 +192,26 @@
       ],
       "default": "h1",
       "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "blog_text_align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center",
+      "label": "Blog text alignment"
     },
     {
       "type": "checkbox",

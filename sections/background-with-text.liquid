@@ -166,53 +166,6 @@
 </div>
 
 
-<script>
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    const heading = entry.target.querySelector('.background-with-text_heading');
-    const blockimg = entry.target.querySelectorAll(".background-with-text_single_block_image");
-    const blockheading = entry.target.querySelectorAll(".background-with-text_single_block_heading");
-    const blockText = entry.target.querySelectorAll(".background-with-text_single_block_text");
-
-    if (entry.isIntersecting) {
-        heading.classList.add("animate__animated","animate__fadeInDown","animate__delay-0.5s");
-        blockimg.forEach(bImg => {
-            bImg.classList.add("animate__animated", "animate__fadeIn", "animate__delay-1s");
-        })
-        blockheading.forEach(bHeading => {
-            bHeading.classList.add("animate__animated", "animate__fadeIn", "animate__delay-1s");
-
-        })
-        blockText.forEach(bText => {
-            bText.classList.add("animate__animated", "animate__fadeInUp", "animate__delay-2s");    
-        })
-	  return; // if we added the class, exit the function
-    }
-
-    // We're not intersecting, so remove the class!
-    heading.classList.remove("animate__animated","animate__fadeInDown","animate__delay-0.5s");
-    blockimg.forEach(bImg => {
-        bImg.classList.remove("animate__animated", "animate__fadeIn", "animate__delay-1s");
-    })
-    blockheading.forEach(bHeading => {
-        bHeading.classList.remove("animate__animated", "animate__fadeIn", "animate__delay-1s");
-
-    })
-    blockText.forEach(bText => {
-        bText.classList.remove("animate__animated", "animate__fadeInUp", "animate__delay-2s");    
-    })
-  });
-});
-
-observer.observe(document.querySelector('.background-with-text--{{section.id}}'));
-
-</script>
-
-
-
-
-
 {% schema %}
 {
     "name": "Background with text",

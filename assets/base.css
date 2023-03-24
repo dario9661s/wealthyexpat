@@ -3120,9 +3120,7 @@ details-disclosure > details {
   margin: 0 auto;
 }
 
-.fa-plus:before {
-  content: "+";
-}
+
 
 .svg__icons {
   position: relative;
