@@ -160,6 +160,21 @@
     ]
   },
   {
+    "name": "FORM LOCATIONS",
+    "settings": [
+      {
+        "type": "url",
+        "id": "correct_answers_url",
+        "label": "Takes clients to this link if they pass the quiz"
+      },
+      {
+        "type": "url",
+        "id": "incorrect_answers_url",
+        "label": "Takes clients to this link if they don't pass the quiz"
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.layout.name",
     "settings": [
       {

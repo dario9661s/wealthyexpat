@@ -15,6 +15,20 @@
 {%- endstyle -%}
 
 <div class="customer login section-{{ section.id }}-padding">
+  {% assign hasPassedQuiz = false %}
+  {% for tag in customer.tags %}
+    {% if tag == 'passed_quiz' %}
+      {% assign hasPassedQuiz = true %}
+    {% endif %}
+  {% endfor %}
+  {% if hasPassedQuiz %}
+    <script>
+      window.location.href = '{{ settings.correct_answers_url }}'
+    </script>
+  {% else %}
+    <pre>Evo ti video smrade bedni</pre>
+  {% endif %}
+  {% comment %}
   <h1 id="recover" tabindex="-1">
     {{ 'customer.recover_password.title' | t }}
   </h1>
@@ -159,6 +173,7 @@
       {%- endform -%}
     </div>
   {%- endif -%}
+ {% endcomment %}
 </div>
 
 {% schema %}

@@ -37,14 +37,14 @@
     {%- endif -%}
     <div class="field">
       <input
-              type="text"
-              name="customer[first_name]"
-              id="RegisterForm-FirstName"
-              {% if form.first_name %}
-                value="{{ form.first_name }}"
-              {% endif %}
-              autocomplete="given-name"
-              placeholder="{{ 'customer.register.first_name' | t }}"
+        type="text"
+        name="customer[first_name]"
+        id="RegisterForm-FirstName"
+        {% if form.first_name %}
+          value="{{ form.first_name }}"
+        {% endif %}
+        autocomplete="given-name"
+        placeholder="{{ 'customer.register.first_name' | t }}"
       >
       <label for="RegisterForm-FirstName">
         {{ 'customer.register.first_name' | t }}
@@ -52,40 +52,56 @@
     </div>
     <div class="field">
       <input
-              type="text"
-              name="customer[last_name]"
-              id="RegisterForm-LastName"
-              {% if form.last_name %}
-                value="{{ form.last_name }}"
-              {% endif %}
-              autocomplete="family-name"
-              placeholder="{{ 'customer.register.last_name' | t }}"
+        type="text"
+        name="customer[last_name]"
+        id="RegisterForm-LastName"
+        {% if form.last_name %}
+          value="{{ form.last_name }}"
+        {% endif %}
+        autocomplete="family-name"
+        placeholder="{{ 'customer.register.last_name' | t }}"
       >
       <label for="RegisterForm-LastName">
         {{ 'customer.register.last_name' | t }}
       </label>
     </div>
     <div class="field">
+      <input type="tel" placeholder="Phone" id="phone" name="customer[phone]" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+      <label for="phone">Phone</label>
+    </div>
+    <div class="field possible-answer-input">
+      <input onchange="updateInputValue()" type="text" placeholder="Nationality" id="nationality" name="nationality">
+      <label for="nationality">Nationality</label>
+    </div>
+    <div class="field">
       <input
-              type="email"
-              name="customer[email]"
-              id="RegisterForm-email"
-              {% if form.email %}
-                value="{{ form.email }}"
-              {% endif %}
-              spellcheck="false"
-              autocapitalize="off"
-              autocomplete="email"
-              aria-required="true"
-              {% if form.errors contains 'email' %}
-                aria-invalid="true"
-                aria-describedby="RegisterForm-email-error"
-              {% endif %}
-              placeholder="{{ 'customer.register.email' | t }}"
+        type="email"
+        name="customer[email]"
+        id="RegisterForm-email"
+        {% if form.email %}
+          value="{{ form.email }}"
+        {% endif %}
+        spellcheck="false"
+        autocapitalize="off"
+        autocomplete="email"
+        aria-required="true"
+        {% if form.errors contains 'email' %}
+          aria-invalid="true"
+          aria-describedby="RegisterForm-email-error"
+        {% endif %}
+        placeholder="{{ 'customer.register.email' | t }}"
       >
       <label for="RegisterForm-email">
         {{ 'customer.register.email' | t }}
       </label>
+    </div>
+    <div class="field possible-answer-input">
+      <input onchange="updateInputValue()" id="additional_info_one" type="text" placeholder= "Additional information" name="customer[note][Additional information]" />
+      <label for="additional_info_one">What is your current place of residence?</label>
+    </div>
+    <div class="field possible-answer-input">
+      <input onchange="updateInputValue()" id="additional_info_two" type="text" placeholder= "Additional information" name="customer[note][Additional information]" />
+      <label for="additional_info_two">What does your current structure look like?</label>
     </div>
     {%- if form.errors contains 'email' -%}
       <span id="RegisterForm-email-error" class="form__message">
@@ -98,15 +114,15 @@
     {%- endif -%}
     <div class="field">
       <input
-              type="password"
-              name="customer[password]"
-              id="RegisterForm-password"
-              aria-required="true"
-              {% if form.errors contains 'password' %}
-                aria-invalid="true"
-                aria-describedby="RegisterForm-password-error"
-              {% endif %}
-              placeholder="{{ 'customer.register.password' | t }}"
+        type="password"
+        name="customer[password]"
+        id="RegisterForm-password"
+        aria-required="true"
+        {% if form.errors contains 'password' %}
+          aria-invalid="true"
+          aria-describedby="RegisterForm-password-error"
+        {% endif %}
+        placeholder="{{ 'customer.register.password' | t }}"
       >
       <label for="RegisterForm-password">
         {{ 'customer.register.password' | t }}
@@ -124,8 +140,123 @@
 
     {% section "quizz-section" %}
 
-    <button>
+    <button class="register__form-buton" disabled>
       {{ 'customer.register.submit' | t }}
     </button>
   {%- endform -%}
 </div>
+
+{%- capture correct_answers -%}
+[
+  {%- for field in shop.metaobjects.questions.values -%}
+    {%- assign arrayLength = 0 -%}
+    {"asked_question":"{{ field.question }}","wanted_answer":
+    "{%- for correct_answer in field.correct_answer.value -%}
+    {{- correct_answer -}}{%- unless forloop.last -%}
+    ;{%- endunless -%}{%- assign arrayLength = arrayLength | plus: 1 -%}{%- endfor -%}","answers_length":"{{- arrayLength -}}"}
+  {%- unless forloop.last -%},{%- endunless -%}
+  {%- endfor -%}
+]
+{%- endcapture -%}
+
+{% assign numberOfQuestions = 0 %}
+{% for field in shop.metaobjects.questions.values %}
+  {% assign question = field.question %}
+  {% assign numberOfQuestions = numberOfQuestions | plus: 1 %}
+{% endfor %}
+
+<pre>{{ numberOfQuestions }}</pre>
+
+<script>
+  const answers = JSON.parse(`{{ correct_answers }}`);
+  let correctAnswers = [];
+  for (k = 0; k < answers.length; k++) {
+    if (answers[k].wanted_answer.includes(';')) {
+      let multiple_answers = answers[k].wanted_answer.split(';');
+      for (m = 0; m < multiple_answers.length; m++) {
+        correctAnswers.push(multiple_answers[m])
+      }
+    } else {
+      correctAnswers.push(answers[k].wanted_answer);
+    }
+  }
+  // const quizForm = document.querySelector('#quiz__form');
+  // const quizButton = quizForm.querySelector('.quiz_button');
+
+  const compareArrays = function(arr, target) {
+    return target.every(v => arr.includes(v));
+  }
+
+  const quizForm = document.querySelector('#create_customer');
+
+  // OVDE JE DIREKT PATH TO REDIRECT 
+  const redirectInput = document.createElement('input');
+  redirectInput.setAttribute('name', 'return_to');
+  redirectInput.setAttribute('type', 'hidden');
+  redirectInput.value = '/account';
+  quizForm.append(redirectInput);
+
+  quizForm.addEventListener('submit', (e) => {
+    let correctAnswerArray = [];
+    e.preventDefault();
+    e.stopPropagation()
+    const quizInput = quizForm.querySelectorAll('input[name="answer"]');
+    quizInput.forEach(input => {
+      if (input.checked) {
+        correctAnswerArray.push(input.value);
+      }
+    });
+
+    const containsAll = correctAnswerArray.every(element => {
+      return correctAnswers.includes(element);
+    });
+    if (containsAll) {
+      let tagsValues = document.querySelector('.all-inputs-value');
+      tagsValues.value = tagsValues.value + ', passed_quiz';
+    }
+  })
+
+  const updateInputValue = () => {
+    let allInputsArray = [];
+    const allInputs = document.querySelectorAll('.possible-answer-input input');
+    const allAccountInputs = document.querySelectorAll('.field.possible-answer-input input');
+    allInputs.forEach(el => {
+      if (el.checked) {
+        if (el.value.includes(',')) {
+          allInputsArray.push(el.value.replace(',', ''));
+        } else {
+          allInputsArray.push(el.value);
+        }
+      }
+    })
+    allAccountInputs.forEach(el => {
+      if (el.value != '') {
+        if (el.value.includes(',')) {
+          allInputsArray.push(el.value.replace(',', ''));
+        } else {
+          allInputsArray.push(el.value);
+        }
+      }
+    })
+    document.querySelector('.all-inputs-value').value = allInputsArray;
+
+    const accordions = document.querySelectorAll('.accordion-box');
+    accordions.forEach(accordion => {
+      console.log(accordion);
+      let accinputs = accordion.querySelectorAll("input[type=checkbox]:checked");
+      let stringNumberOfQ = '{{ numberOfQuestions }}';
+      let numberOfQ = parseInt(stringNumberOfQ);
+      console.log(accinputs.length, numberOfQ);
+      if (accinputs.length >= numberOfQ) {
+        document.querySelector('.register__form-buton').disabled = false;
+      } else {
+        document.querySelector('.register__form-buton').disabled = true;
+      }
+    })
+  }
+
+  const formInputs = document.querySelectorAll('.field input[type=text]');
+
+  console.log(formInputs);
+
+</script>

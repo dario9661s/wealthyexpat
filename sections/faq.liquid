@@ -228,7 +228,10 @@
       $(".accordion-box").on('click', '.acc-btn', function() {
           var outerBox = $(this).parents('.accordion-box');
           var target = $(this).parents('.accordion');
+   
           if($(this).hasClass('active')!==true){
+            console.log("dadadadadadadadadad")
+
               $(outerBox).find('.accordion .acc-btn').removeClass('active');
           }
           if ($(this).hasClass('active')) {
@@ -247,7 +250,6 @@
           }
       });
   }
-
 </script>
 
 {% schema %}

@@ -15,6 +15,22 @@
 {%- endstyle -%}
 
 <div class="customer account section-{{ section.id }}-padding">
+  {% assign hasPassedQuiz = false %}
+  {% for tag in customer.tags %}
+    {% if tag == 'passed_quiz' %}
+      {% assign hasPassedQuiz = true %}
+    {% endif %}
+  {% endfor %}
+
+  {% if hasPassedQuiz %}
+    <script>
+      window.location.href = '{{ settings.correct_answers_url }}'
+    </script>
+  {% else %}
+    <pre>Evo ti video smrade bedni</pre>
+  {% endif %}
+
+  {% comment %}
   <div>
     <h1 class="customer__title">{{ 'customer.account.title' | t }}</h1>
     <a href="{{ routes.account_logout_url }}">
@@ -24,7 +40,9 @@
       {{ 'customer.log_out' | t }}
     </a>
   </div>
+  {% endcomment %}
 
+  {% comment %}
   <div>
     <div>
       <h2>{{ 'customer.orders.title' | t }}</h2>
@@ -148,6 +166,7 @@
       </a>
     </div>
   </div>
+  {% endcomment %}
 </div>
 
 {% schema %}

@@ -76,7 +76,7 @@
 
     .accordion-box .block{
         position: relative;
-        padding-top: 22px;
+        padding-top: 30px;
     }
 
     .accordion-box .block:last-child{
@@ -211,6 +211,10 @@
     .faq-title {
         text-align: center;
     }
+    .accordion-box .block .acc-btn.active .icon-outer .icon-minus{
+       transform: rotate(135deg);
+    }
+
 
     .our-services_heading {
       color: {{ section.settings.title_color }};
@@ -239,135 +243,74 @@
             padding-left: 0;
         }
     }
+
+    #shopify-section-{{ section.id }} .control_buttons {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      gap: 30px;
+    }
+
+    #shopify-section-{{ section.id }} .control-btn {
+      font-size: 14px;
+      border: 1px solid black;
+      padding: 5px;
+      border-radius: 7px;
+      background: lightgray;
+      line-height: 1;
+    }
+
+    #shopify-section-{{ section.id }} .control-btn:hover,
+    #shopify-section-{{ section.id }} .control-btn:active {
+      cursor: pointer;
+    }
 </style>
 
 <div class="quiz_test page-width">
   <div id="quiz__form">
     <div class="form-control">
-          <ul class="accordion-box">
-          {% for field in shop.metaobjects.questions.values %}
-            {% if field.dropdown.value %}
-              <div class="accordion block ">
-                <div class="label_and_dropdown quiz_options">
-                  <div class="acc-btn">
-                    {{ field.question }}
-                    <div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus">{% include 'icon-plus' %}</span></div></div>
-                    <div class="acc-content">
-                      <div class="content">
-                          <div class="text">
-                            <select class="quiz_select" id="dropdown-{{ forloop.index }}">
-                              {% for possible_answer in field.answers.value %}
-                                <option class="quiz_option" {% if forloop.first %}checked{% endif %} value="{{ possible_answer }}" {% if forloop.first %}selected{% endif %} >{{ possible_answer }}</option>
-                              {% endfor %}
-                            </select>
-                          </div>
+      <ul class="accordion-box">
+        {% for field in shop.metaobjects.questions.values %}
+          <li class="accordion block">
+              <div class="acc-btn">{{ field.question }}<div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus">{% include 'icon-plus' %}</span></div></div>
+              <div class="acc-content">
+                <div class="content">
+                  <div class="text">
+                    {% for possible_answer in field.answers.value %}
+                      <div class="possible-answer-input">
+                        <input required onchange="updateInputValue()" type="checkbox" id="{{ possible_answer }}-{{ section.id }}-{{ forloop.index }}" name="answer" value="{{ possible_answer }}"></input>
+                        <label for="{{ possible_answer }}-{{ section.id }}-{{ forloop.index }}">{{ possible_answer }}</label>
                       </div>
-                    </div>
-                </div>
-              </div>
-            {% else %}
-              <div class="accordion block">
-                <div class="label_and_input quiz_options">
-                  <div class="acc-btn">{{ field.question }}<div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus">{% include 'icon-plus' %}</span></div></div>
-                  <div class="acc-content">
-                    <div class="content">
-                        <div class="text">
-                          {% for possible_answer in field.answers.value %}
-                            <div class="possible-answer-input">
-                              <input type="checkbox" id="{{ possible_answer }}-{{ section.id }}-{{ forloop.index }}" name="answer" value="{{ possible_answer }}"></input>
-                              <label for="{{ possible_answer }}-{{ section.id }}-{{ forloop.index }}">{{ possible_answer }}</label>
-                            </div>
-                          {% endfor %}
-                        </div>
-                    </div>
+                    {% endfor %}
                   </div>
                 </div>
+                <div class="control_buttons">
+                  {% if forloop.first %}
+                    <p class="control-btn next-button">Next</p>
+                  {% elsif forloop.last %}
+                    <p class="control-btn prev-button">Prev</p>
+                  {% else %}
+                    <p class="control-btn prev-button">Prev</p>
+                    <p class="control-btn next-button">Next</p>
+                  {% endif %}
+                </div>
               </div>
-            {% endif %}
-          {% endfor %}
-          </ul>
-      </div>
-
-    <div class="button--container">
-      <button type="submit" class="quiz_button button button--secondary">
-        Submit
-      </button>
+          </li>
+        {% endfor %}
+      </ul>
     </div>
+    <input type="hidden" name="customer[tags]" class="all-inputs-value" value="">
   </div>
 </div>
 
-{%- capture correct_answers -%}
-[{%- for field in shop.metaobjects.questions.values -%}{"wanted_answer":"{%- for correct_answer in field.correct_answer.value -%}{{- correct_answer -}}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}"}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]{%- endcapture -%}
-
 <script>
-  const answers = JSON.parse(`{{ correct_answers }}`);
-  let correctAnswers = [];
-  for (k = 0; k < answers.length; k++) {
-    if (answers[k].wanted_answer.includes(','))
-    {
-      let multiple_answers = answers[k].wanted_answer.split(',');
-      for (m = 0; m < multiple_answers.length; m++) {
-        correctAnswers.push(multiple_answers[m])
-      }
-    }
-    else 
-    {
-      correctAnswers.push(answers[k].wanted_answer);
-    }
-  }
-  const quizForm = document.querySelector('#quiz__form');
-  // const quizButton = quizForm.querySelector('.quiz_button');
-
-  function arrayCompare(_arr1, _arr2) {
-    if (
-      !Array.isArray(_arr1)
-      || !Array.isArray(_arr2)
-      || _arr1.length !== _arr2.length
-      ) {
-        return false;
-      }
-    
-    // .concat() to not mutate arguments
-    const arr1 = _arr1.concat().sort();
-    const arr2 = _arr2.concat().sort();
-    
-    for (let i = 0; i < arr1.length; i++) {
-        if (arr1[i] !== arr2[i]) {
-            return false;
-         }
-    }
-    
-    return true;
-  }
-
-  quizForm.addEventListener('submit', (e) => {
-    let correctAnswerArray = [];
-    e.preventDefault();
-    e.stopPropagation()
-    const quizSelect = quizForm.querySelectorAll('.quiz_select');
-    const quizInput = quizForm.querySelectorAll('input[name="answer"]');
-    quizSelect.forEach(select => {
-      correctAnswerArray.push(select.value);
-    });
-    quizInput.forEach(input => {
-      if (input.checked) {
-        correctAnswerArray.push(input.value);
-      }
-    });
-    let allCorrectAnswers = arrayCompare(correctAnswers, correctAnswerArray);
-    if (allCorrectAnswers) {
-      window.location.href = '{{ section.settings.correct_answers_url }}';
-    } else {
-      window.location.href = '{{ section.settings.incorrect_answers_url }}';
-    }
-  })
 
   if($('.accordion-box').length){
     $(".accordion-box").on('click', '.acc-btn', function() {
         var outerBox = $(this).parents('.accordion-box');
         var target = $(this).parents('.accordion');
         if($(this).hasClass('active')!==true){
-            $(outerBox).find('.accordion .acc-btn').removeClass('active');
+          $(outerBox).find('.accordion .acc-btn').removeClass('active');
         }
         if ($(this).hasClass('active')) {
             $(this).removeClass('active');
@@ -378,13 +321,38 @@
             return false;
         }else{
             $(this).addClass('active');
-            $(outerBox).find('.accordion .acc-btn').addClass('active');
             $(outerBox).children('.accordion').removeClass('active-block');
             $(outerBox).find('.accordion').children('.acc-content').slideUp(300);
             target.addClass('active-block');
             $(this).next('.acc-content').slideDown(300);
         }
     });
+  }
+
+
+
+  if($(".control_buttons").length) {
+    $(".control-btn").on("click",  function(){
+      var parentAcc = $(this).parents('.accordion');
+      var nextParrentAcc = parentAcc.next();
+      var previousParentAcc = parentAcc.prev();
+      if ($(this).hasClass('next-button')) {
+        parentAcc.removeClass('active-block');
+        parentAcc.find('.acc-btn').removeClass('active');
+        parentAcc.find('.acc-content').slideUp(300);
+        nextParrentAcc.addClass('active-block');
+        nextParrentAcc.find('.acc-btn').addClass('active');
+        nextParrentAcc.find('.acc-content').slideDown(300);
+      }
+      if ($(this).hasClass('prev-button')) {
+        parentAcc.removeClass('active-block');
+        parentAcc.find('.acc-btn').removeClass('active');
+        parentAcc.find('.acc-content').slideUp(300);
+        previousParentAcc.addClass('active-block');
+        previousParentAcc.find('.acc-btn').addClass('active');
+        previousParentAcc.find('.acc-content').slideDown(300);
+      }
+    })
   }
 
 </script>
@@ -397,16 +365,6 @@
         "type": "color",
         "id": "background_color",
         "label": "Background color of the section"
-      },
-      {
-        "type": "url",
-        "label": "Takes clients to this link if they pass the quiz",
-        "id": "correct_answers_url"
-      },
-      {
-        "type": "url",
-        "label": "Takes clients to this link if they don't pass the quiz",
-        "id": "incorrect_answers_url"
       },
       {
         "type": "select",
