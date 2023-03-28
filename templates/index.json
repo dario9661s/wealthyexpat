@@ -93,7 +93,7 @@
         "enable_slider": false,
         "margin_top": 20,
         "margin_bottom": 20,
-        "margin_top_mobile": 20,
+        "margin_top_mobile": 30,
         "margin_bottom_mobile": 20
       }
     },
