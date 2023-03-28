@@ -56,7 +56,7 @@
   }
   .customer .field {
     max-width: 55%;
-    margin: 2rem auto;
+    margin: 3rem auto;
   }
 }
 
@@ -757,4 +757,26 @@ li[data-address] > h2 {
 .addresses form > div:nth-of-type(7),
 .addresses form > div:nth-of-type(7) + div[id] {
   margin-top: 1.5rem;
+}
+
+.email__field {
+  position: relative;
+}
+
+.email_error {
+  display: none;
+  position: absolute;
+  bottom: -22px;
+  margin: 0;
+  line-height: 1;
+  color: red;
+}
+
+.password_error {
+  display: none;
+  position: absolute;
+  bottom: -22px;
+  margin: 0;
+  line-height: 1;
+  color: red;
 }

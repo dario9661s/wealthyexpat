@@ -3120,7 +3120,24 @@ details-disclosure > details {
   margin: 0 auto;
 }
 
-
+.register__form-buton {
+  text-decoration: none;
+  color: white;
+  margin: 10px;
+  width: 150px;
+  font-size: 14px;
+  padding: 10px;
+  text-align: center;
+  font-family: 'Arial',Arial,sans-serif;
+  line-height: 1.55;
+  font-weight: 600;
+  border-width: 1px;
+  border-radius: 0px;
+  background-color: #dbb75d;
+  background-position: center center;
+  border-color: transparent;
+  border-style: solid;
+}
 
 .svg__icons {
   position: relative;
