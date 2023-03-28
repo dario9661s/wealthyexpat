@@ -64,7 +64,7 @@
       ],
       "settings": {
         "title": "FAQ",
-        "heading_bottom_margin": false,
+        "heading_bottom_margin": true,
         "heading_size": "h1",
         "title_color": "#000000",
         "faq_heading_size": 24,
