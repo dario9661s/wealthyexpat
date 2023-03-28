@@ -5,11 +5,20 @@
         margin-top: {{ section.settings.margin_top }}px;
         margin-bottom: {{ section.settings.margin_bottom }}px;
     }
-
+    .about-us_heading_and_paragraph_split{
+        max-width: 100px;
+        width: 100%;
+        margin: 0 auto;
+        height: 3px;
+        background-color: #dbb75d;
+        opacity: 1;
+    }
     .accordion-box{
         position:relative;
     }
+    .our-services_heading {
 
+    }
     .accordion-box .heading{
         position:relative;
         color:#000000;
@@ -153,6 +162,11 @@
 
     .our-services_heading {
       color: {{ section.settings.title_color }};
+        font-weight: 600;
+        font-family: Arial;
+        margin-bottom: 40px;
+        font-size: 52px;
+        text-align: center;
     }
 
     @media screen and (max-width: 1024px) {
@@ -193,7 +207,7 @@
     {% if title != blank %}
         <div class="heading_container">
             {% if section.settings.heading_bottom_margin %}
-                <span class="our-services_heading">{{ title }}</span>
+                <{{ section.settings.heading_size }} class="our-services_heading">{{ title }}</{{ section.settings.heading_size }}>
                 <div class="about-us_heading_and_paragraph_split"></div>
             {% else %}
                 <h2 class="banner__heading {{ section.settings.heading_size }}" style="text-align: center;">

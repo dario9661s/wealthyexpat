@@ -237,6 +237,13 @@
     }
 
     @media screen and (max-width: 776px) {
+      .accordion-box .block .icon-outer {
+        right: -35px;
+        transform: scale(0.7);
+      }
+      #shopify-section-quizz-section .control_buttons {
+        font-size: 13px !important;
+      }
         .accordion-box .block .acc-btn {
         }
         .accordion-box .block .content p {
@@ -281,6 +288,7 @@
 </style>
 
 <div class="quiz_test page-width">
+
   <div id="quiz__form">
     <div class="form-control">
       <ul class="accordion-box">
@@ -302,9 +310,9 @@
                   {% if forloop.first %}
                     <p class="control-btn next-button">Next</p>
                   {% elsif forloop.last %}
-                    <p class="control-btn prev-button">Prev</p>
+                    <p class="control-btn prev-button">Previous</p>
                   {% else %}
-                    <p class="control-btn prev-button">Prev</p>
+                    <p class="control-btn prev-button">Previous</p>
                     <p class="control-btn next-button">Next</p>
                   {% endif %}
                 </div>

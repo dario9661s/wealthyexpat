@@ -5,8 +5,32 @@
   padding-right: 1.5rem;
   text-align: center;
 }
-
+.register-heading-container {
+  padding-top: 50px;
+}
+.about-us_heading{
+  margin-top: 50px;
+  font-weight: 600;
+  font-family: Arial;
+  margin-bottom: 40px;
+  font-size: 40px;
+  color: black;
+}
+.about-us_heading_and_paragraph_split{
+  max-width: 100px;
+  width: 100%;
+  margin: 0 auto;
+  height: 3px;
+  background-color: #dbb75d;
+  opacity: 1;
+}
 @media screen and (min-width: 750px) {
+  .about-us_heading{
+    margin-top: 50px;
+
+    font-size: 52px;
+
+  }
   .customer:not(.account):not(.order) {
     max-width: 100%
   }
@@ -27,7 +51,7 @@
 
 .customer ul {
   line-height: calc(1 + 0.6 / var(--font-body-scale));
-  padding-left: 4.4rem;
+  padding-left: 0;
   text-align: left;
   margin-bottom: 4rem;
 }
@@ -51,6 +75,7 @@
 }
 
 @media only screen and (min-width: 750px) {
+
   .customer h2.form__message {
     font-size: calc(var(--font-heading-scale) * 2.2rem);
   }
@@ -173,7 +198,9 @@
     border-top: none;
   }
 }
-
+.register__form-buton {
+  background: #dbb75d;
+}
 @media screen and (forced-colors: active) {
   .customer tbody tr {
     border-top: 0.1rem solid transparent;
@@ -779,4 +806,17 @@ li[data-address] > h2 {
   margin: 0;
   line-height: 1;
   color: red;
+}
+
+@media(max-width: 750px) {
+  .possible-answer-input {
+    font-size: 13px;
+  }
+  .accordion-box .block .acc-btn {
+    padding-right: 0 !important;
+    font-size: 13px;
+  }
+  .customer ul {
+    padding: 0;
+  }
 }

@@ -575,6 +575,9 @@ table:not([class]) th {
 }
 
 @media screen and (max-width: 749px) {
+  .footer-buttons a {
+    font-size: 14px !important;
+  }
   .small-hide {
     display: none !important;
   }

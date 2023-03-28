@@ -43,8 +43,35 @@
           margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
         }
     }
+    .about-us_heading_and_paragraph_split{
+      max-width: 100px;
+      width: 100%;
+      margin: 0 auto;
+      height: 3px;
+      background-color: #dbb75d;
+      opacity: 1;
+    }
+    .about-us_heading{
+      margin-top: 50px;
+      font-weight: 600;
+      font-family: Arial;
+      margin-bottom: 40px;
+      font-size: 40px;
+      color: black;
+    }
+    .col-head-container {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 50px;
+    }
 </style>
+<div class="col-head-container page-width">
+  <h2 class="about-us_heading ">Our Services</h2>
+  <div class="about-us_heading_and_paragraph_split"></div>
+</div>
+
 <div class="collection-container page-width">
+
     {% if section.blocks.size > 0 %}
         {% for block in section.blocks %}
             {% assign blcokTitle = block.settings.text %}
