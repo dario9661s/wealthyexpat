@@ -238,17 +238,30 @@
 
     @media screen and (max-width: 776px) {
       .accordion-box .block .icon-outer {
-        right: -35px;
         transform: scale(0.7);
+        position: relative;
       }
       #shopify-section-quizz-section .control_buttons {
         font-size: 13px !important;
       }
-        .accordion-box .block .acc-btn {
-        }
-        .accordion-box .block .content p {
-            padding-left: 0;
-        }
+      .accordion .block{
+        padding-right: 0px;
+        max-width: 100%;
+      }
+      .accordion-box .block .acc-btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        gap: 10px;
+      }
+      .acc-question{
+        margin: 0;
+        max-width: 80%;
+      }
+      .accordion-box .block .content p {
+          padding-left: 0;
+      }
     }
 
     #shopify-section-{{ section.id }} .control_buttons {
@@ -294,7 +307,7 @@
       <ul class="accordion-box">
         {% for field in shop.metaobjects.questions.values %}
           <li class="accordion block">
-              <div class="acc-btn">{{ field.question }}<div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus">{% include 'icon-plus' %}</span></div></div>
+              <div class="acc-btn"><p class="acc-question">{{ field.question }}<p><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus">{% include 'icon-plus' %}</span></div></div>
               <div class="acc-content">
                 <div class="content">
                   <div class="text">

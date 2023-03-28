@@ -223,9 +223,9 @@
             {% assign blcokTitle = block.settings.accordionTitle %}
             {% assign blockParagraph = block.settings.accordionParagraph %}
             <!--Block-->
-            <li class="accordion block">
-                <div class="acc-btn">{{ blcokTitle }}<div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus">{% include 'icon-plus' %}</span></div></div>
-                <div class="acc-content">
+            <li class="accordion block  {% if forloop.first %} active-block {% endif %} ">
+                <div class="acc-btn  {% if forloop.first %} active {% endif %}">{{ blcokTitle }}<div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus">{% include 'icon-plus' %}</span></div></div>
+                <div class="acc-content" {% if forloop.first %} style="display: block;" {% endif %} >
                     <div class="content">
                         <div class="text">
                             <p>{{ blockParagraph }}</p>
@@ -244,8 +244,6 @@
           var target = $(this).parents('.accordion');
    
           if($(this).hasClass('active')!==true){
-            console.log("dadadadadadadadadad")
-
               $(outerBox).find('.accordion .acc-btn').removeClass('active');
           }
           if ($(this).hasClass('active')) {
