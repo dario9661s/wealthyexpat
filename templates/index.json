@@ -87,7 +87,7 @@
       ],
       "settings": {
         "heading": "Our services",
-        "heading_bottom_margin": true,
+        "heading_bottom_margin": false,
         "heading_size": "h1",
         "enable_slider": true,
         "margin_top": 20,
