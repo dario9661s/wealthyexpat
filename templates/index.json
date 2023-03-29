@@ -88,7 +88,6 @@
       "settings": {
         "heading": "Our services",
         "heading_bottom_margin": true,
-        "quiz_helper": "",
         "heading_size": "h1",
         "enable_slider": false,
         "margin_top": 20,
@@ -103,12 +102,12 @@
         "f1e29b19-f54c-46a8-adc7-dae031e89dfa": {
           "type": "slide",
           "settings": {
-            "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
+            "img": "shopify:\/\/shop_images\/GrowYourAgencycom.webp",
             "slide_heading": "Iman Gadzhi",
             "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai.",
             "job": "Owner of IAG Media, marketer with 1.7+ Million followers on Youtube",
             "social_media": "youtube",
-            "social_media_url": "shopify:\/\/pages\/contact"
+            "social_media_url": "https:\/\/www.youtube.com\/c\/ImanGadzhi"
           }
         },
         "0cfdfeab-2cff-46c8-865f-fc4ef74cf108": {
