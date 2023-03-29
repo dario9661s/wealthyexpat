@@ -126,13 +126,25 @@
         max-width: 960px;
     }
 }
+
+@media screen and (max-width: 776px) {
+  .about-us_heading {
+    font-size: 40px;
+  }
+}
 </style>
 
 <div class="about-us--{{section.id}}">
     <div class="about-us_heading_and_paragraph">
         <div class="about-us-heading_and_paragraph_wrapper">
-            <span class="about-us_heading ">{{section.settings.about-us-heading}}</span>
-            <div class="about-us_heading_and_paragraph_split"></div>
+            {% if section.settings.heading_bottom_margin %}
+                <span class="about-us_heading ">{{section.settings.about-us-heading}}</span>
+                <div class="about-us_heading_and_paragraph_split"></div>
+            {% else %}
+                <h2 class="banner__heading {{ section.settings.heading_size }}" style="text-align: center;">
+                    {{ section.settings.about-us-heading }}
+                </h2>
+            {% endif %}
             <span class="about-us_paragraph">{{section.settings.about-us-paragraph}}</span>
         </div>
         <div class="about-us_blocks">
@@ -200,45 +212,71 @@
           "label": "About Us Paragraph"
         },
         {
-        "type": "range",
-        "id": "margin_top",
-        "unit": "px",
-        "min": 0,
-        "max": 100,
-        "default": 0,
-        "step": 1,
-        "label": "Top padding of the section"
+            "type": "checkbox",
+            "id": "heading_bottom_margin",
+            "label": "Heading bottom border",
+            "default": true
         },
         {
-        "type": "range",
-        "id": "margin_bottom",
-        "unit": "px",
-        "min": 0,
-        "max": 100,
-        "default": 0,
-        "step": 1,
-        "label": "Bottom padding of the section"
+            "type": "range",
+            "id": "margin_top",
+            "unit": "px",
+            "min": 0,
+            "max": 100,
+            "default": 0,
+            "step": 1,
+            "label": "Top padding of the section"
         },
-      {
-        "type": "range",
-        "id": "margin_top_mobile",
-        "unit": "px",
-        "min": 0,
-        "max": 100,
-        "default": 0,
-        "step": 1,
-        "label": "Top padding of the section on mobile"
-      },
-      {
-        "type": "range",
-        "id": "margin_bottom_mobile",
-        "unit": "px",
-        "min": 0,
-        "max": 100,
-        "default": 0,
-        "step": 1,
-        "label": "Bottom padding of the section on mobile"
-      }
+        {
+            "type": "range",
+            "id": "margin_bottom",
+            "unit": "px",
+            "min": 0,
+            "max": 100,
+            "default": 0,
+            "step": 1,
+            "label": "Bottom padding of the section"
+        },
+        {
+            "type": "select",
+            "id": "heading_size",
+            "options": [
+            {
+                "value": "h2",
+                "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+                "value": "h1",
+                "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+                "value": "h0",
+                "label": "t:sections.all.heading_size.options__3.label"
+            }
+            ],
+            "default": "h1",
+            "label": "t:sections.all.heading_size.label"
+        },
+        {
+            "type": "range",
+            "id": "margin_top_mobile",
+            "unit": "px",
+            "min": 0,
+            "max": 100,
+            "default": 0,
+            "step": 1,
+            "label": "Top padding of the section on mobile"
+        },
+        {
+            "type": "range",
+            "id": "margin_bottom_mobile",
+            "unit": "px",
+            "min": 0,
+            "max": 100,
+            "default": 0,
+            "step": 1,
+            "label": "Bottom padding of the section on mobile"
+        }
     ],
     "blocks": [
       {

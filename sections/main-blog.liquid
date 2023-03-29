@@ -16,9 +16,56 @@
   }
 {%- endstyle -%}
 
+<style>
+  .about-us_heading_and_paragraph_split{
+    max-width: 100px;
+    width: 100%;
+    margin: 0 auto;
+    height: 3px;
+    background-color: #dbb75d;
+    opacity: 1;
+  }
+  .about-us_heading_and_paragraph_split{
+    max-width: 100px;
+    width: 100%;
+    margin: 0 auto;
+    height: 3px;
+    background-color: #dbb75d;
+    opacity: 1;
+  }
+  .about-us_heading{
+    margin-top: 50px;
+    font-weight: 600;
+    font-family: Arial;
+    margin-bottom: 40px;
+    font-size: 52px;
+    color: black;
+    text-align: center;
+  }
+  .blog-articles {
+    margin-top: 3rem;
+  }
+  @media screen and (max-width: 776px) {
+    .about-us_heading {
+      font-size: 40px;
+    }
+  }
+</style>
+
 {%- paginate blog.articles by 6 -%}
   <div class="main-blog page-width section-{{ section.id }}-padding">
-    <h1 class="title--primary">{{ blog.title | escape }}</h1>
+    {% if section.settings.heading != blank %}
+      {% if section.settings.heading_bottom_margin %}
+        <h1 class="about-us_heading ">{{ section.settings.heading }}</h1>
+        <div class="about-us_heading_and_paragraph_split"></div>
+      {% else %}
+        <h1 class="banner__heading {{ section.settings.heading_size }}" style="text-align: center;">
+          {{ section.settings.heading }}
+        </h1>
+      {% endif %}
+    {% else %}
+      <h1 class="title--primary">{{ blog.title | escape }}</h1>
+    {% endif %}
 
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
       {%- for article in blog.articles -%}
@@ -48,6 +95,18 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "News",
+      "label": "t:sections.featured-blog.settings.heading.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "heading_bottom_margin",
+      "label": "Heading bottom border",
+      "default": true
+    },
     {
       "type": "header",
       "content": "t:sections.main-blog.settings.header.content"

@@ -198,10 +198,15 @@
         }
     }
 
+    @media screen and (max-width: 776px) {
+      .about-us_heading {
+        font-size: 40px;
+      }
+    }
+
 </style>
 {% assign title = section.settings.title %}
 {% assign mainTitle = section.settings.mainHeading %}
-{% assign imageMain = section.settings.imageMain %}
 {% assign sectionText = section.settings.paragraph %}
 <div class="faq-title">
     {% if title != blank %}
@@ -269,11 +274,6 @@
   "name": "Moment Section",
   "class": "moment-section",
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "imageMain",
-      "label": "Main Image"
-    },
     {
       "type": "text",
       "id": "title",

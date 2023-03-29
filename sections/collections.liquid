@@ -32,6 +32,7 @@
     }
     .collection-container .icon__caret {
       transform: rotate(-90deg);
+      margin: 0;
     }
     @media(max-width: 800px) {
         .collection-container {
@@ -64,10 +65,23 @@
       text-align: center;
       margin-bottom: 50px;
     }
+    @media screen and (max-width: 776px) {
+      .about-us_heading {
+        font-size: 40px;
+      }
+    }
 </style>
 <div class="col-head-container page-width">
-  <h1 class="about-us_heading ">Our Services</h1>
-  <div class="about-us_heading_and_paragraph_split"></div>
+  {% if section.settings.heading != blank %}
+    {% if section.settings.heading_bottom_margin %}
+      <h1 class="about-us_heading ">{{ section.settings.heading }}</h1>
+      <div class="about-us_heading_and_paragraph_split"></div>
+    {% else %}
+      <h1 class="banner__heading {{ section.settings.heading_size }}" style="text-align: center;">
+        {{ section.settings.heading }}
+      </h1>
+    {% endif %}
+  {% endif %}
 </div>
 
 <div class="collection-container page-width">
@@ -136,6 +150,11 @@
                 {% endif %}
                 <p class="collection-link">
                   {{ blcokTitle }}
+                  {% if section.settings.arrow_select != 'none' %}
+                  {% assign snippet_value = section.settings.arrow_select | prepend: 'icon-' %}
+                  {% capture snipet_content %}{% include snippet_value %}{% endcapture %}
+                    {{ snipet_content }}
+                  {% endif %}
                 </p>
               </div>
             {% endif %}
@@ -150,6 +169,32 @@
   "name": "Collections",
   "class": "collections-section",
   "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Our Services",
+      "label": "t:sections.image-banner.blocks.heading.settings.heading.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
     {
       "type": "color",
       "id": "url_color",
@@ -175,6 +220,12 @@
           "value": "none"
         }
       ]
+    },
+    {
+      "type": "checkbox",
+      "id": "heading_bottom_margin",
+      "label": "Heading bottom border",
+      "default": true
     },
     {
       "type": "range",
