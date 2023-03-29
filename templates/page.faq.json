@@ -22,7 +22,7 @@
           "type": "accordionBlock",
           "settings": {
             "accordionTitle": "How much does it cost?",
-            "accordionParagraph": "Our VIP services start at 20,000$. Please <a href=\"https:\/\/wealthyexpatcall.com\/book\">book a call with us<\/a> here to discuss the details of your needs."
+            "accordionParagraph": "Our VIP services start at 20,000$. Please <a class=\"golden_color\" href=\"https:\/\/wealthyexpatcall.com\/book\">book a call with us<\/a> here to discuss the details of your needs."
           }
         },
         "3bef73e1-3dac-4d99-9b3a-81d3e3c2520e": {
