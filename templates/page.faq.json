@@ -14,43 +14,43 @@
         "e3ddb380-300d-4887-b07f-8b05688b1021": {
           "type": "accordionBlock",
           "settings": {
-            "accordionTitle": "Solutions is the latest software Sigma?",
-            "accordionParagraph": "The argument in favor of using to filler text goes something is that anybody can do it."
+            "accordionTitle": "How long does the process take?",
+            "accordionParagraph": "Between 30 to 60 days, depending on the program chosen. Allow 6+ months for citizenship by investment programs like Saint Kitts and Nevis and Dominica."
           }
         },
         "d165e88a-192b-4038-a2aa-4b38e2a8718d": {
           "type": "accordionBlock",
           "settings": {
-            "accordionTitle": "Solutions is the latest software Sigma?",
-            "accordionParagraph": "The argument in favor of using to filler text goes something is that anybody can do it."
+            "accordionTitle": "How much does it cost?",
+            "accordionParagraph": "Our VIP services start at 20,000$. Please <a class=\"golden_color\" href=\"https:\/\/wealthyexpatcall.com\/book\">book a call with us<\/a> here to discuss the details of your needs."
           }
         },
         "3bef73e1-3dac-4d99-9b3a-81d3e3c2520e": {
           "type": "accordionBlock",
           "settings": {
-            "accordionTitle": "Solutions is the latest software Sigma?",
-            "accordionParagraph": "The argument in favor of using to filler text goes something is that anybody can do it."
+            "accordionTitle": "Can I pay in crypto?",
+            "accordionParagraph": "Yes, we accept all cryptocurrency tokens, even shitcoins."
           }
         },
         "f7f94c85-9b92-4937-81b9-e09e929aeb71": {
           "type": "accordionBlock",
           "settings": {
-            "accordionTitle": "Solutions is the latest software Sigma?",
-            "accordionParagraph": "The argument in favor of using to filler text goes something is that anybody can do it."
+            "accordionTitle": "Are there any restricted nationalities?",
+            "accordionParagraph": "The only nationalities which typically have issues are Iran, Syria, Afghanistan, Iraq, and Sudan."
           }
         },
         "017dc794-6157-4448-92d9-26d362ed7b13": {
           "type": "accordionBlock",
           "settings": {
-            "accordionTitle": "Solutions is the latest software Sigma?",
-            "accordionParagraph": "The argument in favor of using to filler text goes something is that anybody can do it."
+            "accordionTitle": "Do you assist in moving the entire family?",
+            "accordionParagraph": "Yes, of course. We've helped 120+ families move to Dubai with children as young as 6 months."
           }
         },
         "710bb554-6043-4b4f-8505-ffe31c609013": {
           "type": "accordionBlock",
           "settings": {
-            "accordionTitle": "Solutions is the latest software Sigma?",
-            "accordionParagraph": "The argument in favor of using to filler text goes something is that anybody can do it."
+            "accordionTitle": "What if I don't want to move to Dubai?",
+            "accordionParagraph": "Please <a class=\"golden_color\" href=\"https:\/\/youtu.be\/pcI7WDm_9pE\">watch this tutorial<\/a> on how to lower your taxes without moving to Dubai."
           }
         }
       },
@@ -70,6 +70,7 @@
         "faq_heading_size": 24,
         "faq_heading_size_mobile": 24,
         "paragraph_font_size": 20,
+        "paragraph_padding_left": 50,
         "paragraph_font_size_mobile": 16,
         "mainHeading": "we are happy to assist <br> you all time <span>moment<\/span>",
         "paragraph": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed. So some forward-looking CIOs are putting.",

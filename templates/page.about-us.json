@@ -47,8 +47,10 @@
       "settings": {
         "about-us-heading": "About us",
         "about-us-paragraph": "Wealthy Expat is a company which assists with citizenship, tax reduction strategies and asset protection by all means necessary. We make this process simple, secure and 100% guaranteed. Our clients are high net worth investors, entrepreneurs and business owners who seek total financial and business freedom.",
+        "heading_bottom_margin": true,
         "margin_top": 0,
         "margin_bottom": 0,
+        "heading_size": "h1",
         "margin_top_mobile": 0,
         "margin_bottom_mobile": 0
       }
@@ -147,41 +149,33 @@
         "377013d1-f14c-449d-8182-ba26dd63a65d": {
           "type": "slide",
           "settings": {
-            "img": "shopify:\/\/shop_images\/photo_2022-07-29_08.webp",
-            "slide_heading": "Iman Gadzhi",
-            "slide_text": "Crypto Consultant"
+            "img": "shopify:\/\/shop_images\/ezgifcom-gif-maker.webp",
+            "slide_heading": "Jack Skipp",
+            "slide_text": "Partner, Cryptocurrency Advisor"
           }
         },
         "4bcd12d5-9dfd-4c63-baea-e1e768aaaa27": {
           "type": "slide",
           "settings": {
-            "img": "shopify:\/\/shop_images\/photo_2022-07-29_08.webp",
-            "slide_heading": "Iman Gadzhi",
-            "slide_text": "Crypto Consultant"
+            "img": "shopify:\/\/shop_images\/WhatsApp_Image_2022.webp",
+            "slide_heading": "Jovana",
+            "slide_text": "Chief Operations Manager"
           }
         },
         "f8760325-3f49-434f-b100-eab3e64c2613": {
           "type": "slide",
           "settings": {
-            "img": "shopify:\/\/shop_images\/photo_2022-07-29_08.webp",
-            "slide_heading": "Iman Gadzhi",
-            "slide_text": "Crypto Consultant"
+            "img": "shopify:\/\/shop_images\/noroot.webp",
+            "slide_heading": "Antonina",
+            "slide_text": "VIP Client<br>Manager in Dubai"
           }
         },
         "8d0f743d-f987-48e1-8c22-9492a07cc6bb": {
           "type": "slide",
           "settings": {
-            "img": "shopify:\/\/shop_images\/photo_2022-07-29_08.webp",
-            "slide_heading": "Iman Gadzhi",
-            "slide_text": "Crypto Consultant"
-          }
-        },
-        "c7493efb-89f1-4932-b6e1-21e3202ec88a": {
-          "type": "slide",
-          "settings": {
-            "img": "shopify:\/\/shop_images\/photo_2022-07-29_08.webp",
-            "slide_heading": "Iman Gadzhi",
-            "slide_text": "Crypto Consultant"
+            "img": "shopify:\/\/shop_images\/photo_2022-07-29_08_1ccea213-79c9-49cb-80c4-a9d10050262f.webp",
+            "slide_heading": "Tea",
+            "slide_text": "Client Success Manager"
           }
         }
       },
@@ -189,8 +183,7 @@
         "377013d1-f14c-449d-8182-ba26dd63a65d",
         "4bcd12d5-9dfd-4c63-baea-e1e768aaaa27",
         "f8760325-3f49-434f-b100-eab3e64c2613",
-        "8d0f743d-f987-48e1-8c22-9492a07cc6bb",
-        "c7493efb-89f1-4932-b6e1-21e3202ec88a"
+        "8d0f743d-f987-48e1-8c22-9492a07cc6bb"
       ],
       "settings": {
         "margin_top": 20,

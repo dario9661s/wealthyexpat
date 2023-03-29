@@ -218,7 +218,7 @@
       {% case block.type %}
         {% when 'cta_button' %}
           {% if block.settings.button_url != blank %}
-            <a href="{{ block.settings.button_rul }}">{{ block.settings.button_text }}</a>
+            <a href="{{ block.settings.button_url }}">{{ block.settings.button_text }}</a>
           {% else %}
             <a href="/">{{ block.settings.button_text }}</a>
           {% endif %}

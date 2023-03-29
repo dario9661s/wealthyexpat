@@ -225,7 +225,7 @@
     });
     if (containsAll) {
       let tagsValues = document.querySelector('.all-inputs-value');
-      tagsValues.value = tagsValues.value + ', passed_quiz';
+      tagsValues.value = tagsValues.value + ', successfully_registered';
     }
   })
 
@@ -275,10 +275,17 @@
     const emailInput = document.querySelector('.field input[type="email"]');
     if (ValidateEmail(emailInput)) {
       document.querySelector('.register__form-buton').disabled = false;
+      if (document.querySelector('.email__field').style.marginBottom == "4.5rem") {
+        document.querySelector('.email__field').style.marginBottom = "3rem"
+      }
       return true;
     } else {
       document.querySelector('.email_error').style.display = "block";
       document.querySelector('.register__form-buton').disabled = true;
+      if (window.innerWidth < 810) {
+        document.querySelector('.email__field').style.marginBottom = "4.5rem"; 
+        document.querySelector('.email_error').style.bottom = "-36px";
+      }
       return false;
     }
   }

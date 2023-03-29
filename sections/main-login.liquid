@@ -17,7 +17,7 @@
 <div class="customer login section-{{ section.id }}-padding">
   {% assign hasPassedQuiz = false %}
   {% for tag in customer.tags %}
-    {% if tag == 'passed_quiz' %}
+    {% if tag == 'successfully_registered' %}
       {% assign hasPassedQuiz = true %}
     {% endif %}
   {% endfor %}
