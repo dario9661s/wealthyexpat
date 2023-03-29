@@ -8,7 +8,7 @@
 
   @media(min-width: 767px){
     .hp-reviews {
-      margin-top: 80px;
+      margin-top: 40px;
       margin-bottom: 80px;
     }
     .mySwiper_1{
@@ -83,6 +83,8 @@
     </div>
   {% endif %}
   <div class="swiper mySwiper_1">
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
     <div class="swiper-wrapper">
       {% for block in section.blocks %}
         <div class="swiper-slide helper_class">
@@ -94,18 +96,15 @@
           <span>{{ block.settings.job }}</span>
           {% if block.settings.social_media_url != blank %}
             <a class="" href="{{ block.settings.social_media_url }}" target="_blank" rel="noopener">
-              {% comment %}
-              {% assign snippet_value = block.settings.social_media | append: '-icon' %}
-              {% capture snipet_content %}{% include snippet_value %}{% endcapture %}
-                {{ snipet_content }}
-                {% endcomment %}
               {% render 'global-icon' with block.settings.social_media %}
             </a>
           {% endif %}
         </div>
       {% endfor %}
+
     </div>
-    <div class="swiper-pagination"></div>
+
+
   </div>
 </div>
 
@@ -117,6 +116,11 @@
     pagination: {
       el: ".swiper-pagination",
       dynamicBullets: true,
+    },
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
     breakpoints: {
       // when window width is >= 320px

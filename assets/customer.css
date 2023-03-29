@@ -188,7 +188,9 @@
     padding-bottom: 0;
   }
 }
-
+.customer {
+  padding-bottom: 30px;
+}
 .customer tbody tr {
   border-top: 0.01rem solid rgba(var(--color-foreground), 0.08);
 }
