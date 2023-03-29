@@ -70,6 +70,7 @@
         "faq_heading_size": 24,
         "faq_heading_size_mobile": 24,
         "paragraph_font_size": 20,
+        "paragraph_padding_left": 50,
         "paragraph_font_size_mobile": 16,
         "mainHeading": "we are happy to assist <br> you all time <span>moment<\/span>",
         "paragraph": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed. So some forward-looking CIOs are putting.",
