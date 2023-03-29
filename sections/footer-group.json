@@ -18,11 +18,43 @@
             "button_text": "Become a Member",
             "button_url": ""
           }
+        },
+        "ed029941-9f83-489f-b338-bf6dc310281f": {
+          "type": "social_media_icons",
+          "settings": {
+            "media_icon": "golden-twitter",
+            "social_media_link": "https:\/\/twitter.com\/wealthyexpat"
+          }
+        },
+        "6ac0cae2-9898-4214-9b0c-5990be443573": {
+          "type": "social_media_icons",
+          "settings": {
+            "media_icon": "golden-instagram",
+            "social_media_link": "https:\/\/www.instagram.com\/wealthyexpat\/?hl=en"
+          }
+        },
+        "068972e4-a131-4a35-a4a9-271d47210c9d": {
+          "type": "social_media_icons",
+          "settings": {
+            "media_icon": "golden-youtube",
+            "social_media_link": "https:\/\/www.youtube.com\/c\/wealthyexpat"
+          }
+        },
+        "38494db5-062f-461e-91c5-2828e323bb3b": {
+          "type": "social_media_icons",
+          "settings": {
+            "media_icon": "golden-whatsapp",
+            "social_media_link": "https:\/\/api.whatsapp.com\/send?phone=971504857297&text=Hey%20Wealthy%20Expat%2C%20I%27m%20interested%20in%20"
+          }
         }
       },
       "block_order": [
         "300d160a-492d-4d3f-8016-de402a01762c",
-        "cd9d606e-2c28-484f-9c76-114917e8ab03"
+        "cd9d606e-2c28-484f-9c76-114917e8ab03",
+        "ed029941-9f83-489f-b338-bf6dc310281f",
+        "6ac0cae2-9898-4214-9b0c-5990be443573",
+        "068972e4-a131-4a35-a4a9-271d47210c9d",
+        "38494db5-062f-461e-91c5-2828e323bb3b"
       ],
       "settings": {
         "footer_background": "#000000",
