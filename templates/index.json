@@ -153,6 +153,17 @@
             "social_media": "youtube",
             "social_media_url": "https:\/\/www.youtube.com\/c\/CryptoTips"
           }
+        },
+        "06f8ae78-e482-416e-a8d5-73ede039b030": {
+          "type": "slide",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/unnamed_402910e8-0372-48b2-8bcd-5f03e60e4a40.webp",
+            "slide_heading": "Sheldon Evans",
+            "slide_text": "The Wealthy Expat team made the Dubai company and residence process easy and smooth. The medical test was done without hassle and me and my girlfriend are very happy with the whole service. Thank you.",
+            "job": "Founder of The Ad Venture and finance advisor with 700k+ followers on Youtube",
+            "social_media": "youtube",
+            "social_media_url": "https:\/\/www.youtube.com\/c\/SheldonEvansx"
+          }
         }
       },
       "block_order": [
@@ -160,7 +171,8 @@
         "0cfdfeab-2cff-46c8-865f-fc4ef74cf108",
         "0045f251-3755-40d3-860e-7414d4a89ee3",
         "a04bd3c3-75d6-4446-81c2-e44d05d73d79",
-        "6cee89af-d0d0-4c87-8fab-95e4c3ea0d52"
+        "6cee89af-d0d0-4c87-8fab-95e4c3ea0d52",
+        "06f8ae78-e482-416e-a8d5-73ede039b030"
       ],
       "settings": {
         "heading": "Reviews",
