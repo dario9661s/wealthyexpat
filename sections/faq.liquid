@@ -145,7 +145,7 @@
         line-height:1.55;
         font-size: {{ section.settings.paragraph_font_size }}px;
         color:#555555;
-        padding-left:50px;
+        padding-left: {{ section.settings.paragraph_padding_left }}px;
     }
 
     .accordion-box .block .content p:last-child{
@@ -341,6 +341,16 @@
       "default": 20,
       "step": 1,
       "label": "Font size of FAQ paragraphs"
+    },
+    {
+      "type": "range",
+      "id": "paragraph_padding_left",
+      "unit": "px",
+      "min": 0,
+      "max": 100,
+      "default": 50,
+      "step": 1,
+      "label": "Left padding of the parahraph"
     },
     {
       "type": "range",
