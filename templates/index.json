@@ -88,19 +88,11 @@
       "settings": {
         "heading": "Our services",
         "heading_bottom_margin": true,
-<<<<<<< Updated upstream
-=======
-        "quiz_helper": "",
->>>>>>> Stashed changes
         "heading_size": "h1",
         "enable_slider": false,
         "margin_top": 20,
         "margin_bottom": 20,
-<<<<<<< Updated upstream
         "margin_top_mobile": 30,
-=======
-        "margin_top_mobile": 20,
->>>>>>> Stashed changes
         "margin_bottom_mobile": 20
       }
     },
@@ -115,57 +107,34 @@
             "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai.",
             "job": "Owner of IAG Media, marketer with 1.7+ Million followers on Youtube",
             "social_media": "youtube",
-<<<<<<< Updated upstream
             "social_media_url": "https:\/\/www.youtube.com\/c\/ImanGadzhi"
-=======
-            "social_media_url": "shopify:\/\/pages\/contact"
->>>>>>> Stashed changes
           }
         },
         "0cfdfeab-2cff-46c8-865f-fc4ef74cf108": {
           "type": "slide",
           "settings": {
-<<<<<<< Updated upstream
             "img": "shopify:\/\/shop_images\/maxresdefault.webp",
             "slide_heading": "Hamza",
             "slide_text": "Wealthy Expat set my company up in Dubai for 0% taxes, definitely recommend getting their package and watching their Youtube channel!",
             "job": "Self improvement Youtube channel with 1.7 Million followers.",
             "social_media": "youtube",
             "social_media_url": "https:\/\/www.youtube.com\/watch?v=skuCtDYRTRo&t=1006s"
-=======
-            "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
-            "slide_heading": "Iman Gadzhi",
-            "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai.",
-            "job": "Owner of IAG Media, marketer with 1.7+ Million followers on Youtube",
-            "social_media": "facebook",
-            "social_media_url": "shopify:\/\/collections"
->>>>>>> Stashed changes
           }
         },
         "0045f251-3755-40d3-860e-7414d4a89ee3": {
           "type": "slide",
           "settings": {
-<<<<<<< Updated upstream
             "img": "shopify:\/\/shop_images\/unnamed.webp",
             "slide_heading": "Sheldon Evans",
             "slide_text": "The Wealthy Expat team made the Dubai company and residence process easy and smooth. The medical test was done without hassle and me and my girlfriend are very happy with the whole service. Thank you.",
             "job": "Founder of The Ad Venture and finance advisor with 700k+ followers on Youtube",
             "social_media": "youtube",
             "social_media_url": "https:\/\/www.youtube.com\/c\/SheldonEvansx"
-=======
-            "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
-            "slide_heading": "Iman Gadzhi",
-            "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai.",
-            "job": "Owner of IAG Media, marketer with 1.7+ Million followers on Youtube",
-            "social_media": "youtube",
-            "social_media_url": "shopify:\/\/pages\/become-a-client"
->>>>>>> Stashed changes
           }
         },
         "a04bd3c3-75d6-4446-81c2-e44d05d73d79": {
           "type": "slide",
           "settings": {
-<<<<<<< Updated upstream
             "img": "shopify:\/\/shop_images\/B87F16D1FA964DB08414.webp",
             "slide_heading": "Alex Meurer",
             "slide_text": "I've known Rafael for 3 years now and he always delivers. He can help you get a second passport, start a company in Dubai, and get your residence easily.  Highly recommend working with him and Wealthy Expat.",
@@ -194,14 +163,6 @@
             "job": "Founder of The Ad Venture and finance advisor with 700k+ followers on Youtube",
             "social_media": "youtube",
             "social_media_url": "https:\/\/www.youtube.com\/c\/SheldonEvansx"
-=======
-            "img": "shopify:\/\/shop_images\/private-jet-charter.webp",
-            "slide_heading": "Iman Gadzhi",
-            "slide_text": "We've partnered with Wealthy Expat to help you pay 0% taxes legally with a simple structure and premium treatment, contact them for starting your company and 0 tax life in Dubai.",
-            "job": "Owner of IAG Media, marketer with 1.7+ Million followers on Youtube",
-            "social_media": "facebook",
-            "social_media_url": "shopify:\/\/pages\/about-us"
->>>>>>> Stashed changes
           }
         }
       },
@@ -220,11 +181,7 @@
         "margin_top": 20,
         "margin_bottom": 20,
         "margin_top_mobile": 20,
-<<<<<<< Updated upstream
         "margin_bottom_mobile": 50
-=======
-        "margin_bottom_mobile": 20
->>>>>>> Stashed changes
       }
     },
     "448b6ebb-7cbc-4e18-9ce6-2538fc087669": {

@@ -9,17 +9,12 @@
           "type": "cta_button",
           "settings": {
             "button_text": "Become a Client",
-<<<<<<< Updated upstream
             "button_url": "https:\/\/darioteststore1.myshopify.com\/account\/register"
-=======
-            "button_url": ""
->>>>>>> Stashed changes
           }
         },
         "cd9d606e-2c28-484f-9c76-114917e8ab03": {
           "type": "cta_button",
           "settings": {
-<<<<<<< Updated upstream
             "button_text": "Become a Member",
             "button_url": ""
           }
@@ -51,24 +46,15 @@
             "media_icon": "golden-whatsapp",
             "social_media_link": "https:\/\/api.whatsapp.com\/send?phone=971504857297&text=Hey%20Wealthy%20Expat%2C%20I%27m%20interested%20in%20"
           }
-=======
-            "button_text": "Become a Client",
-            "button_url": ""
-          }
->>>>>>> Stashed changes
         }
       },
       "block_order": [
         "300d160a-492d-4d3f-8016-de402a01762c",
-<<<<<<< Updated upstream
         "cd9d606e-2c28-484f-9c76-114917e8ab03",
         "ed029941-9f83-489f-b338-bf6dc310281f",
         "6ac0cae2-9898-4214-9b0c-5990be443573",
         "068972e4-a131-4a35-a4a9-271d47210c9d",
         "38494db5-062f-461e-91c5-2828e323bb3b"
-=======
-        "cd9d606e-2c28-484f-9c76-114917e8ab03"
->>>>>>> Stashed changes
       ],
       "settings": {
         "footer_background": "#000000",
