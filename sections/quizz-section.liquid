@@ -39,7 +39,6 @@
     justify-content: center;
     flex-direction: column;
     justify-content: space-evenly;
-    margin: 0.5rem 0;
   }
   .quiz_select {
     border-radius: 0;
@@ -76,7 +75,12 @@
 
     .accordion-box .block{
         position: relative;
+<<<<<<< Updated upstream
         padding-top: 30px;
+=======
+        padding-top: 22px;
+        padding-bottom: 22px;
+>>>>>>> Stashed changes
     }
 
     .accordion-box .block:last-child{
@@ -301,6 +305,7 @@
 </style>
 
 <div class="quiz_test page-width">
+<<<<<<< Updated upstream
 
   <div id="quiz__form">
     <div class="form-control">
@@ -339,6 +344,103 @@
 </div>
 
 <script>
+=======
+  <div id="quiz__form">
+    <div class="form-control">
+      <ul class="accordion-box">
+      {% for field in shop.metaobjects.questions.values %}
+        <div class="label_and_input quiz_options accordion block {% if forloop.first %}active-block currently-active{% endif %}" data-order-id="{{ forloop.index }}">
+          <div class="acc-btn {% if forloop.first %}active{% endif %}">{{ field.question }}<div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus">{% include 'icon-plus' %}</span></div></div>
+          <div class="acc-content" {% if forloop.first %}style="display: block;"{% endif %}>
+            <div class="content">
+              <div class="text">
+                {% for possible_answer in field.answers.value %}
+                  <div class="possible-answer-input">
+                    <input type="checkbox" id="{{ possible_answer }}-{{ section.id }}-{{ forloop.index }}" name="answer" value="{{ possible_answer }}"></input>
+                    <label for="{{ possible_answer }}-{{ section.id }}-{{ forloop.index }}">{{ possible_answer }}</label>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="button--container">
+      <button type="submit" class="quiz_button button button--secondary">
+        Submit
+      </button>
+      <input type="hidden" value="" onchange="allInputFields(this)" class="all_fields">
+    </div>
+  </div>
+</div>
+
+{%- capture correct_answers -%}
+[
+  {%- for field in shop.metaobjects.questions.values -%}
+    {"wanted_answer":"
+      {%- for correct_answer in field.correct_answer.value -%}
+        {{- correct_answer -}}
+        {%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    "}
+  {%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}
+]
+{%- endcapture -%}
+
+<script>
+  const answers = JSON.parse(`{{ correct_answers }}`);
+  let correctAnswers = [];
+  for (k = 0; k < answers.length; k++) {
+    correctAnswers.push(answers[k].wanted_answer);
+  }
+  const quizForm = document.querySelector('#quiz__form');
+  const quizButton = quizForm.querySelector('.quiz_button');
+
+  function arrayCompare(_arr1, _arr2) {
+    if (
+      !Array.isArray(_arr1)
+      || !Array.isArray(_arr2)
+      || _arr1.length !== _arr2.length
+      ) {
+        return false;
+      }
+    
+    // .concat() to not mutate arguments
+    const arr1 = _arr1.concat().sort();
+    const arr2 = _arr2.concat().sort();
+    
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] !== arr2[i]) {
+            return false;
+         }
+    }
+    
+    return true;
+  }
+
+  quizForm.addEventListener('submit', (e) => {
+    let correctAnswerArray = [];
+    e.preventDefault();
+    e.stopPropagation()
+    const quizSelect = quizForm.querySelectorAll('.quiz_select');
+    const quizInput = quizForm.querySelectorAll('input[name="answer"]');
+    quizSelect.forEach(select => {
+      correctAnswerArray.push(select.value);
+    });
+    quizInput.forEach(input => {
+      if (input.checked) {
+        correctAnswerArray.push(input.value);
+      }
+    });
+    let allCorrectAnswers = arrayCompare(correctAnswers, correctAnswerArray);
+    if (allCorrectAnswers) {
+      window.location.href = '{{ section.settings.correct_answers_url }}';
+    } else {
+      window.location.href = '{{ section.settings.incorrect_answers_url }}';
+    }
+  })
+>>>>>>> Stashed changes
 
   if($('.accordion-box').length){
     $(".accordion-box").on('click', '.acc-btn', function() {
@@ -364,6 +466,7 @@
     });
   }
 
+<<<<<<< Updated upstream
 
 
   if($(".control_buttons").length) {
@@ -389,6 +492,15 @@
       }
     })
   }
+=======
+  
+  // const control_buttons = document.querySelectorAll('.control_buttons button');
+  // control_buttons.forEach(button => {
+    //button.addEventListener('click', () => {
+
+    //})
+  //})
+>>>>>>> Stashed changes
 
 </script>
 

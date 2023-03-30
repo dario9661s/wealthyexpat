@@ -47,10 +47,15 @@
       "settings": {
         "about-us-heading": "About us",
         "about-us-paragraph": "Wealthy Expat is a company which assists with citizenship, tax reduction strategies and asset protection by all means necessary. We make this process simple, secure and 100% guaranteed. Our clients are high net worth investors, entrepreneurs and business owners who seek total financial and business freedom.",
+<<<<<<< Updated upstream
         "heading_bottom_margin": true,
         "margin_top": 0,
         "margin_bottom": 0,
         "heading_size": "h1",
+=======
+        "margin_top": 0,
+        "margin_bottom": 0,
+>>>>>>> Stashed changes
         "margin_top_mobile": 0,
         "margin_bottom_mobile": 0
       }
@@ -136,7 +141,11 @@
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "content_layout": "no-overlap",
+<<<<<<< Updated upstream
         "background_color": "rgba(0,0,0,0)",
+=======
+        "background_color": "#dbb75d",
+>>>>>>> Stashed changes
         "color_scheme": "background-1",
         "mobile_content_alignment": "left",
         "padding_top": 36,
@@ -189,7 +198,11 @@
         "margin_top": 20,
         "margin_bottom": 70,
         "margin_top_mobile": 0,
+<<<<<<< Updated upstream
         "margin_bottom_mobile": 40
+=======
+        "margin_bottom_mobile": 0
+>>>>>>> Stashed changes
       }
     }
   },
