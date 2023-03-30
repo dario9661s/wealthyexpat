@@ -3177,3 +3177,6 @@ details-disclosure > details {
 .svg__icons .circle_svg {
   position: absolute;
 }
+.email_error {
+  text-align: left;
+}

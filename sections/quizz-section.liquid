@@ -6,6 +6,7 @@
     margin-bottom: {{ section.settings.margin_bottom }}px;
   }
   .quiz_test {
+    padding-top: 1rem;
     background-color: {{ section.settings.background_color }};
   }
   .quiz_button {
@@ -75,12 +76,7 @@
 
     .accordion-box .block{
         position: relative;
-<<<<<<< Updated upstream
-        padding-top: 30px;
-=======
-        padding-top: 22px;
         padding-bottom: 22px;
->>>>>>> Stashed changes
     }
 
     .accordion-box .block:last-child{
@@ -231,9 +227,6 @@
     }
 
     @media screen and (max-width: 961px) {
-        .accordion.block {
-            padding-right: 30px;
-        }
         .accordion-box .block .acc-btn {
             padding-left: 0;
         }
@@ -257,11 +250,10 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        gap: 10px;
       }
       .acc-question{
         margin: 0;
-        max-width: 83%;
+        max-width: 90%;
       }
       .accordion-box .block .content p {
           padding-left: 0;
@@ -304,7 +296,7 @@
   
 </style>
 
-<div class="quiz_test page-width">
+<div class="quiz_test">
 
   <div id="quiz__form">
     <div class="form-control">

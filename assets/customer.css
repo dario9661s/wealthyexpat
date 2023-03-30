@@ -43,6 +43,9 @@
 
 .customer form {
   margin-top: 4rem;
+  max-width: 1069px;
+  padding-top: 30px;
+  margin: 0 auto;
 }
 
 .customer button {
