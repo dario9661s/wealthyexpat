@@ -20,11 +20,11 @@
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Book a Call",
+            "button_label_1": "Become a client",
             "button_link_1": "shopify:\/\/collections\/all",
             "button_style_secondary_1": true,
             "button_label_2": "",
-            "button_link_2": "",
+            "button_link_2": "https:\/\/darioteststore1.myshopify.com\/account\/register",
             "button_style_secondary_2": false,
             "button_text_color": "#000000",
             "button_background_color": "#dbb75d",
