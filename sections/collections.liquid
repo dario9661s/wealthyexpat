@@ -34,6 +34,26 @@
       transform: rotate(-90deg);
       margin: 0;
     }
+    .about-us_paragraph{
+        font-size: 20px;
+        font-family: Arial;
+        text-overflow: ellipsis;
+        padding-bottom: 45px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        max-width: 800px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        color: #000000;
+        font-family: Arial;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
     @media(max-width: 800px) {
         .collection-container {
             display: grid;
@@ -42,6 +62,9 @@
         #shopify-section-{{ section.id }} {
           margin-top: {{ section.settings.margin_top_mobile }}px;
           margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+        }
+        .about-us_paragraph{
+          font-size: 18px;
         }
     }
     .about-us_heading_and_paragraph_split{
@@ -69,6 +92,12 @@
       .about-us_heading {
         font-size: 40px;
       }
+      .about-us_paragraph{
+        margin-top: 30px;
+      }
+      .about-us_paragraph{
+          font-size: 16px;
+      }
     }
 </style>
 <div class="col-head-container page-width">
@@ -83,9 +112,10 @@
     {% endif %}
   {% endif %}
 </div>
-
+<span class="about-us_paragraph">
+  {{ section.settings.collections__text }}
+</span>
 <div class="collection-container page-width">
-
     {% if section.blocks.size > 0 %}
         {% for block in section.blocks %}
             {% assign blcokTitle = block.settings.text %}
@@ -200,6 +230,12 @@
       "id": "url_color",
       "default": "#000000",
       "label": "Text color of the link"
+    },
+    {
+      "type": "text",
+      "id": "collections__text",
+      "label": "Text about us",
+      "default": "At Wealthy Expat, we understand that your time is precious, and we strive to make every step of the process as smooth as possible for you. From finding the best strategy to suit your individual needs to identifying the optimal residence or citizenship option, to opening a company and reducing taxes - we take care of everything from start to finish."
     },
     {
       "type": "select",
