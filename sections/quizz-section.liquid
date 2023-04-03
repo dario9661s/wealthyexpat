@@ -302,9 +302,9 @@
     <div class="form-control">
       <ul class="accordion-box">
         {% for field in shop.metaobjects.questions.values %}
-          <li class="accordion block {% if forloop.first %} active-block {% endif %}">
-              <div class="acc-btn {% if forloop.first %} active {% endif %}"><p class="acc-question">{{ field.question }}<p><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus">{% include 'icon-plus' %}</span></div></div>
-              <div class="acc-content" {% if forloop.first %} style="display: block;" {% endif %}>
+          <li class="accordion block active-block">
+              <div class="acc-btn active"><p class="acc-question">{{ field.question }}<p><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus">{% include 'icon-plus' %}</span></div></div>
+              <div class="acc-content" style="display: block;">
                 <div class="content">
                   <div class="text">
                     {% for possible_answer in field.answers.value %}
