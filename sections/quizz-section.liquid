@@ -313,17 +313,6 @@
     <div class="form-control">
       <ul class="accordion-box">
         {% for field in shop.metaobjects.questions.values %}
-<<<<<<< HEAD
-          <li class="accordion block active-block">
-              <div class="acc-btn active"><p class="acc-question">{{ field.question }}<p><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus">{% include 'icon-plus' %}</span></div></div>
-              <div class="acc-content" style="display: block;">
-                <div class="content">
-                  <div class="text">
-                    {% for possible_answer in field.answers.value %}
-                      <div class="possible-answer-input">
-                        <input required onchange="updateInputValue()" type="checkbox" id="{{ possible_answer }}-{{ section.id }}-{{ forloop.index }}" name="answer" value="{{ possible_answer }}"></input>
-                        <label for="{{ possible_answer }}-{{ section.id }}-{{ forloop.index }}">{{ possible_answer }}</label>
-=======
           <div class="label_and_dropdown quiz_options">
               <div class="quiz-question">
                   {{ field.question }}
@@ -337,7 +326,6 @@
                                   <option class="quiz_option" value="{{ possible_answer }}">{{ possible_answer }}</option>
                               {% endfor %}
                           </select>
->>>>>>> faq-account-register-and-header-buttons
                       </div>
                   </div>
               </div>
