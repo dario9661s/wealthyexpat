@@ -430,7 +430,7 @@
       "last_name": "Last name",
       "email": "Email",
       "password": "Password",
-      "submit": "Create"
+      "submit": "Submit"
     },
     "reset_password": {
       "title": "Reset account password",

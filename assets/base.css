@@ -2288,7 +2288,7 @@ product-info .loading-overlay:not(.hidden) ~ *,
 .header {
   display: grid;
   grid-template-areas: 'left-icon heading icons';
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
 }
 
@@ -2653,7 +2653,6 @@ details[open] > .header__submenu {
   .header__inline-menu {
     display: flex;
     align-items: center;
-    justify-content: center;
   }
 
   .header--top-center .header__inline-menu {
