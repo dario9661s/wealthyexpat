@@ -65,6 +65,7 @@
   .list-menu--inline {
     display: inline-flex;
     flex-wrap: wrap;
+    gap: 15px;
   }
 
   summary.list-menu__item {
@@ -106,6 +107,31 @@
       
     }
   {% endif %}
+
+  .golden-menu-item {
+    background: #dbb75d;
+  }
+
+  .golden-menu-item a {
+    color: black;
+  }
+  
+  .golden-menu-item a:hover {
+    color: black;
+  }
+
+  .golden-menu-item a .header__active-menu-item {
+    color: black;
+  }
+
+  .golden-menu-item .header__menu-item span {
+    transition: none;
+  }
+
+  .golden-menu-item a .header__menu-item:hover span {
+    text-decoration: none;
+  }
+
 </style>
 
 {%- style -%}
@@ -477,7 +503,10 @@
         <nav class="header__inline-menu">
           <ul class="list-menu list-menu--inline" role="list">
             {%- for link in section.settings.menu.links -%}
-              <li>
+              <li 
+                {% if link.url == 'https://darioteststore1.myshopify.com/account/register' or link.title == 'Become a Member' %}
+                  class="golden-menu-item"
+                {% endif %}>
                 {%- if link.links != blank -%}
                   <header-menu>
                     <details id="Details-HeaderMenu-{{ forloop.index }}">

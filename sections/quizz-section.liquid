@@ -40,20 +40,21 @@
     justify-content: center;
     flex-direction: column;
     justify-content: space-evenly;
+    margin: 2rem 0;
   }
-  .quiz_select {
+  .quiz-answers-content .quiz_select {
     border-radius: 0;
-    height: 30px;
-    border: solid 1px black;
     background: #fff;
     font-size: inherit;
     color: black;
     line-height: 15px;
-    box-shadow: none;
-    background: #fff;
-    max-width: 250px;
+    max-width: 100%;
+    width: 100%;
     margin: 0 auto;
     min-width: 150px;
+    box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground),var(--inputs-border-opacity));
+    -webkit-appearance: auto;
+    appearance: auto;
   }
   @media screen and (max-width: 991px) {
     #shopify-section-{{  section.id }} {
@@ -83,10 +84,6 @@
         border-bottom: 0px;
     }
 
-    .accordion-box .text {
-      text-align: left;
-      padding-left: 20px;
-    }
 
     .accordion-box .block .acc-btn{
       text-align: left;
@@ -293,6 +290,20 @@
     #shopify-section-{{ section.id }} .control-btn:active {
       cursor: pointer;
     }
+
+    @media screen and (min-width: 750px) {
+      #shopify-section-{{ section.id }} .quiz_test {
+        max-width: 55%;
+        margin: 0 auto;
+      }
+    }
+
+    #shopify-section-{{ section.id }} .quiz-question {
+      font-weight: 700;
+      margin: 2rem 0;
+    }
+
+
   
 </style>
 
@@ -302,6 +313,7 @@
     <div class="form-control">
       <ul class="accordion-box">
         {% for field in shop.metaobjects.questions.values %}
+<<<<<<< HEAD
           <li class="accordion block active-block">
               <div class="acc-btn active"><p class="acc-question">{{ field.question }}<p><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus">{% include 'icon-plus' %}</span></div></div>
               <div class="acc-content" style="display: block;">
@@ -311,82 +323,31 @@
                       <div class="possible-answer-input">
                         <input required onchange="updateInputValue()" type="checkbox" id="{{ possible_answer }}-{{ section.id }}-{{ forloop.index }}" name="answer" value="{{ possible_answer }}"></input>
                         <label for="{{ possible_answer }}-{{ section.id }}-{{ forloop.index }}">{{ possible_answer }}</label>
-                      </div>
-                    {% endfor %}
-                  </div>
-                </div>
-                <div class="control_buttons">
-                  {% if forloop.first %}
-                    <p class="control-btn next-button">Next</p>
-                  {% elsif forloop.last %}
-                    <p class="control-btn prev-button">Previous</p>
-                  {% else %}
-                    <p class="control-btn prev-button">Previous</p>
-                    <p class="control-btn next-button">Next</p>
-                  {% endif %}
-                </div>
+=======
+          <div class="label_and_dropdown quiz_options">
+              <div class="quiz-question">
+                  {{ field.question }}
               </div>
-          </li>
+              <div class="quiz-answers-container">
+                  <div class="quiz-answers-content">
+                      <div class="text">
+                          <select class="quiz_select" id="dropdown-{{ forloop.index }}" onchange="updateInputValue()">
+                              {% for possible_answer in field.answers.value %}
+                                  <option hidden selected></option>
+                                  <option class="quiz_option" value="{{ possible_answer }}">{{ possible_answer }}</option>
+                              {% endfor %}
+                          </select>
+>>>>>>> faq-account-register-and-header-buttons
+                      </div>
+                  </div>
+              </div>
+          </div>
         {% endfor %}
       </ul>
     </div>
     <input type="hidden" name="customer[tags]" class="all-inputs-value" value="">
   </div>
 </div>
-
-<script>
-
-  if($('.accordion-box').length){
-    $(".accordion-box").on('click', '.acc-btn', function() {
-        var outerBox = $(this).parents('.accordion-box');
-        var target = $(this).parents('.accordion');
-        if($(this).hasClass('active')!==true){
-          $(outerBox).find('.accordion .acc-btn').removeClass('active');
-        }
-        if ($(this).hasClass('active')) {
-            $(this).removeClass('active');
-            target.removeClass('active-block');
-            $(this).next('.acc-content').slideUp(300);
-        }
-        if ($(this).next('.acc-content').is(':visible')){
-            return false;
-        }else{
-            $(this).addClass('active');
-            $(outerBox).children('.accordion').removeClass('active-block');
-            $(outerBox).find('.accordion').children('.acc-content').slideUp(300);
-            target.addClass('active-block');
-            $(this).next('.acc-content').slideDown(300);
-        }
-    });
-  }
-
-
-
-  if($(".control_buttons").length) {
-    $(".control-btn").on("click",  function(){
-      var parentAcc = $(this).parents('.accordion');
-      var nextParrentAcc = parentAcc.next();
-      var previousParentAcc = parentAcc.prev();
-      if ($(this).hasClass('next-button')) {
-        parentAcc.removeClass('active-block');
-        parentAcc.find('.acc-btn').removeClass('active');
-        parentAcc.find('.acc-content').slideUp(300);
-        nextParrentAcc.addClass('active-block');
-        nextParrentAcc.find('.acc-btn').addClass('active');
-        nextParrentAcc.find('.acc-content').slideDown(300);
-      }
-      if ($(this).hasClass('prev-button')) {
-        parentAcc.removeClass('active-block');
-        parentAcc.find('.acc-btn').removeClass('active');
-        parentAcc.find('.acc-content').slideUp(300);
-        previousParentAcc.addClass('active-block');
-        previousParentAcc.find('.acc-btn').addClass('active');
-        previousParentAcc.find('.acc-content').slideDown(300);
-      }
-    })
-  }
-
-</script>
 
 {% schema %}
   {

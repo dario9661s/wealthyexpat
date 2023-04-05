@@ -101,12 +101,11 @@
           aria-describedby="RegisterForm-email-error"
         {% endif %}
         placeholder="{{ 'customer.register.email' | t }}"
-        onchange="checkFieldInput()"
       >
       <label for="RegisterForm-email">
         {{ 'customer.register.email' | t }}
       </label>
-      <p class="email_error">Please enter a valid email address. (example@gmail.com)</p>
+      <p class="email_error">Please enter a valid email address</p>
     </div>
     <div class="field possible-answer-input">
       <input onchange="updateInputValue()" id="additional_info_one" type="text" placeholder= "What is your current place of residence?" name="customer[note][Place of residence]" />
@@ -136,7 +135,6 @@
           aria-describedby="RegisterForm-password-error"
         {% endif %}
         placeholder="{{ 'customer.register.password' | t }}"
-        onchange="checkPasswordInput(this)"
       >
       <label for="RegisterForm-password">
         {{ 'customer.register.password' | t }}
@@ -193,8 +191,7 @@
       correctAnswers.push(answers[k].wanted_answer);
     }
   }
-  // const quizForm = document.querySelector('#quiz__form');
-  // const quizButton = quizForm.querySelector('.quiz_button');
+  //const quizForm = document.querySelector('#quiz__form');
 
   const compareArrays = function(arr, target) {
     return target.every(v => arr.includes(v));
@@ -213,9 +210,9 @@
     let correctAnswerArray = [];
     e.preventDefault();
     e.stopPropagation()
-    const quizInput = quizForm.querySelectorAll('input[name="answer"]');
+    const quizInput = quizForm.querySelectorAll('.quiz_select');
     quizInput.forEach(input => {
-      if (input.checked) {
+      if (input.value || input.value != '') {
         correctAnswerArray.push(input.value);
       }
     });
@@ -231,10 +228,10 @@
 
   const updateInputValue = () => {
     let allInputsArray = [];
-    const allInputs = document.querySelectorAll('.possible-answer-input input');
+    const allInputs = document.querySelectorAll('.quiz_select');
     const allAccountInputs = document.querySelectorAll('.field.possible-answer-input input');
     allInputs.forEach(el => {
-      if (el.checked) {
+      if (el.value || el.value != '') {
         if (el.value.includes(',')) {
           allInputsArray.push(el.value.replace(',', ''));
         } else {
@@ -252,35 +249,67 @@
       }
     })
     document.querySelector('.all-inputs-value').value = allInputsArray;
+  }
 
-    const accordions = document.querySelectorAll('.accordion-box');
+  const checkNumberOfAnswers = function() {
+    const accordions = document.querySelectorAll('.label_and_dropdown');
+    let numberOfValues = 0;
+    let checkedNumber;
     accordions.forEach(accordion => {
-      let accinputs = accordion.querySelectorAll("input[type=checkbox]:checked");
+      let accinputs = accordion.querySelectorAll(".quiz_select");
       let stringNumberOfQ = '{{ numberOfQuestions }}';
       let numberOfQ = parseInt(stringNumberOfQ);
+<<<<<<< HEAD
       let checkEmail = checkFieldInput();
       let checkPassword = checkPasswordInput(document.querySelector('input[name="customer[password]"]'));
       if (accinputs.length >= numberOfQ && checkEmail) {
         document.querySelector('.register__form-buton').disabled = false;
+=======
+      accinputs.forEach(acc => {
+        if (acc.value || acc.value != '') {
+          numberOfValues++;
+        }
+      })
+      if (numberOfValues >= numberOfQ) {
+        checkedNumber = true;
+>>>>>>> faq-account-register-and-header-buttons
       } else {
-        document.querySelector('.register__form-buton').disabled = true;        
+        checkedNumber = false;      
       }
     })
+    return checkedNumber;
   }
 
   const formInputs = document.querySelectorAll('.field input[type=text]');
 
+  const validatedAnswers = function() {
+    let stringNumberOfQ = '{{ numberOfQuestions }}';
+    let numberOfQ = parseInt(stringNumberOfQ);
+    let checkEmail = checkFieldInput();
+    let checkPassword = checkPasswordInput();
+    let numberOfA = checkNumberOfAnswers();
+
+    if (numberOfA && checkEmail && checkPassword) {
+      return true;
+    } else {
+      return false;       
+    }
+  }
+
   const checkFieldInput = function() {
     const emailInput = document.querySelector('.field input[type="email"]');
     if (ValidateEmail(emailInput)) {
+<<<<<<< HEAD
       document.querySelector('.register__form-buton').disabled = false;
+=======
+>>>>>>> faq-account-register-and-header-buttons
       if (document.querySelector('.email__field').style.marginBottom == "2.8rem") {
         document.querySelector('.email__field').style.marginBottom = "0rem"
       }
       return true;
     } else {
+      console.log('kako');
       document.querySelector('.email_error').style.display = "block";
-      document.querySelector('.register__form-buton').disabled = true;
       if (window.innerWidth < 810) {
         document.querySelector('.email__field').style.marginBottom = "2.8rem"; 
       }
@@ -294,21 +323,40 @@
       document.querySelector('.email_error').style.display = "none";
       return true;
     } else {
+      console.log('zasto');
       document.querySelector('.email_error').style.display = "block";
       return false;
     }
   }
 
-  function checkPasswordInput(input) {
-    if (input.value.length < 5) {
+  function checkPasswordInput() {
+    let passwordInput = document.querySelector('input[name="customer[password]"]');
+    if (passwordInput.value.length < 5) {
+      console.log('gde');
       document.querySelector('.password_error').style.display = "block";
-      document.querySelector('.register__form-buton').disabled = true;
       return false;
     } else {
       document.querySelector('.password_error').style.display = "none";
-      document.querySelector('.register__form-buton').disabled = false;
       return true;
     }
   }
+
+  quizForm.addEventListener('change', () => {
+    const validatedForm = validatedAnswers();
+    if (validatedForm) {
+      document.querySelector('.register__form-buton').disabled = false;
+    } else {
+      document.querySelector('.register__form-buton').disabled = true;
+    }
+  })
+
+  window.addEventListener('load', () => {
+    const validatedForm = validatedAnswers();
+    if (validatedForm) {
+      document.querySelector('.register__form-buton').disabled = false;
+    } else {
+      document.querySelector('.register__form-buton').disabled = true;
+    }
+  });
 
 </script>
