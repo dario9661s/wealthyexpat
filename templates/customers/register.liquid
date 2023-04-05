@@ -297,7 +297,6 @@
       }
       return true;
     } else {
-      console.log('kako');
       document.querySelector('.email_error').style.display = "block";
       if (window.innerWidth < 810) {
         document.querySelector('.email__field').style.marginBottom = "2.8rem"; 
@@ -312,7 +311,6 @@
       document.querySelector('.email_error').style.display = "none";
       return true;
     } else {
-      console.log('zasto');
       document.querySelector('.email_error').style.display = "block";
       return false;
     }
@@ -321,7 +319,6 @@
   function checkPasswordInput() {
     let passwordInput = document.querySelector('input[name="customer[password]"]');
     if (passwordInput.value.length < 5) {
-      console.log('gde');
       document.querySelector('.password_error').style.display = "block";
       return false;
     } else {
