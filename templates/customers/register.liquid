@@ -259,12 +259,6 @@
       let accinputs = accordion.querySelectorAll(".quiz_select");
       let stringNumberOfQ = '{{ numberOfQuestions }}';
       let numberOfQ = parseInt(stringNumberOfQ);
-<<<<<<< HEAD
-      let checkEmail = checkFieldInput();
-      let checkPassword = checkPasswordInput(document.querySelector('input[name="customer[password]"]'));
-      if (accinputs.length >= numberOfQ && checkEmail) {
-        document.querySelector('.register__form-buton').disabled = false;
-=======
       accinputs.forEach(acc => {
         if (acc.value || acc.value != '') {
           numberOfValues++;
@@ -272,7 +266,6 @@
       })
       if (numberOfValues >= numberOfQ) {
         checkedNumber = true;
->>>>>>> faq-account-register-and-header-buttons
       } else {
         checkedNumber = false;      
       }
