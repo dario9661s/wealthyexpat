@@ -3179,3 +3179,6 @@ details-disclosure > details {
 .email_error {
   text-align: left;
 }
+.regular_field_error {
+  text-align: left;
+}

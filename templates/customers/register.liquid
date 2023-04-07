@@ -47,10 +47,12 @@
         {% endif %}
         autocomplete="given-name"
         placeholder="{{ 'customer.register.first_name' | t }}"
+        onchange="regularInputs()"
       >
       <label for="RegisterForm-FirstName">
         {{ 'customer.register.first_name' | t }}
       </label>
+      <p class="regular_field_error">Please enter your first name</p>
     </div>
     <div class="field">
       <input
@@ -62,10 +64,12 @@
         {% endif %}
         autocomplete="family-name"
         placeholder="{{ 'customer.register.last_name' | t }}"
+        onchange="regularInputs()"
       >
       <label for="RegisterForm-LastName">
         {{ 'customer.register.last_name' | t }}
       </label>
+      <p class="regular_field_error">Please enter your last name</p>
     </div>
     <div class="field">
       <input
@@ -75,14 +79,17 @@
         {% if form.phone %}value="{{ form.phone }}"{% endif %}
         autocomplete="family-name"
         placeholder="Phone Number"
+        onchange="regularInputs()"
       >
       <label for="RegisterForm-Number">
       Phone Number
       </label>
+      <p class="regular_field_error">Please enter your phone number</p>
     </div>
     <div class="field possible-answer-input">
       <input onchange="updateInputValue()" type="text" placeholder="Nationality" id="nationality" name="nationality">
       <label for="nationality">Nationality</label>
+      <p class="regular_field_error">Please enter your nationality</p>
     </div>
     <div class="field email__field">
       <input
@@ -110,10 +117,12 @@
     <div class="field possible-answer-input">
       <input onchange="updateInputValue()" id="additional_info_one" type="text" placeholder= "What is your current place of residence?" name="customer[note][Place of residence]" />
       <label for="additional_info_one">What is your current place of residence?</label>
+      <p class="regular_field_error">Please enter your current place of residence</p>
     </div>
     <div class="field possible-answer-input">
       <input onchange="updateInputValue()" id="additional_info_two" type="text" placeholder= "What does your current structure look like?" name="customer[note][Structure]" />
       <label for="additional_info_two">What does your current structure look like?</label>
+      <p class="regular_field_error">Please enter what does your current structure look like</p>
     </div>
     {%- if form.errors contains 'email' -%}
       <span id="RegisterForm-email-error" class="form__message">
@@ -234,10 +243,8 @@
       if (el.value || el.value != '') {
         if (el.value.includes(',')) {
           allInputsArray.push(el.value.replace(',', ''));
-        } else {
-          allInputsArray.push(el.value);
         }
-      }
+      } 
     })
     allAccountInputs.forEach(el => {
       if (el.value != '') {
@@ -246,6 +253,9 @@
         } else {
           allInputsArray.push(el.value);
         }
+        el.parentElement.querySelector('.regular_field_error').style.display = "none";
+      } else {
+        el.parentElement.querySelector('.regular_field_error').style.display = "block";
       }
     })
     document.querySelector('.all-inputs-value').value = allInputsArray;
@@ -287,6 +297,18 @@
     } else {
       return false;       
     }
+  }
+
+  const regularInputs = function() {
+    const regularField = document.querySelectorAll('.regular_field_error');
+    regularField.forEach(el => {
+      let regularInputs = el.parentElement.querySelector('input[type="text"]');
+      if (!regularInputs.value || regularInputs.value == '') {
+        el.style.display = "block";
+      } else {
+        el.style.display = "none";
+      }
+    })
   }
 
   const checkFieldInput = function() {

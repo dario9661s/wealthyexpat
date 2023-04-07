@@ -803,6 +803,14 @@ li[data-address] > h2 {
   line-height: 1;
   color: red;
 }
+.regular_field_error {
+  display: none;
+  position: absolute;
+  bottom: -22px;
+  margin: 0;
+  line-height: 1;
+  color: red;
+}
 
 .password_error {
   display: none;
