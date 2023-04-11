@@ -7,16 +7,16 @@
           "type": "accordionBlock",
           "settings": {
             "img": "shopify:\/\/shop_images\/row-of-young-adults-at-work.jpg",
-            "text": "Solutions is the latest software Sigma?",
-            "collection_url": ""
+            "text": "Mexico",
+            "collection_url": "shopify:\/\/pages\/mexico"
           }
         },
         "894fb0a4-de6e-49a4-b16f-5b97efc58697": {
           "type": "accordionBlock",
           "settings": {
             "img": "shopify:\/\/shop_images\/photo_2022-07-29_08.webp",
-            "text": "Solutions is the latest software Sigma?",
-            "collection_url": ""
+            "text": "Thailand",
+            "collection_url": "shopify:\/\/pages\/thailand"
           }
         },
         "627c3614-287a-4e12-b9f4-ac034a1f47fc": {
@@ -79,8 +79,12 @@
         "77358dad-26cb-44a6-b06e-5804d4b808e4"
       ],
       "settings": {
+        "heading": "Our Services",
+        "heading_size": "h1",
         "url_color": "#000000",
+        "collections__text": "At Wealthy Expat, we understand that your time is precious, and we strive to make every step of the process as smooth as possible for you. From finding the best strategy to suit your individual needs to identifying the optimal residence or citizenship option, to opening a company and reducing taxes - we take care of everything from start to finish.",
         "arrow_select": "caret",
+        "heading_bottom_margin": true,
         "margin_top": 20,
         "margin_bottom": 20,
         "margin_top_mobile": 20,
