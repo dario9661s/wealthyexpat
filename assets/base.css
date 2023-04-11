@@ -3182,3 +3182,32 @@ details-disclosure > details {
 .regular_field_error {
   text-align: left;
 }
+#subheadings_list {
+  list-style: none;
+}
+.filter__dropdown {
+  transition: height 300ms ease-in;
+}
+.filter__dropdown.filter-closed {
+  height: 0;
+  visibility: hidden;
+}
+.filter__dropdown.filter-opened {
+  height: auto;
+  visibility: visible;
+}
+
+.subtitle_li {
+  font-size: 14px;
+  padding-left: 20px;
+}
+
+@media screen and (max-width: 750px) {
+  .our-countries-sidebar {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .filter--icon {
+    padding-left: 20px;
+  }
+}

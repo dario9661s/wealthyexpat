@@ -351,8 +351,6 @@
         let allCorrectAnswers = arrayCompare(correctAnswers, correctAnswerArray);
         if (allCorrectAnswers) {
             window.location.href = '{{ section.settings.correct_answers_url }}';
-        } else {
-            window.location.href = '{{ section.settings.incorrect_answers_url }}';
         }
     })
 
