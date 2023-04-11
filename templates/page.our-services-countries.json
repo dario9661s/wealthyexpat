@@ -6,9 +6,18 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "b16695c0-89ab-4bfa-9fa0-62299fd4e908": {
+      "type": "our-services-sidebar",
+      "settings": {
+        "text": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "b16695c0-89ab-4bfa-9fa0-62299fd4e908"
   ]
 }
