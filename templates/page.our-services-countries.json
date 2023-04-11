@@ -2,6 +2,9 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.rte p, .rte li {font-size: 2.4rem; }}"
+      ],
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
