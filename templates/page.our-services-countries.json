@@ -6,8 +6,8 @@
         "@media screen and (min-width: 750px) {.rte p, .rte li {font-size: 2.4rem; }}"
       ],
       "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     },
     "b16695c0-89ab-4bfa-9fa0-62299fd4e908": {
