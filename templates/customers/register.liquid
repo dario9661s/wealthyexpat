@@ -1,3 +1,5 @@
+{% section 'image-banner-register-page' %}
+
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
 <div class="customer register section-{{ section.id }}-padding">
@@ -9,10 +11,6 @@
       <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
     </symbol>
   </svg>
-  <div class="register-heading-container">
-    <span class="about-us_heading ">Become a Client</span>
-    <div class="about-us_heading_and_paragraph_split"></div>
-  </div>
 
   {%- form 'create_customer', novalidate: 'novalidate' -%}
     {%- if form.errors -%}
@@ -37,92 +35,119 @@
         {%- endfor -%}
       </ul>
     {%- endif -%}
-    <div class="field">
-      <input
-        type="text"
-        name="customer[first_name]"
-        id="RegisterForm-FirstName"
-        {% if form.first_name %}
-          value="{{ form.first_name }}"
-        {% endif %}
-        autocomplete="given-name"
-        placeholder="{{ 'customer.register.first_name' | t }}"
-        onchange="regularInputs()"
-      >
+    <div class="register-field">
       <label for="RegisterForm-FirstName">
         {{ 'customer.register.first_name' | t }}
+        <strong class="sg-required-icon">*<span class="sg-screenreader-only">This question is required.</span></strong>
       </label>
-      <p class="regular_field_error">Please enter your first name</p>
+      <div class="field">
+        <input
+          type="text"
+          name="customer[first_name]"
+          id="RegisterForm-FirstName"
+          {% if form.first_name %}
+            value="{{ form.first_name }}"
+          {% endif %}
+          autocomplete="given-name"
+          placeholder="{{ 'customer.register.first_name' | t }}"
+          onchange="regularInputs()"
+        >
+        {% comment %} <p class="regular_field_error">Please enter your first name</p> {% endcomment %}
+      </div>
     </div>
-    <div class="field">
-      <input
-        type="text"
-        name="customer[last_name]"
-        id="RegisterForm-LastName"
-        {% if form.last_name %}
-          value="{{ form.last_name }}"
-        {% endif %}
-        autocomplete="family-name"
-        placeholder="{{ 'customer.register.last_name' | t }}"
-        onchange="regularInputs()"
-      >
+    <div class="register-field">
       <label for="RegisterForm-LastName">
         {{ 'customer.register.last_name' | t }}
+        <strong class="sg-required-icon">*<span class="sg-screenreader-only">This question is required.</span></strong>
       </label>
-      <p class="regular_field_error">Please enter your last name</p>
+      <div class="field">
+        <input
+          type="text"
+          name="customer[last_name]"
+          id="RegisterForm-LastName"
+          {% if form.last_name %}
+            value="{{ form.last_name }}"
+          {% endif %}
+          autocomplete="family-name"
+          placeholder="{{ 'customer.register.last_name' | t }}"
+          onchange="regularInputs()"
+        >
+        {% comment %} <p class="regular_field_error">Please enter your last name</p>  {% endcomment %}
+      </div>
     </div>
-    <div class="field">
-      <input
-        type="text"
-        name="customer[note][Phone number]"
-        id="RegisterForm-Number"
-        {% if form.phone %}value="{{ form.phone }}"{% endif %}
-        autocomplete="family-name"
-        placeholder="Phone Number"
-        onchange="regularInputs()"
-      >
+    <div class="register-field">
       <label for="RegisterForm-Number">
-      Phone Number
+        Phone Number
+        <strong class="sg-required-icon">*<span class="sg-screenreader-only">This question is required.</span></strong>
+        </label>
+      <div class="field">
+        <input
+          type="text"
+          name="customer[note][Phone number]"
+          id="RegisterForm-Number"
+          {% if form.phone %}value="{{ form.phone }}"{% endif %}
+          autocomplete="family-name"
+          placeholder="Phone Number"
+          onchange="regularInputs()"
+        >
+        {% comment %} <p class="regular_field_error">Please enter your phone number</p> {% endcomment %}
+      </div>
+    </div>
+    <div class="register-field">
+      <label for="nationality">
+        Nationality
+        <strong class="sg-required-icon">*<span class="sg-screenreader-only">This question is required.</span></strong>
       </label>
-      <p class="regular_field_error">Please enter your phone number</p>
+      <div class="field possible-answer-input">
+        <input onchange="updateInputValue()" type="text" placeholder="Nationality" id="nationality" name="nationality">
+        {% comment %}<p class="regular_field_error">Please enter your nationality</p>{% endcomment %}
+      </div>
     </div>
-    <div class="field possible-answer-input">
-      <input onchange="updateInputValue()" type="text" placeholder="Nationality" id="nationality" name="nationality">
-      <label for="nationality">Nationality</label>
-      <p class="regular_field_error">Please enter your nationality</p>
-    </div>
-    <div class="field email__field">
-      <input
-        type="email"
-        name="customer[email]"
-        id="RegisterForm-email"
-        {% if form.email %}
-          value="{{ form.email }}"
-        {% endif %}
-        spellcheck="false"
-        autocapitalize="off"
-        autocomplete="email"
-        aria-required="true"
-        {% if form.errors contains 'email' %}
-          aria-invalid="true"
-          aria-describedby="RegisterForm-email-error"
-        {% endif %}
-        placeholder="{{ 'customer.register.email' | t }}"
-      >
+    <div class="register-field">
       <label for="RegisterForm-email">
         {{ 'customer.register.email' | t }}
+        <strong class="sg-required-icon">*<span class="sg-screenreader-only">This question is required.</span></strong>
       </label>
-      <p class="email_error">Please enter a valid email address</p>
+      <div class="field email__field">
+        <input
+          type="email"
+          name="customer[email]"
+          id="RegisterForm-email"
+          {% if form.email %}
+            value="{{ form.email }}"
+          {% endif %}
+          spellcheck="false"
+          autocapitalize="off"
+          autocomplete="email"
+          aria-required="true"
+          {% if form.errors contains 'email' %}
+            aria-invalid="true"
+            aria-describedby="RegisterForm-email-error"
+          {% endif %}
+          placeholder="{{ 'customer.register.email' | t }}"
+        >
+        <p class="email_error">Please enter a valid email address</p>
+      </div>
     </div>
-    <div class="field possible-answer-input">
-      <input onchange="updateInputValue()" id="additional_info_one" type="text" placeholder= "What is your current place of residence?" name="customer[note][Place of residence]" />
-      <label for="additional_info_one">What is your current place of residence?</label>
-      <p class="regular_field_error">Please enter your current place of residence</p>
+    <div class="register-field">
+      <label for="additional_info_one">
+        What is your current place of residence?
+        <strong class="sg-required-icon">*<span class="sg-screenreader-only">This question is required.</span></strong>
+      </label>
+      <div class="field possible-answer-input">
+        <input onchange="updateInputValue()" id="additional_info_one" type="text" placeholder= "What is your current place of residence?" name="customer[note][Place of residence]" />
+        {% comment %}<p class="regular_field_error">Please enter your current place of residence</p>{% endcomment %}
+      </div>
     </div>
-    <div class="field possible-answer-input">
-      <input onchange="updateInputValue()" id="additional_info_two" type="text" placeholder= "What does your current structure look like?" name="customer[note][Structure]" />
-      <label for="additional_info_two">What does your current structure look like?</label>
-      <p class="regular_field_error">Please enter what does your current structure look like</p>
+    <div class="register-field">
+      <label for="additional_info_two">
+        What does your current structure look like?
+        <strong class="sg-required-icon">*<span class="sg-screenreader-only">This question is required.</span></strong>
+      </label>
+      <div class="field possible-answer-input">
+        <input onchange="updateInputValue()" id="additional_info_two" type="text" placeholder= "What does your current structure look like?" name="customer[note][Structure]" />
+        {% comment %}<p class="regular_field_error">Please enter what does your current structure look like</p>{% endcomment %}
+      </div>
     </div>
     {%- if form.errors contains 'email' -%}
       <span id="RegisterForm-email-error" class="form__message">
@@ -133,22 +158,25 @@
         {{ form.errors.messages.email }}.
       </span>
     {%- endif -%}
-    <div class="field">
-      <input
-        type="password"
-        name="customer[password]"
-        id="RegisterForm-password"
-        aria-required="true"
-        {% if form.errors contains 'password' %}
-          aria-invalid="true"
-          aria-describedby="RegisterForm-password-error"
-        {% endif %}
-        placeholder="{{ 'customer.register.password' | t }}"
-      >
+    <div class="register-field">
       <label for="RegisterForm-password">
         {{ 'customer.register.password' | t }}
+        <strong class="sg-required-icon">*<span class="sg-screenreader-only">This question is required.</span></strong>
       </label>
-      <p class="password_error">Password should contain at least 5 characters</p>
+      <div class="field">
+        <input
+          type="password"
+          name="customer[password]"
+          id="RegisterForm-password"
+          aria-required="true"
+          {% if form.errors contains 'password' %}
+            aria-invalid="true"
+            aria-describedby="RegisterForm-password-error"
+          {% endif %}
+          placeholder="{{ 'customer.register.password' | t }}"
+        >
+        <p class="password_error">Password should contain at least 5 characters</p>
+      </div>
     </div>
     {%- if form.errors contains 'password' -%}
       <span id="RegisterForm-password-error" class="form__message">
@@ -215,7 +243,7 @@
   redirectInput.value = '/account';
   quizForm.append(redirectInput);
 
-  quizForm.addEventListener('submit', (e) => {
+  quizForm.addEventListener('change', (e) => {
     let correctAnswerArray = [];
     e.preventDefault();
     e.stopPropagation()
@@ -229,9 +257,10 @@
     const containsAll = correctAnswerArray.every(element => {
       return correctAnswers.includes(element);
     });
+    const vipClient = document.querySelector('.sg-list input:checked').value
     if (containsAll) {
       let tagsValues = document.querySelector('.all-inputs-value');
-      tagsValues.value = tagsValues.value + ', successfully_registered';
+      tagsValues.value = tagsValues.value + ', successfully_registered' + `, ${vipClient}`;
     }
   })
 
@@ -253,9 +282,6 @@
         } else {
           allInputsArray.push(el.value);
         }
-        el.parentElement.querySelector('.regular_field_error').style.display = "none";
-      } else {
-        el.parentElement.querySelector('.regular_field_error').style.display = "block";
       }
     })
     document.querySelector('.all-inputs-value').value = allInputsArray;
@@ -270,7 +296,7 @@
       let stringNumberOfQ = '{{ numberOfQuestions }}';
       let numberOfQ = parseInt(stringNumberOfQ);
       accinputs.forEach(acc => {
-        if (acc.value || acc.value != '') {
+        if (acc.value && acc.value != '') {
           numberOfValues++;
         }
       })
@@ -291,8 +317,8 @@
     let checkEmail = checkFieldInput();
     let checkPassword = checkPasswordInput();
     let numberOfA = checkNumberOfAnswers();
-
-    if (numberOfA && checkEmail && checkPassword) {
+    let customerInfo = checkCustomerInfo();
+    if (numberOfA && checkEmail && checkPassword && customerInfo) {
       return true;
     } else {
       return false;       
@@ -349,6 +375,17 @@
     }
   }
 
+  function checkCustomerInfo() {
+    let allChecked = true;
+    const customerInput = document.querySelectorAll('.register-field input');
+    customerInput.forEach(el => {
+      if (el.value === '') {
+        allChecked = false;
+      }
+    })
+    return allChecked;
+  }
+
   quizForm.addEventListener('change', () => {
     const validatedForm = validatedAnswers();
     if (validatedForm) {
@@ -358,13 +395,5 @@
     }
   })
 
-  window.addEventListener('load', () => {
-    const validatedForm = validatedAnswers();
-    if (validatedForm) {
-      document.querySelector('.register__form-buton').disabled = false;
-    } else {
-      document.querySelector('.register__form-buton').disabled = true;
-    }
-  });
 
 </script>

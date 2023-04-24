@@ -127,12 +127,7 @@
             </div>
           {%- when 'buttons' -%}
             <div
-              class="animate__animated animate__zoomIn banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}" 
-              style="
-                background: {{ block.settings.button_background_color }};
-                background: -webkit-linear-gradient(to right, {{ block.settings.button_background_color }}, #eedbb1);
-                background: linear-gradient(to right, {{ block.settings.button_background_color }}, #eedbb1);
-              "
+              class="animate__animated animate__zoomIn banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}" style="background-color: {{ block.settings.button_background_color }};"
               {{ block.shopify_attributes }}
             >
               {%- if block.settings.button_label_1 != blank -%}
@@ -167,9 +162,50 @@
   </div>
 </div>
 
+<div class="page-width" style="padding-top: 30px;">
+  <div class="service-selection">
+    <ul class="sg-list sg-list-vertical sg-list-vertical-flipped sg-labels-right" role="radiogroup">
+      {% assign specific_block_index = 0 %}
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'form_buttons' %}
+            <li>
+              <input test="{{ specific_block_index }}" class="sg-input-radio" type="radio" id="form-button-radio-{{ forloop.index}}-{{ block.id }}" name="form-buttons" value="{{ block.settings.text_for_header }}" {% if specific_block_index == 0 %}checked{%endif%}>
+              <label for="form-button-radio-{{ forloop.index}}-{{ block.id }}">
+                <svg class="service_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <g stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </g>
+                </svg>  
+                <div class="service-text">
+                  {% if block.settings.service_title != blank %}
+                    <h4 class="service-title">{{ block.settings.service_title }}</h4>
+                  {% endif %}
+                  {{ block.settings.form_button_text }}
+                </div>
+              </label>
+            </li>
+            {% assign specific_block_index = specific_block_index | plus: 1 %}
+        {% endcase %}
+      {% endfor %}
+    </ul> 
+  </div>
+</div>
+
+<script>
+  const buttonFormInputs = document.querySelectorAll('ul.sg-list input');
+  buttonFormInputs.forEach(input => {
+    input.addEventListener('change', (e) => {
+      const bannerText = document.querySelector('.banner__box span');
+      bannerText.textContent = e.target.value;
+      console.log(bannerText);
+    })
+  })
+</script>
+
 {% schema %}
 {
-  "name": "t:sections.image-banner.name",
+  "name": "Image banner register",
   "tag": "section",
   "class": "section",
   "disabled_on": {
@@ -465,6 +501,28 @@
       ]
     },
     {
+      "type": "form_buttons",
+      "name": "Form buttons",
+      "settings": [
+        {
+          "type": "text",
+          "id": "form_button_text",
+          "label": "Text for button",
+          "default": " Become a client"
+        },
+        {
+          "type": "text",
+          "id": "text_for_header",
+          "label": "Text for header"
+        },
+        {
+          "type": "text",
+          "id": "service_title",
+          "label": "Text for button header"
+        }
+      ]
+    },
+    {
       "type": "buttons",
       "name": "t:sections.image-banner.blocks.buttons.name",
       "limit": 1,
@@ -543,7 +601,7 @@
   ],
   "presets": [
     {
-      "name": "t:sections.image-banner.presets.name",
+      "name": "Image banner register",
       "blocks": [
         {
           "type": "heading"

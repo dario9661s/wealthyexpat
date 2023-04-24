@@ -56,7 +56,9 @@
     font-weight: 600;
     border-width: 1px;
     border-radius: 0px;
-    background-color: {{ section.settings.button_background_color }};
+    background: {{ section.settings.button_background_color }};
+    background: -webkit-linear-gradient(to right, {{ section.settings.button_background_color }}, #eedbb1);
+    background: linear-gradient(to right, {{ section.settings.button_background_color }}, #eedbb1);
     background-position: center center;
     border-color: transparent;
     border-style: solid;

@@ -1,7 +1,6 @@
 <style>
   #shopify-section-{{  section.id }} {
-    color: #000000;
-    font-family: Arial;
+    color: rgba(var(--color-foreground),.75);
     margin-top: {{ section.settings.margin_top }}px;
     margin-bottom: {{ section.settings.margin_bottom }}px;
   }
@@ -275,7 +274,6 @@
       font-size: 14px;
       padding: 10px;
       text-align: center;
-      font-family: 'Arial',Arial,sans-serif;
       line-height: 1.55;
       font-weight: 600;
       border-width: 1px;
@@ -293,14 +291,22 @@
 
     @media screen and (min-width: 750px) {
       #shopify-section-{{ section.id }} .quiz_test {
-        max-width: 55%;
+        max-width: 80%;
         margin: 0 auto;
+      }
+      #shopify-section-{{ section.id }} .label_and_dropdown {
+        margin-top: 3rem;
+      }
+      #shopify-section-{{ section.id }} .accordion-box {
+        margin-top: 0;
+      }
+      #shopify-section-{{ section.id }} .quiz_test {
+        padding-top: 0;
       }
     }
 
     #shopify-section-{{ section.id }} .quiz-question {
-      font-weight: 700;
-      margin: 2rem 0;
+      line-height: calc(1 + 0.8 / var(--font-body-scale));
     }
 
 
@@ -308,7 +314,6 @@
 </style>
 
 <div class="quiz_test">
-
   <div id="quiz__form">
     <div class="form-control">
       <ul class="accordion-box">
@@ -316,13 +321,14 @@
           <div class="label_and_dropdown quiz_options">
               <div class="quiz-question">
                   {{ field.question }}
+                  <strong class="sg-required-icon">*<span class="sg-screenreader-only">This question is required.</span></strong>
               </div>
               <div class="quiz-answers-container">
                   <div class="quiz-answers-content">
                       <div class="text">
                           <select class="quiz_select" id="dropdown-{{ forloop.index }}" onchange="updateInputValue()">
                               {% for possible_answer in field.answers.value %}
-                                  <option hidden selected></option>
+                                  <option hidden selected value="">-- Please Select --</option>
                                   <option class="quiz_option" value="{{ possible_answer }}">{{ possible_answer }}</option>
                               {% endfor %}
                           </select>

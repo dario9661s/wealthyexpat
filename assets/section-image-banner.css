@@ -16,9 +16,123 @@
   .banner--content-align-mobile-left .banner__box {
     text-align: left;
   }
+
+  .sg-list {
+    flex-direction: column;
+  }
 }
 
+.sg-required-icon {
+  margin-right: 0.3em;
+  color: #CA1E34;
+}
+
+.sg-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 30px;
+}
+.sg-survey-form .nomadInput.-serviceInterest .sg-list label {
+  padding: 2px;
+}
+ul.sg-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sg-list li {
+  padding: 0;
+  margin: 0;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+}
+ul.sg-list-vertical li label {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #000;
+  border: 1px solid #d9dade;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0;
+  width: auto;
+  min-height: 150px;
+}
+.sg-input-radio:checked + label {
+  background: rgb(28 173 117 / 5%) !important;
+  border: 2px solid #1cad75 !important;
+}
+.sg-list label {
+  padding: 2px;
+}
+.sg-input-radio:checked + label {
+  background: rgb(28 173 117 / 5%) !important;
+  border: 2px solid #1cad75 !important;
+  padding: 1px;
+}
+.sg-input-radio {
+  opacity: 0;
+  position: absolute;
+  border: 0;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+.service_icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  stroke: #fff;
+  background: #1cad75;
+  width: 27px;
+  height: 27px;
+  padding: 6px;
+  border-radius: 25px;
+  display: inline-block;
+  fill: #1cad75;
+  stroke-width: 4px;
+  vertical-align: middle;
+  -webkit-transition-duration: .1s;
+  -o-transition-duration: .1s;
+  transition-duration: .1s;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+}
+.sg-input-radio:checked + label .service_icon {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.service-text {
+  padding: 15px;
+}
+.service-text h4 {
+  margin: 0 0 10px 0;
+}
 @media only screen and (min-width: 750px) {
+  .service-selection {
+    max-width: 78%;
+    margin: 0 auto;
+  }
+
   .banner--content-align-right .banner__box {
     text-align: right;
   }

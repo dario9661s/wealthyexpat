@@ -44,7 +44,7 @@
 .customer form {
   margin-top: 4rem;
   max-width: 1069px;
-  padding-top: 30px;
+  /* padding-top: 30px; */
   margin: 0 auto;
 }
 
@@ -77,15 +77,47 @@
   margin: 2rem 0 0 0;
 }
 
+.register-field label {
+  display: flex;
+}
+
+.register-field .register-field {
+  font-weight: 700;
+  color: black;
+}
+
+.field__input:focus, .field__input:not(:placeholder-shown), .field__input:-webkit-autofill, .customer .field input:focus, .customer .field input:not(:placeholder-shown), .customer .field input:-webkit-autofill {
+  padding: 1.5rem;
+}
+
+.register-field .sg-required-icon,
+.quiz-question .sg-required-icon {
+  margin-right: 0.3em;
+  color: #CA1E34;
+}
+
+.sg-screenreader-only {
+  position: absolute;
+  border: 0!important;
+  height: 0px;
+  margin: 0;
+  overflow: hidden;
+  padding: 0!important;
+}
+
 @media only screen and (min-width: 750px) {
 
   .customer h2.form__message {
     font-size: calc(var(--font-heading-scale) * 2.2rem);
   }
-  .customer .field {
-    max-width: 55%;
+  .register-field {
+    max-width: 80%;
     margin: 3rem auto;
   }
+}
+
+.register-field {
+  margin: 2rem auto;
 }
 
 .customer .field:first-of-type {
