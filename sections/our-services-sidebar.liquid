@@ -1,32 +1,31 @@
 <style>
   @media screen and (min-width: 1290px) {
-    #shopify-section-{{ section.id }} .our-countries-sidebar {
+    /* .our-countries-sidebar {
       width: 300px;
       height: 100%;
       position: absolute;
       top: 0;
       left: 0;
     }
-    #shopify-section-{{ section.id }} #subheadings_list {
+    #subheadings_list {
       position: fixed;
       max-width: 300px;
-    }
-    #shopify-section-{{ section.id }} #subheadings_list li {
+    } */
+    #subheadings_list li {
       cursor: pointer;
     }
-    #shopify-section-{{ section.id }} {
-      order: 1;
-    }
-    #shopify-section-{{ section.id }} li {
+
+    
+    .our-countries-sidebar li {
       text-decoration: none;
       font-weight: normal;
     }
 
-    #shopify-section-{{ section.id }} li.underline {
+    .our-countries-sidebar li.underline {
       text-decoration: underline;
     }
 
-    #shopify-section-{{ section.id }} li.bolded-text {
+    .our-countries-sidebar li.bolded-text {
       font-weight: 700;;
     }
   }
@@ -107,6 +106,17 @@
   }
 
   let list_elements = ul.querySelectorAll('li');
+
+  if (window.innerWidth > 1290) {
+    const country_page_section = document.querySelector('.country-page-section');
+    country_page_section.insertAdjacentElement('afterbegin', page_section);
+    country_page_section.style.display = "flex";
+    country_page_section.querySelector('.our-countries-sidebar').style.maxWidth = "120rem";
+    country_page_section.querySelector('.our-countries-sidebar').style.minWidth = "30rem";
+    country_page_section.querySelector('.our-countries-sidebar').style.width = "auto";
+    country_page_section.querySelector('.our-countries-sidebar').style.margin = "0";
+    country_page_section.querySelector('.custom-page-class.page-width.page-width--narrow').style.maxWidth = "135rem";
+  }
   
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
