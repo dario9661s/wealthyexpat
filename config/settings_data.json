@@ -182,6 +182,7 @@
           "75a5d05a-1548-4e76-8642-3d08155db3d0"
         ],
         "settings": {
+          "image": "shopify:\/\/shop_images\/Become_a_client_banner.jpg",
           "image_overlay_opacity": 0,
           "image_height": "medium",
           "desktop_content_position": "middle-center",
