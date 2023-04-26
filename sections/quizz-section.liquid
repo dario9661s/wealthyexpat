@@ -316,9 +316,31 @@
 <div class="quiz_test">
   <div id="quiz__form">
     <div class="form-control">
-      <ul class="accordion-box">
+      <ul class="accordion-box regular-client">
         {% for field in shop.metaobjects.questions.values %}
           <div class="label_and_dropdown quiz_options">
+              <div class="quiz-question">
+                  {{ field.question }}
+                  <strong class="sg-required-icon">*<span class="sg-screenreader-only">This question is required.</span></strong>
+              </div>
+              <div class="quiz-answers-container">
+                  <div class="quiz-answers-content">
+                      <div class="text">
+                          <select class="quiz_select" id="dropdown-{{ forloop.index }}" onchange="updateInputValue()">
+                              {% for possible_answer in field.answers.value %}
+                                  <option hidden selected value="">-- Please Select --</option>
+                                  <option class="quiz_option" value="{{ possible_answer }}">{{ possible_answer }}</option>
+                              {% endfor %}
+                          </select>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        {% endfor %}
+      </ul>
+      <ul class="accordion-box vvip-client">
+        {% for field in shop.metaobjects.vvip_question.values %}
+          <div class="label_and_dropdown quiz_options bbbb">
               <div class="quiz-question">
                   {{ field.question }}
                   <strong class="sg-required-icon">*<span class="sg-screenreader-only">This question is required.</span></strong>

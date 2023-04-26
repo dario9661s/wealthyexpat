@@ -209,15 +209,39 @@
 ]
 {%- endcapture -%}
 
+{%- capture correct_answers_vvip -%}
+[
+  {%- for field in shop.metaobjects.vvip_question.values -%}
+    {%- assign arrayLength = 0 -%}
+    {"asked_question":"{{ field.question }}","wanted_answer":
+    "{%- for correct_answer in field.correct_answer.value -%}
+    {{- correct_answer -}}{%- unless forloop.last -%}
+    ;{%- endunless -%}{%- assign arrayLength = arrayLength | plus: 1 -%}{%- endfor -%}","answers_length":"{{- arrayLength -}}"}
+  {%- unless forloop.last -%},{%- endunless -%}
+  {%- endfor -%}
+]
+{%- endcapture -%}
+
 {% assign numberOfQuestions = 0 %}
+
 {% for field in shop.metaobjects.questions.values %}
   {% assign question = field.question %}
   {% assign numberOfQuestions = numberOfQuestions | plus: 1 %}
 {% endfor %}
 
+{% assign numberOfQuestionsVvip = 0 %}
+{% for field in shop.metaobjects.vvip_question.values %}
+  {% assign question = field.question %}
+  {% assign numberOfQuestionsVvip = numberOfQuestionsVvip | plus: 1 %}
+{% endfor %}
+
 <script>
   const answers = JSON.parse(`{{ correct_answers }}`);
+  const vvip_answers = JSON.parse(`{{ correct_answers_vvip }}`);
+  const clientType = document.querySelector('.sg-list input:checked');
+  
   let correctAnswers = [];
+  let correctAnswersVvip = [];
   for (k = 0; k < answers.length; k++) {
     if (answers[k].wanted_answer.includes(';')) {
       let multiple_answers = answers[k].wanted_answer.split(';');
@@ -228,6 +252,17 @@
       correctAnswers.push(answers[k].wanted_answer);
     }
   }
+  for (x = 0; x < vvip_answers.length; x++) {
+    if (vvip_answers[x].wanted_answer.includes(';')) {
+      let multiple_asnwers_vip = vvip_answers[x].wanted_answer.split(';');
+      for (y = 0; y < multiple_asnwers_vip.length; y++) {
+        correctAnswersVvip.push(multiple_asnwers_vip[y]);
+      }
+    } else {
+      correctAnswersVvip.push(vvip_answers[x].wanted_answer);
+    }
+  }
+
   //const quizForm = document.querySelector('#quiz__form');
 
   const compareArrays = function(arr, target) {
@@ -245,6 +280,13 @@
 
   quizForm.addEventListener('change', (e) => {
     let correctAnswerArray = [];
+    let mainAnswersArray = [];
+    const vipClient = document.querySelector('.sg-list input:checked').dataset.typeof;
+    if (vipClient === "regular") {
+      mainAnswersArray = correctAnswers;
+    } else if (vipClient === "vvip") {
+      mainAnswersArray = correctAnswersVvip;
+    }
     e.preventDefault();
     e.stopPropagation()
     const quizInput = quizForm.querySelectorAll('.quiz_select');
@@ -253,11 +295,9 @@
         correctAnswerArray.push(input.value);
       }
     });
-
     const containsAll = correctAnswerArray.every(element => {
-      return correctAnswers.includes(element);
+      return mainAnswersArray.includes(element);
     });
-    const vipClient = document.querySelector('.sg-list input:checked').value
     if (containsAll) {
       let tagsValues = document.querySelector('.all-inputs-value');
       tagsValues.value = tagsValues.value + ', successfully_registered' + `, ${vipClient}`;
@@ -267,7 +307,7 @@
   const updateInputValue = () => {
     let allInputsArray = [];
     const allInputs = document.querySelectorAll('.quiz_select');
-    const allAccountInputs = document.querySelectorAll('.field.possible-answer-input input');
+    const allAccountInputs = document.querySelectorAll('.quiz-answers-content select');
     allInputs.forEach(el => {
       if (el.value || el.value != '') {
         if (el.value.includes(',')) {
@@ -293,7 +333,13 @@
     let checkedNumber;
     accordions.forEach(accordion => {
       let accinputs = accordion.querySelectorAll(".quiz_select");
-      let stringNumberOfQ = '{{ numberOfQuestions }}';
+      let stringNumberOfQ = 0;
+      const clientTypeButton = document.querySelector('.sg-list input:checked');
+      if (clientTypeButton.dataset.typeof === "regular") {
+        stringNumberOfQ = '{{ numberOfQuestions }}';
+      } else if (clientTypeButton.dataset.typeof === "vvip"){
+        stringNumberOfQ = '{{ numberOfQuestionsVvip }}';
+      }
       let numberOfQ = parseInt(stringNumberOfQ);
       accinputs.forEach(acc => {
         if (acc.value && acc.value != '') {
@@ -312,7 +358,13 @@
   const formInputs = document.querySelectorAll('.field input[type=text]');
 
   const validatedAnswers = function() {
-    let stringNumberOfQ = '{{ numberOfQuestions }}';
+    const clientTypeButton = document.querySelector('.sg-list input:checked');
+    let stringNumberOfQ = 0;
+    if (clientTypeButton.dataset.typeof === "regular") {
+      stringNumberOfQ = '{{ numberOfQuestions }}';
+    } else if (clientTypeButton.dataset.typeof === "vvip") {
+      stringNumberOfQ = '{{ numberOfQuestionsVvip }}';
+    }
     let numberOfQ = parseInt(stringNumberOfQ);
     let checkEmail = checkFieldInput();
     let checkPassword = checkPasswordInput();
@@ -395,5 +447,36 @@
     }
   })
 
+  const accordionVvip = document.querySelector('.accordion-box.vvip-client');
+  const accordionRegular = document.querySelector('.accordion-box.regular-client');
+  const formControl = document.querySelector('.form-control');
+  const buttonFormInputs = document.querySelectorAll('ul.sg-list input');
+  buttonFormInputs.forEach(input => {
+    input.addEventListener('change', (e) => {
+      const bannerText = document.querySelector('.banner__box span');
+      bannerText.textContent = e.target.value;
+      if (e.target.dataset.typeof === "regular") {
+        document.querySelector('.accordion-box.vvip-client').remove();
+        formControl.append(accordionRegular);
+      } else if (e.target.dataset.typeof === "vvip") {
+        document.querySelector('.accordion-box.regular-client').remove();
+        formControl.append(accordionVvip);
+      }
+    })
+  })
+
+  window.addEventListener('load', () => {
+    buttonFormInputs.forEach(input => {
+      if (input.checked) {
+        if (input.dataset.typeof === "regular") {
+          document.querySelector('.accordion-box.vvip-client').remove();
+          formControl.append(accordionRegular);
+        } else if (input.dataset.typeof === "vvip") {
+          document.querySelector('.accordion-box.regular-client').remove();
+          formControl.append(accordionVvip);
+        }
+      }
+    })
+  })
 
 </script>

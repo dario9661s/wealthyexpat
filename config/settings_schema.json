@@ -160,6 +160,26 @@
     ]
   },
   {
+    "name": "Client videos",
+    "settings": [
+      {
+        "type": "video",
+        "id": "video_url_client_accepted",
+        "label": "Video for accepted clients"
+      },
+      {
+        "type": "video",
+        "id": "video_url_private_client_special",
+        "label": "Video for special private client"
+      },
+      {
+        "type": "video",
+        "id": "video_url_client_under_review",
+        "label": "Video for clients under review"
+      }
+    ]
+  },
+  {
     "name": "FORM LOCATIONS",
     "settings": [
       {

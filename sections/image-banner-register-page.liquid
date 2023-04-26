@@ -170,7 +170,7 @@
         {% case block.type %}
           {% when 'form_buttons' %}
             <li>
-              <input test="{{ specific_block_index }}" class="sg-input-radio" type="radio" id="form-button-radio-{{ forloop.index}}-{{ block.id }}" name="form-buttons" value="{{ block.settings.text_for_header }}" {% if specific_block_index == 0 %}checked{%endif%}>
+              <input test="{{ specific_block_index }}" data-typeof="{{ block.settings.type_of_client }}" class="sg-input-radio" type="radio" id="form-button-radio-{{ forloop.index}}-{{ block.id }}" name="form-buttons" value="{{ block.settings.text_for_header }}" {% if specific_block_index == 0 %}checked{%endif%}>
               <label for="form-button-radio-{{ forloop.index}}-{{ block.id }}">
                 <svg class="service_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <g stroke-linecap="round" stroke-linejoin="round">
@@ -191,16 +191,6 @@
     </ul> 
   </div>
 </div>
-
-<script>
-  const buttonFormInputs = document.querySelectorAll('ul.sg-list input');
-  buttonFormInputs.forEach(input => {
-    input.addEventListener('change', (e) => {
-      const bannerText = document.querySelector('.banner__box span');
-      bannerText.textContent = e.target.value;
-    })
-  })
-</script>
 
 {% schema %}
 {
@@ -518,6 +508,12 @@
           "type": "text",
           "id": "service_title",
           "label": "Text for button header"
+        },
+        {
+          "type": "text",
+          "id": "type_of_client",
+          "label": "Type of client",
+          "info": "Regular or vvip"
         }
       ]
     },
