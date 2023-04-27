@@ -39,6 +39,7 @@
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/private-jet-charter.webp",
+        "banner_video": "shopify:\/\/files\/videos\/compressed-dubai-downtown-skyline-day-nig.mov",
         "image_overlay_opacity": 40,
         "image_height": "adapt",
         "desktop_content_position": "middle-left",
