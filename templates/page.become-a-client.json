@@ -11,8 +11,6 @@
       "type": "quizz-section",
       "settings": {
         "background_color": "",
-        "correct_answers_url": "https:\/\/calendly.com\/jovana-11\/wealthyexpatcall?month=2023-03",
-        "incorrect_answers_url": "https:\/\/google.com",
         "text_alignment": "center",
         "button_alignment": "center",
         "margin_top": 20,
