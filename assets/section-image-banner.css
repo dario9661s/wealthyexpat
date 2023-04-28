@@ -39,8 +39,10 @@
   align-items: center;
   gap: 30px;
 }
-.sg-survey-form .nomadInput.-serviceInterest .sg-list label {
+.sg-list label {
   padding: 2px;
+  display: flex;
+  flex-direction: column;
 }
 ul.sg-list {
   list-style: none;
@@ -73,14 +75,11 @@ ul.sg-list-vertical li label {
   cursor: pointer;
   margin: 0;
   width: auto;
-  min-height: 150px;
+  min-height: 185px;
 }
 .sg-input-radio:checked + label {
   background: rgb(28 173 117 / 5%) !important;
   border: 2px solid #1cad75 !important;
-}
-.sg-list label {
-  padding: 2px;
 }
 .sg-input-radio:checked + label {
   background: rgb(28 173 117 / 5%) !important;

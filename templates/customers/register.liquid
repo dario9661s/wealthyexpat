@@ -468,12 +468,15 @@
   window.addEventListener('load', () => {
     buttonFormInputs.forEach(input => {
       if (input.checked) {
+        const bannerText = document.querySelector('.banner__box span');
         if (input.dataset.typeof === "regular") {
           document.querySelector('.accordion-box.vvip-client').remove();
           formControl.append(accordionRegular);
+          bannerText.textContent = input.value;
         } else if (input.dataset.typeof === "vvip") {
           document.querySelector('.accordion-box.regular-client').remove();
           formControl.append(accordionVvip);
+          bannerText.textContent = input.value;
         }
       }
     })
