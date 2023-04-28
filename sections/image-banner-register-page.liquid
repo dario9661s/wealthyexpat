@@ -118,7 +118,7 @@
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'heading' -%}
-            <h2 class="animate__animated animate__fadeInDown banner__heading banner__head {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+            <h2 class="animate__animated animate__fadeInDown banner__heading banner__head {{ block.settings.heading_size }}" style="color: {{ section.settings.heading_color }}" {{ block.shopify_attributes }}>
               {{ block.settings.heading }}
             </h2>
           {%- when 'text' -%}
@@ -170,7 +170,7 @@
         {% case block.type %}
           {% when 'form_buttons' %}
             <li>
-              <input test="{{ specific_block_index }}" data-typeof="{{ block.settings.type_of_client }}" class="sg-input-radio" type="radio" id="form-button-radio-{{ forloop.index}}-{{ block.id }}" name="form-buttons" value="{{ block.settings.text_for_header }}" {% if specific_block_index == 0 %}checked{%endif%}>
+              <input test="{{ specific_block_index }}" data-typeof="{{ block.settings.type_of_client }}" class="sg-input-radio" type="radio" id="form-button-radio-{{ forloop.index}}-{{ block.id }}" name="form-buttons" value="{{ block.settings.text_for_header }}" {% if specific_block_index == 1 %}checked{%endif%}>
               <label for="form-button-radio-{{ forloop.index}}-{{ block.id }}">
                 <svg class="service_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <g stroke-linecap="round" stroke-linejoin="round">
@@ -245,6 +245,12 @@
       "default": "medium",
       "label": "t:sections.image-banner.settings.image_height.label",
       "info": "t:sections.image-banner.settings.image_height.info"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "default": "#dbb75d",
+      "label": "Color of the banner heading"
     },
     {
       "type": "select",
