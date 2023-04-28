@@ -123,9 +123,10 @@
         "df2b7e56-8ecd-4c5d-bb8f-5710028c68c2": {
           "type": "section_slide",
           "settings": {
-            "text": "Text",
-            "subtext": "Text",
-            "url": ""
+            "image": "shopify:\/\/shop_images\/Homepage_new_section_3.jpg",
+            "text": "CARIBBEAN PASSPORT",
+            "subtext": "Let us help you get the World's most popular second passports.",
+            "url": "shopify:\/\/pages\/caribbean-islands"
           }
         }
       },
