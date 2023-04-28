@@ -99,6 +99,52 @@
         "padding_bottom": 36
       }
     },
+    "1e026ccf-3ae1-4373-930d-da46be4bbba1": {
+      "type": "custom-services-homepage",
+      "blocks": {
+        "df30624c-874d-429a-aac3-914b54be36fc": {
+          "type": "section_slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Homepage_new_section_1.jpg",
+            "text": "SERBIAN PASSPORT",
+            "subtext": "One of the few passports in the World with visa free access to the Schengen Area, Japan, China and Russia.",
+            "url": "shopify:\/\/pages\/serbia"
+          }
+        },
+        "df02a64d-ade1-4785-9451-093916f4078c": {
+          "type": "section_slide",
+          "settings": {
+            "text": "Text",
+            "subtext": "Text",
+            "url": ""
+          }
+        },
+        "df2b7e56-8ecd-4c5d-bb8f-5710028c68c2": {
+          "type": "section_slide",
+          "settings": {
+            "text": "Text",
+            "subtext": "Text",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "df30624c-874d-429a-aac3-914b54be36fc",
+        "df02a64d-ade1-4785-9451-093916f4078c",
+        "df2b7e56-8ecd-4c5d-bb8f-5710028c68c2"
+      ],
+      "settings": {
+        "background_color": "#000000",
+        "button_text": "PRIVATE CLIENT SERVICES",
+        "button_subtext": "Get VVIP treatment with our program. Rafael Cintron will connect with you, and you'll access our expert network and special offers. We cater to your unique needs, saving you time.",
+        "main_url": "",
+        "text_color": "#FFFFFF",
+        "button_color": "#000000",
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "64eeda0d-699f-42e8-9569-2a78d4663baf": {
       "type": "our-services-homepage",
       "blocks": {
@@ -300,6 +346,7 @@
   "order": [
     "image_banner",
     "011f14ab-26c7-492f-8a21-2b6f6bb66fbe",
+    "1e026ccf-3ae1-4373-930d-da46be4bbba1",
     "64eeda0d-699f-42e8-9569-2a78d4663baf",
     "e7953e76-1a0a-4d08-903c-db508e48c46f",
     "448b6ebb-7cbc-4e18-9ce6-2538fc087669"
