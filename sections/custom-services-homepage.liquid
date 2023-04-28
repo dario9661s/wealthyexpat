@@ -30,10 +30,8 @@
       {% case block.type %}
         {% when 'section_slide' %}
           {% assign blockImg = block.settings.image %}
-          {% if block.settings.url != blank %}
+          <div class="section-slide-container">
             <a class="full-unstyled-link" href="{{ block.settings.url }}">
-          {% endif %}
-            <div class="section-slide-container">
               <div class="services-image">
                 <img
                   class="global-media-settings global-media-settings--no-shadow"
@@ -55,14 +53,12 @@
                   data-media-id="{{ media.id }}"
                 >
               </div>
-              <a href="{{ block.settings.url }}" class="custom-service-button" style="color: {{ section.settings.button_color }};">{{ block.settings.text }}</a>
-              <div class="services-text">
-                <p>{{ block.settings.subtext }}</p>
-              </div>
-            </div>
-          {% if block.settings.url != blank %}
             </a>
-          {% endif %}
+            <a href="{{ block.settings.url }}" class="custom-service-button" style="color: {{ section.settings.button_color }};">{{ block.settings.text }}</a>
+            <div class="services-text">
+              <p>{{ block.settings.subtext }}</p>
+            </div>
+          </div>    
       {% endcase %}
     {% endfor %}
   </div>
