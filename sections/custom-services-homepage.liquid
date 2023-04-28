@@ -1,0 +1,210 @@
+{{ 'custom-services-homepage.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    background: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+  }
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  #shopify-section-{{ section.id }} .image-with-text__content {
+    background: {{ section.settings.background_color }};
+  }
+  #shopify-section-{{ section.id }} .global-media-settings {
+    border: none;
+  }
+{%- endstyle -%}
+
+<div class="page-width section-{{ section.id }}-padding">
+  <div class="custom-services">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'section_slide' %}
+          {% assign blockImg = block.settings.image %}
+          {% if block.settings.url != blank %}
+            <a class="full-unstyled-link" href="{{ block.settings.url }}">
+          {% endif %}
+            <div class="section-slide-container">
+              <div class="services-image">
+                <img
+                  class="global-media-settings global-media-settings--no-shadow"
+                  srcset="{%- if blockImg.width >= 550 -%}{{ blockImg | image_url: width: 550 }} 550w,{%- endif -%}
+                          {%- if blockImg.width >= 1100 -%}{{ blockImg | image_url: width: 1100 }} 1100w,{%- endif -%}
+                          {%- if blockImg.width >= 1445 -%}{{ blockImg | image_url: width: 1445 }} 1445w,{%- endif -%}
+                          {%- if blockImg.width >= 1680 -%}{{ blockImg | image_url: width: 1680 }} 1680w,{%- endif -%}
+                          {%- if blockImg.width >= 2048 -%}{{ blockImg | image_url: width: 2048 }} 2048w,{%- endif -%}
+                          {%- if blockImg.width >= 2200 -%}{{ blockImg | image_url: width: 2200 }} 2200w,{%- endif -%}
+                          {%- if blockImg.width >= 2890 -%}{{ blockImg | image_url: width: 2890 }} 2890w,{%- endif -%}
+                          {%- if blockImg.width >= 4096 -%}{{ blockImg | image_url: width: 4096 }} 4096w,{%- endif -%}
+                          {{ blockImg | image_url }} {{ blockImg.width }}w"
+                  sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
+                  src="{{ blockImg | image_url: width: 1445 }}"
+                  alt="{{ media.alt | escape }}"
+                  loading="lazy"
+                  width="1100"
+                  height="{{ 1100 | divided_by: blockImg.aspect_ratio | ceil }}"
+                  data-media-id="{{ media.id }}"
+                >
+              </div>
+              <a href="{{ block.settings.url }}" class="custom-service-button" style="color: {{ section.settings.button_color }};">{{ block.settings.text }}</a>
+              <div class="services-text">
+                <p>{{ block.settings.subtext }}</p>
+              </div>
+            </div>
+          {% if block.settings.url != blank %}
+            </a>
+          {% endif %}
+      {% endcase %}
+    {% endfor %}
+  </div>
+  <div class="private-client-services">
+    <div class="private-client-button">
+      <a href="{{ section.settings.main_url }}" class="custom-service-main-button" style="color: {{ section.settings.button_color }}">{{ section.settings.button_text }}</a>
+      <p style="margin-top: 30px;">{{ section.settings.button_subtext }}</p>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Services homepage",
+    "class": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "#000000"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Main button text",
+        "default": "PRIVATE CLIENT SERVICES"
+      },
+      {
+        "type": "text",
+        "id": "button_subtext",
+        "label": "Main button subtext",
+        "default": "Get VVIP treatment with our program. Rafael Cintron will connect with you, and you'll access our expert network and special offers. We cater to your unique needs, saving you time."
+      },
+      {
+        "type": "url",
+        "id": "main_url",
+        "label": "Main button url"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "button_color",
+        "label": "Text color of the button",
+        "default": "#000000"
+      },
+      {
+        "type": "select",
+        "id": "color_scheme",
+        "options": [
+          {
+            "value": "accent-1",
+            "label": "t:sections.all.colors.accent_1.label"
+          },
+          {
+            "value": "accent-2",
+            "label": "t:sections.all.colors.accent_2.label"
+          },
+          {
+            "value": "background-1",
+            "label": "t:sections.all.colors.background_1.label"
+          },
+          {
+            "value": "background-2",
+            "label": "t:sections.all.colors.background_2.label"
+          },
+          {
+            "value": "inverse",
+            "label": "t:sections.all.colors.inverse.label"
+          }
+        ],
+        "default": "background-1",
+        "label": "t:sections.all.colors.label"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 36
+      }
+    ],
+    "blocks": [
+      {
+        "type": "section_slide",
+        "name": "Service",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Select image"
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "default": "Text",
+            "label": "Text for button"
+          },
+          {
+            "type": "text",
+            "id": "subtext",
+            "default": "Text",
+            "label": "Subtext for slide"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Url to the slide"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Services homepage"
+      }
+    ]
+  }
+  {% endschema %}
+  
