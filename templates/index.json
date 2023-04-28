@@ -53,6 +53,52 @@
         "show_text_below": false
       }
     },
+    "011f14ab-26c7-492f-8a21-2b6f6bb66fbe": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--16101736415401__011f14ab-26c7-492f-8a21-2b6f6bb66fbe-1682673489bfaa8b54-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Rafael Cintron",
+            "heading_size": "h1"
+          }
+        },
+        "4f2a0830-a8c5-404e-b466-d4964d111504": {
+          "type": "caption",
+          "settings": {
+            "caption": "Founder & ceo",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "template--16101736415401__011f14ab-26c7-492f-8a21-2b6f6bb66fbe-1682673489bfaa8b54-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>I am Rafael Cintron, the Founder of Wealthy Expat. I personally tested all programs I am offering in order to provide you with the most seamless and stress-free experience. I built my portfolio of multiple passports and residencies around the world, invested in various countries, and successfully and legally minimized my tax by applying various strategies that I will share with you on this journey.<\/p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "template--16101736415401__011f14ab-26c7-492f-8a21-2b6f6bb66fbe-1682673489bfaa8b54-0",
+        "4f2a0830-a8c5-404e-b466-d4964d111504",
+        "template--16101736415401__011f14ab-26c7-492f-8a21-2b6f6bb66fbe-1682673489bfaa8b54-1"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Rafael_Cintron.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "background_color": "#ffffff",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "64eeda0d-699f-42e8-9569-2a78d4663baf": {
       "type": "our-services-homepage",
       "blocks": {
@@ -253,6 +299,7 @@
   },
   "order": [
     "image_banner",
+    "011f14ab-26c7-492f-8a21-2b6f6bb66fbe",
     "64eeda0d-699f-42e8-9569-2a78d4663baf",
     "e7953e76-1a0a-4d08-903c-db508e48c46f",
     "448b6ebb-7cbc-4e18-9ce6-2538fc087669"
