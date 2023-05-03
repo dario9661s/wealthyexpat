@@ -3184,6 +3184,7 @@ details-disclosure > details {
 }
 #subheadings_list {
   list-style: none;
+  max-width: 30rem;
 }
 .filter__dropdown {
   transition: height 300ms ease-in;
@@ -3210,4 +3211,22 @@ details-disclosure > details {
   .filter--icon {
     padding-left: 20px;
   }
+}
+
+.list-fixed {
+  position: fixed;
+  top: calc(-1 * var(--header-height));
+}
+
+.custom-sidebar-class {
+  max-width: 120rem;
+  min-width: 30rem;
+  width: auto;
+  margin: 0;
+}
+
+.list-sticky {
+  position: -webkit-sticky; /* For Safari browser support */
+  position: sticky;
+  top: 0;
 }

@@ -19,9 +19,11 @@
 {%- endstyle -%}
 
 <div class="page-width section-{{ section.id }}-padding custom-page-class">
-  <h1 class="main-page-title page-title h0">
-    {{ page.title | escape }}
-  </h1>
+  {% unless page.template_suffix == 'our-services-countries' %}
+    <h1 class="main-page-title page-title h0" test="{{ page.handle }}, {{ page.template_suffix }}">
+      {{ page.title | escape }}
+    </h1>
+  {% endunless %}
   <div class="rte">
     {{ page.content }}
   </div>

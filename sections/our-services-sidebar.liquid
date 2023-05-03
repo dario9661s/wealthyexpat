@@ -50,142 +50,163 @@
 
 </div>
 
-<script>
-  const subheadings = document.querySelectorAll('.rte h2');
-  const hThreeSubheadings = document.querySelectorAll('.rte h3');
-  const ul = document.createElement('ul');
-  const all_paragraphs = document.querySelectorAll('.rte p');
-  ul.setAttribute('id', 'subheadings_list');
-  subheadings.forEach(el => {
-    if (el.textContent != '' && !el.textContent.includes('cart')) {
-      const ul_li = document.createElement('li');
-      const ul_li_link = document.createElement('a');
-      ul_li.textContent = el.textContent;
-      ul.appendChild(ul_li);
-    }
-    // get the next sibling element
-    let next = el.nextElementSibling;
+<script defer="defer">
+  window.addEventListener('DOMContentLoaded', () => {
 
-    // create a new div element to hold the content section
-    const section = document.createElement('div');
+    const subheadings = document.querySelectorAll('.rte h2');
+    const hThreeSubheadings = document.querySelectorAll('.rte h3');
+    const ul = document.createElement('ul');
+    const all_paragraphs = document.querySelectorAll('.rte p');
+    ul.setAttribute('id', 'subheadings_list');
+    subheadings.forEach(el => {
+      if (el.textContent != '' && !el.textContent.includes('cart')) {
+        const ul_li = document.createElement('li');
+        const ul_li_link = document.createElement('a');
+        ul_li.textContent = el.textContent;
+        ul.appendChild(ul_li);
+      }
+      // get the next sibling element
+      let next = el.nextElementSibling;
+
+      // create a new div element to hold the content section
+      const section = document.createElement('div');
+      
+      // add a custom class to the section element
+      section.classList.add('content-section');
+      
+      // loop through each sibling until the next h2 element is found
+      while (next && next.tagName !== 'H2') {
+        // add the sibling to the section element
+        const sibling = next;
+        next = next.nextElementSibling;
+        section.appendChild(sibling);
+      }
+      
+      // add the section element to the .rte container, right after the corresponding h2 element
+      el.parentNode.insertBefore(section, el.nextSibling);
+      
+      // add the heading to the section element
+      section.insertBefore(el, section.firstChild);
+    })
+
+    if (ul.firstChild) {
+      const page_section = document.querySelector('.our-countries-sidebar');
+      page_section.append(ul);
+      const sectionBanner = document.querySelector('.image-banner-section');
+
+      const mainContent = document.querySelector('#MainContent');
+      const page_content_section = document.querySelector('.shopify-section.section');
+      if (window.innerWidth > 1290) {
+        let list_elements = ul.querySelectorAll('li');
+        mainContent.style.position = "relative";
+        const country_page_section = document.querySelector('.country-page-section');
+        country_page_section.insertAdjacentElement('afterbegin', page_section);
+        country_page_section.style.display = "flex";
+        country_page_section.querySelector('.our-countries-sidebar').classList.add('custom-sidebar-class');
+        country_page_section.querySelector('.custom-page-class.page-width').style.maxWidth = "100%";
+        country_page_section.style.maxWidth = "100%";
+        country_page_section.style.padding = "0 3rem";
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            const sectionHeading = entry.target.querySelector('h2');
+            if (entry.intersectionRatio > 0) {
+              list_elements.forEach(el => {
+                if (sectionHeading.textContent === el.textContent) {
+                  el.classList.add('bolded-text');
+                  if (document.querySelector('.scrolled-past-header')) {
+                    if (ul.getBoundingClientRect().y < 0) {
+                      ul.classList.add('list-fixed');
+                      ul.style.top = `${document.querySelector('.scrolled-past-header').offsetHeight}px`;
+                    } else {
+                      ul.classList.remove('list-fixed');
+                    }
+                  }
+                } else {
+                  el.classList.remove('bolded-text');
+                }
+              })
+            }
+          });
+        });
     
-    // add a custom class to the section element
-    section.classList.add('content-section');
-    
-    // loop through each sibling until the next h2 element is found
-    while (next && next.tagName !== 'H2') {
-      // add the sibling to the section element
-      const sibling = next;
-      next = next.nextElementSibling;
-      section.appendChild(sibling);
+        document.querySelectorAll('.content-section').forEach(el => {
+          observer.observe(el);
+        })
+
+        const ulOriginalTop = getAbsoluteTop(ul);
+        window.addEventListener('scroll', () => handleStickyList(ul, mainContent, document.querySelector('.scrolled-past-header'), ulOriginalTop));
+
+      } else {
+        const dropdownMenu = document.createElement('div');
+        const filterIcon = document.createElement('p');
+        filterIcon.classList.add('filter--icon');
+        filterIcon.textContent = 'In this section +';
+        dropdownMenu.classList.add('filter__dropdown');
+        dropdownMenu.classList.add('filter-closed');
+        const PageSectionFirstChild = mainContent.firstChild;
+        dropdownMenu.insertAdjacentElement('afterbegin', page_section);
+        page_content_section.insertAdjacentElement('beforeend', filterIcon);
+        page_content_section.insertAdjacentElement('beforeend', dropdownMenu);
+      }
     }
-    
-    // add the section element to the .rte container, right after the corresponding h2 element
-    el.parentNode.insertBefore(section, el.nextSibling);
-    
-    // add the heading to the section element
-    section.insertBefore(el, section.firstChild);
+
+    if (document.querySelector('#subheadings_list')) {
+      document.querySelector('#subheadings_list').addEventListener('click', (e) => {
+        document.querySelectorAll('.rte h2').forEach(h2 => {
+          if (e.target.textContent === h2.textContent) {
+            h2.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" })
+          }
+        })
+        document.querySelectorAll('.rte h3').forEach(h3 => {
+          if (e.target.textContent === h3.textContent) {
+            h3.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" })
+          }
+        })
+      })
+    }
+
+    if (document.querySelector('.filter--icon')) {
+      const filterButton = document.querySelector('.filter--icon').addEventListener('click', (e) => {
+        const filter = e.target.parentElement.querySelector('.filter__dropdown');
+        if (filter.classList.contains('filter-closed')) {
+          filter.classList.remove('filter-closed');
+          filter.classList.add('filter-opened');
+          e.target.textContent = 'In this section -';
+        } else {
+          filter.classList.add('filter-closed');
+          filter.classList.remove('filter-opened');
+          e.target.textContent = 'In this section +';
+        }
+      })
+    }
   })
 
-  if (ul.firstChild) {
-    const page_section = document.querySelector('.our-countries-sidebar');
-    page_section.append(ul);
-    const mainContent = document.querySelector('#MainContent');
-    const page_content_section = document.querySelector('.shopify-section.section');
-    if (window.innerWidth > 1290) {
-      mainContent.style.position = "relative";
-    } else {
-      const dropdownMenu = document.createElement('div');
-      const filterIcon = document.createElement('p');
-      filterIcon.classList.add('filter--icon');
-      filterIcon.textContent = 'In this section +';
-      dropdownMenu.classList.add('filter__dropdown');
-      dropdownMenu.classList.add('filter-closed');
-      dropdownMenu.insertAdjacentElement('afterbegin', page_section);
-      page_content_section.insertAdjacentElement('afterbegin', dropdownMenu);
-      page_content_section.insertAdjacentElement('afterbegin', filterIcon);
-    }
-  
-    let list_elements = ul.querySelectorAll('li');
-  
-    if (window.innerWidth > 1290) {
-      const country_page_section = document.querySelector('.country-page-section');
-      country_page_section.insertAdjacentElement('afterbegin', page_section);
-      country_page_section.style.display = "flex";
-      country_page_section.querySelector('.our-countries-sidebar').style.maxWidth = "120rem";
-      country_page_section.querySelector('.our-countries-sidebar').style.minWidth = "30rem";
-      country_page_section.querySelector('.our-countries-sidebar').style.width = "auto";
-      country_page_section.querySelector('.our-countries-sidebar').style.margin = "0";
-      country_page_section.querySelector('.custom-page-class.page-width').style.maxWidth = "100%";
-      country_page_section.style.maxWidth = "100%";
-      country_page_section.style.padding = "0 3rem";
-      ul.style.position = "fixed";
-      ul.style.maxWidth = "30rem";
-    }
+  function handleStickyList(ul, mainContent, stickyHeader, ulOriginalTop) {
+    if (stickyHeader) {
+      const scrollTop = window.pageYOffset;
+      const stickyHeaderHeight = stickyHeader.offsetHeight;
     
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        const sectionHeading = entry.target.querySelector('h2');
-        if (entry.intersectionRatio > 0) {
-          list_elements.forEach(el => {
-            if (sectionHeading.textContent === el.textContent) {
-              el.classList.add('bolded-text');
-            } else {
-              el.classList.remove('bolded-text');
-            }
-          })
-        }
-      });
-    });
-
-    document.querySelectorAll('.content-section').forEach(el => {
-      observer.observe(el);
-    })
+      if (scrollTop > ulOriginalTop - stickyHeaderHeight) {
+        ul.classList.add('list-fixed');
+        ul.style.top = `${stickyHeaderHeight}px`;
+      } else {
+        ul.classList.remove('list-fixed');
+        ul.style.top = 'auto';
+      }
+    }
   }
 
-  /*
-  hThreeSubheadings.forEach((subheading, index1) => {
-    const elementsHeading = subheading.parentElement.querySelector('h2');
-    list_elements.forEach((li, index2) => {
-      if (elementsHeading.textContent === li.textContent) {
-        const newLi = document.createElement('li');
-        newLi.classList.add('subtitle_li');
-        newLi.textContent = subheading.textContent;
-        li.parentNode.insertBefore(newLi, li);
-      }
-    })
-  })
-  */
-  
-  // Start observing the element
-  
+  function getAbsoluteTop(el) {
+    let top = el.offsetTop;
+    let parent = el.offsetParent;
 
-  const new_list_items = document.querySelector('#subheadings_list');
-  new_list_items?.addEventListener('click', (e) => {
-    document.querySelectorAll('.rte h2').forEach(h2 => {
-      if (e.target.textContent === h2.textContent) {
-        h2.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" })
-      }
-    })
-    document.querySelectorAll('.rte h3').forEach(h3 => {
-      if (e.target.textContent === h3.textContent) {
-        h3.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" })
-      }
-    })
-  })
-
-  const filterButton = document.querySelector('.filter--icon')?.addEventListener('click', (e) => {
-    const filter = e.target.parentElement.querySelector('.filter__dropdown');
-    if (filter.classList.contains('filter-closed')) {
-      filter.classList.remove('filter-closed');
-      filter.classList.add('filter-opened');
-      e.target.textContent = 'In this section -';
-    } else {
-      filter.classList.add('filter-closed');
-      filter.classList.remove('filter-opened');
-      e.target.textContent = 'In this section +';
+    while (parent) {
+      top += parent.offsetTop;
+      parent = parent.offsetParent;
     }
-  })
+
+    return top;
+  }
 </script>
 
 {%  schema  %} 
