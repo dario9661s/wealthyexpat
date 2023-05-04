@@ -171,6 +171,14 @@
             "slide_text": "VIP Client<br>Manager in Dubai"
           }
         },
+        "326027f4-dc85-4eac-9baf-3ce14f7bb85d": {
+          "type": "slide",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/AR_Headshot.jpg",
+            "slide_heading": "Andrijana",
+            "slide_text": "Project Manager"
+          }
+        },
         "8d0f743d-f987-48e1-8c22-9492a07cc6bb": {
           "type": "slide",
           "settings": {
@@ -184,6 +192,7 @@
         "377013d1-f14c-449d-8182-ba26dd63a65d",
         "4bcd12d5-9dfd-4c63-baea-e1e768aaaa27",
         "f8760325-3f49-434f-b100-eab3e64c2613",
+        "326027f4-dc85-4eac-9baf-3ce14f7bb85d",
         "8d0f743d-f987-48e1-8c22-9492a07cc6bb"
       ],
       "settings": {
