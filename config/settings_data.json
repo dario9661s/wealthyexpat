@@ -167,6 +167,7 @@
               "form_button_text": "Join the global revolution today and start living your best life as a Wealthy Expat!",
               "text_for_header": "With our expert guidance, you can enjoy the perks of 0% tax, obtain second citizenship or residency, and relocate to different countries - all while living a luxurious Wealthy Expat lifestyle! Our team of professionals is dedicated to making your journey as smooth and stress-free as possible.",
               "service_title": "Client",
+              "type_of_client_heading": "BECOME A CLIENT",
               "type_of_client": "regular"
             }
           },
@@ -176,6 +177,7 @@
               "form_button_text": "With this offer, Rafael Cintron is dedicated to providing you with unparalleled support and guidance as you navigate your personal and professional endeavors.",
               "text_for_header": "Experience the ultimate VVIP treatment with our specially curated program. Enjoy exclusive mentorship by Rafael Cintron and access our most exclusive network of experts, connections, and special offers. We understand that your time is valuable, and that's why we've crafted this program to meet your unique needs.",
               "service_title": "Private client",
+              "type_of_client_heading": "BECOME A PRIVATE CLIENT",
               "type_of_client": "vvip"
             }
           }
@@ -190,6 +192,7 @@
           "image": "shopify:\/\/shop_images\/Become_a_client_banner.jpg",
           "image_overlay_opacity": 70,
           "image_height": "medium",
+          "heading_color": "#dbb75d",
           "desktop_content_position": "middle-center",
           "show_text_box": false,
           "desktop_content_alignment": "center",
