@@ -2,6 +2,7 @@
   "sections": {
     "2ad30a48-a359-459c-b6c3-2327f6e6b87a": {
       "type": "collections",
+      "disabled": true,
       "blocks": {
         "19ad0bbf-3c93-4a53-b4bd-096e675a5746": {
           "type": "accordionBlock",
@@ -91,9 +92,101 @@
         "margin_top_mobile": 20,
         "margin_bottom_mobile": 20
       }
+    },
+    "1b0cd0a8-2e54-4f01-b6d7-3ad8c38f1726": {
+      "type": "collection-media-gallery",
+      "blocks": {
+        "template--16107301699753__1b0cd0a8-2e54-4f01-b6d7-3ad8c38f1726-16831966955516e70c-0": {
+          "type": "collection",
+          "settings": {
+            "heading_text": "Mexico",
+            "image": "shopify:\/\/shop_images\/cancun-mexico-arial-view.jpg",
+            "button_text": "",
+            "button_link": "shopify:\/\/pages\/mexico"
+          }
+        },
+        "template--16107301699753__1b0cd0a8-2e54-4f01-b6d7-3ad8c38f1726-16831966955516e70c-1": {
+          "type": "collection",
+          "settings": {
+            "heading_text": "Thailand",
+            "image": "shopify:\/\/shop_images\/tree-framed-sunset.jpg",
+            "button_text": "",
+            "button_link": "shopify:\/\/pages\/thailand"
+          }
+        },
+        "template--16107301699753__1b0cd0a8-2e54-4f01-b6d7-3ad8c38f1726-16831966955516e70c-2": {
+          "type": "collection",
+          "settings": {
+            "heading_text": "Portugal",
+            "image": "shopify:\/\/shop_images\/lisbon-portugal-at-sunset.jpg",
+            "button_text": "",
+            "button_link": "shopify:\/\/pages\/portugal"
+          }
+        },
+        "template--16107301699753__1b0cd0a8-2e54-4f01-b6d7-3ad8c38f1726-16831966955516e70c-3": {
+          "type": "collection",
+          "settings": {
+            "heading_text": "Dubai",
+            "image": "shopify:\/\/shop_images\/custom_resized_746692da-f7ae-4d4d-9dec-f3be1db71d05.jpg",
+            "button_text": "",
+            "button_link": "shopify:\/\/pages\/dubai"
+          }
+        },
+        "d38f0ae8-e738-4910-933a-a102083c3cd4": {
+          "type": "collection",
+          "settings": {
+            "heading_text": "Caribbean Islands",
+            "image": "shopify:\/\/shop_images\/leaning-palms-on-a-sandy-beach.jpg",
+            "button_text": "",
+            "button_link": "shopify:\/\/pages\/caribbean-islands"
+          }
+        },
+        "0f0f9850-2a6d-4a68-af64-db7d3aabcc3e": {
+          "type": "collection",
+          "settings": {
+            "heading_text": "Malta",
+            "image": "shopify:\/\/shop_images\/custom_resized_36531b35-7dc1-4728-be74-17ce7b8d1147.jpg",
+            "button_text": "",
+            "button_link": "shopify:\/\/pages\/malta"
+          }
+        },
+        "5135afd0-e921-4d05-b042-dfa37276a7d3": {
+          "type": "collection",
+          "settings": {
+            "heading_text": "Serbia",
+            "image": "shopify:\/\/shop_images\/custom_resized_d36d33fd-7789-43ed-b105-39db4872f607.jpg",
+            "button_text": "",
+            "button_link": "shopify:\/\/pages\/serbia"
+          }
+        }
+      },
+      "block_order": [
+        "template--16107301699753__1b0cd0a8-2e54-4f01-b6d7-3ad8c38f1726-16831966955516e70c-0",
+        "template--16107301699753__1b0cd0a8-2e54-4f01-b6d7-3ad8c38f1726-16831966955516e70c-1",
+        "template--16107301699753__1b0cd0a8-2e54-4f01-b6d7-3ad8c38f1726-16831966955516e70c-2",
+        "template--16107301699753__1b0cd0a8-2e54-4f01-b6d7-3ad8c38f1726-16831966955516e70c-3",
+        "d38f0ae8-e738-4910-933a-a102083c3cd4",
+        "0f0f9850-2a6d-4a68-af64-db7d3aabcc3e",
+        "5135afd0-e921-4d05-b042-dfa37276a7d3"
+      ],
+      "settings": {
+        "heading": "Our Services",
+        "text_color": "#ffffff",
+        "heading_bottom_margin": true,
+        "button_color": "#ffffff",
+        "heading_size_value": "h1",
+        "button_background_color": "",
+        "button_border_color": "#ffffff",
+        "collections__text": "At Wealthy Expat, we understand that your time is precious, and we strive to make every step of the process as smooth as possible for you. From finding the best strategy to suit your individual needs to identifying the optimal residence or citizenship option, to opening a company and reducing taxes - we take care of everything from start to finish.",
+        "heading_size": 18,
+        "heading_style": "unset",
+        "margin_top": 20,
+        "margin_bottom": 20
+      }
     }
   },
   "order": [
-    "2ad30a48-a359-459c-b6c3-2327f6e6b87a"
+    "2ad30a48-a359-459c-b6c3-2327f6e6b87a",
+    "1b0cd0a8-2e54-4f01-b6d7-3ad8c38f1726"
   ]
 }
