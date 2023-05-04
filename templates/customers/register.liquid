@@ -454,13 +454,16 @@
   buttonFormInputs.forEach(input => {
     input.addEventListener('change', (e) => {
       const bannerText = document.querySelector('.banner__box span');
+      const bannerHeading = document.querySelector('.banner__head');
       bannerText.textContent = e.target.value;
       if (e.target.dataset.typeof === "regular") {
         document.querySelector('.accordion-box.vvip-client').remove();
         formControl.append(accordionRegular);
+        bannerHeading.textContent = input.dataset.header;
       } else if (e.target.dataset.typeof === "vvip") {
         document.querySelector('.accordion-box.regular-client').remove();
         formControl.append(accordionVvip);
+        bannerHeading.textContent = input.dataset.header;
       }
     })
   })
@@ -469,14 +472,17 @@
     buttonFormInputs.forEach(input => {
       if (input.checked) {
         const bannerText = document.querySelector('.banner__box span');
+        const bannerHeading = document.querySelector('.banner__head');
         if (input.dataset.typeof === "regular") {
           document.querySelector('.accordion-box.vvip-client').remove();
           formControl.append(accordionRegular);
           bannerText.textContent = input.value;
+          bannerHeading.textContent = input.dataset.header;
         } else if (input.dataset.typeof === "vvip") {
           document.querySelector('.accordion-box.regular-client').remove();
           formControl.append(accordionVvip);
           bannerText.textContent = input.value;
+          bannerHeading.textContent = input.dataset.header;
         }
       }
     })

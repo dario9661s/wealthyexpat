@@ -3202,7 +3202,14 @@ details-disclosure > details {
   font-size: 14px;
   padding-left: 20px;
 }
-
+@media screen and (min-width: 750px) {
+  .mySwiper_2 img {
+    width: 100%;
+    min-height: 310px;
+    max-height: 310px;
+    object-fit: cover;
+  }
+}
 @media screen and (max-width: 750px) {
   .our-countries-sidebar {
     padding-top: 0 !important;
@@ -3210,6 +3217,13 @@ details-disclosure > details {
   }
   .filter--icon {
     padding-left: 20px;
+  }
+  .mySwiper_2 img {
+    width: 100%;
+    min-height: 200px;
+    max-height: 200px;
+    object-fit: cover;
+    object-position: top;
   }
 }
 
