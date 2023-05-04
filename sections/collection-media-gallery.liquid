@@ -174,24 +174,8 @@
     margin-right: auto;
     color: #000000;
     font-family: Arial;
-    margin-top: 0px;
+    margin-top: 40px;
     margin-bottom: 0px;
-  }
-
-  @media(max-width: 800px) {
-    .about-us_paragraph{
-      font-size: 18px;
-    }
-  }
-
-  @media screen and (max-width: 776px) {
-    .about-us_heading {
-      font-size: 40px;
-    }
-    .about-us_paragraph{
-      margin-top: 30px;
-      font-size: 16px;
-    }
   }
 
   .about-us_heading_and_paragraph_split{
@@ -217,6 +201,23 @@
     margin-bottom: 50px;
   }
 
+  @media(max-width: 800px) {
+    .about-us_paragraph{
+      font-size: 18px;
+    }
+  }
+
+  @media screen and (max-width: 776px) {
+    .about-us_heading {
+      font-size: 40px;
+    }
+    .about-us_paragraph{
+      margin-top: 30px;
+      font-size: 16px;
+      padding-bottom: 0;
+    }
+  }
+
   @media screen and (max-width: 440px) {
     #shopify-section-{{ section.id }} .container ul.mobile-grid.grid-cols-2 {
       grid-template-columns: repeat(1, minmax(0,1fr));
@@ -240,10 +241,12 @@
         </h1>
       {% endif %}
     {% endif %}
+    {% if section.settings.collections__text != blank %}
+      <span class="about-us_paragraph">
+        {{ section.settings.collections__text }}
+      </span>
+    {% endif %}
   </div>
-  <span class="about-us_paragraph">
-    {{ section.settings.collections__text }}
-  </span>
   <div class="container">
     <ul class="grid gap-1 md:auto-rows-fr grid-cols-2 md:grid-cols-4 list-style-none mobile-grid">
       {% for block in section.blocks %}

@@ -50,10 +50,26 @@
   #shopify-section-{{ section.id }} #banner_video {
     object-fit: unset;
   }
+  {% if template.suffix == 'our-services-countries' %}
+    #shopify-section-{{ section.id }} .banner__head {
+      margin-top: 50px;
+      font-weight: 600;
+      font-family: Arial;
+      margin-bottom: 40px;
+      font-size: 52px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    @media screen and (max-width: 776px) {
+      #shopify-section-{{ section.id }} .banner__head {
+        font-size: 40px;
+      }
+    }
+  {% endif %}
 </style>
 
 <div
   id="Banner-{{ section.id }}"
+  testttt="{{ template.suffix }}"
   class="banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.stack_images_on_mobile and section.settings.image != blank and section.settings.image_2 != blank %} banner--stacked{% endif %}{% if section.settings.image_height == 'adapt' and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}"
 >
   {%- if section.settings.banner_video != blank -%}
