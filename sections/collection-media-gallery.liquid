@@ -1,0 +1,453 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
+  #shopify-section-{{ section.id }} .grid {
+    display: grid;
+  }
+  #shopify-section-{{ section.id }} .grid-cols-2 {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+  #shopify-section-{{ section.id }} .gap-1 {
+    gap: 4px;
+  }
+  #shopify-section-{{ section.id }} .h-full {
+    height: 100%;
+  }
+  #shopify-section-{{ section.id }} .grid-rows-3 {
+    grid-template-rows: repeat(3,minmax(0,1fr));
+  }
+  #shopify-section-{{ section.id }} .col-span-full {
+    grid-column: 1/-1;
+  }
+  #shopify-section-{{ section.id }} .row-start-1 {
+    grid-row-start: 1;
+  }
+  #shopify-section-{{ section.id }} .row-end-4 {
+    grid-row-end: 4;
+  }
+  #shopify-section-{{ section.id }} .bg-black {
+    --tw-bg-opacity: 1;
+    background-color: rgb(0 0 0/var(--tw-bg-opacity));
+  }
+  #shopify-section-{{ section.id }} .relative {
+    position: relative;
+  }
+  #shopify-section-{{ section.id }} .p-4 {
+    padding: 24px;
+  }
+  #shopify-section-{{ section.id }} .object-cover {
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+  #shopify-section-{{ section.id }} .inline-block {
+    display: inline-block;
+  }
+  #shopify-section-{{ section.id }} .self-end {
+    align-self: flex-end;
+  }
+  #shopify-section-{{ section.id }} .justify-self-start {
+    justify-self: start;
+  }
+  #shopify-section-{{ section.id }} .w-full {
+    width: 100%;
+  }
+  #shopify-section-{{ section.id }} .text-center-one {
+    text-align: center;
+  }
+  #shopify-section-{{ section.id }} .leading-none {
+    line-height: 1;
+  }
+  #shopify-section-{{ section.id }} .text-color-white {
+    color: white;
+  }
+  #shopify-section-{{ section.id }} .z-10 {
+    z-index: 10;
+  }
+  #shopify-section-{{ section.id }} .mt-2 {
+    margin-top: 8px;
+  }
+  #shopify-section-{{ section.id }} .min-h-\[44px\] {
+    min-height: 44px;
+  }
+  #shopify-section-{{ section.id }} .border {
+    border-width: 1px;
+  }
+  #shopify-section-{{ section.id }} .border-body {
+    border-color: white;
+  }
+  #shopify-section-{{ section.id }} .px-4 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  #shopify-section-{{ section.id }} .py-\[13px\] {
+    padding-bottom: 13px;
+    padding-top: 13px;
+  }
+  #shopify-section-{{ section.id }} .text-h6 {
+    font-size: var(--font-size-h6);
+  }
+  #shopify-section-{{ section.id }} .leading-none {
+    line-height: 1;
+  }
+  #shopify-section-{{ section.id }} .break-anywhere {
+    overflow-wrap: anywhere;
+  }
+  #shopify-section-{{ section.id }} .heading-bold {
+    font-weight: 700;
+  }
+  #shopify-section-{{ section.id }} .heading--size {
+    font-size: {{ section.settings.heading_size }}px;
+  }
+  #shopify-section-{{ section.id }} .list-style-none {
+    list-style: none;
+  }
+  #shopify-section-{{ section.id }} .border-link {
+    border: 1px solid white;
+  }
+  @media (min-width: 769px) {
+    #shopify-section-{{ section.id }} .md\:grid-cols-4 {
+      grid-template-columns: repeat(4,minmax(0,1fr));
+    }
+    #shopify-section-{{ section.id }} .md\:auto-rows-fr {
+      grid-auto-rows: minmax(0,1fr);
+    }
+    #shopify-section-{{ section.id }} .md\:p-5 {
+    padding: 40px;
+    }
+    #shopify-section-{{ section.id }} .md\:w-auto {
+    width: auto;
+    }
+    #shopify-section-{{ section.id }} .md\:text-left {
+    text-align: left;
+    }
+    #shopify-section-{{ section.id }} .md\:mt-3 {
+    margin-top: 16px;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .text-body h4 {
+    color: {{ section.settings.text_color }};
+  }
+
+  #shopify-section-{{ section.id }} .justify-self-start a {
+    color: {{ section.settings.button_color }};
+    border-color: {{ section.settings.button_border_color }};
+    background: {{ section.settings.button_background_color }};
+  }
+
+  #shopify-section-{{ section.id }} .new_img_class {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+  }
+
+  #shopify-section-{{ section.id }} .collection-pages-list {
+    position: relative;
+  }
+
+  #shopify-section-{{ section.id }} .collection-button-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  .about-us_paragraph{
+    font-size: 20px;
+    font-family: Arial;
+    text-overflow: ellipsis;
+    padding-bottom: 45px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: #000000;
+    font-family: Arial;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  @media(max-width: 800px) {
+    .about-us_paragraph{
+      font-size: 18px;
+    }
+  }
+
+  @media screen and (max-width: 776px) {
+    .about-us_heading {
+      font-size: 40px;
+    }
+    .about-us_paragraph{
+      margin-top: 30px;
+      font-size: 16px;
+    }
+  }
+
+  .about-us_heading_and_paragraph_split{
+    max-width: 100px;
+    width: 100%;
+    margin: 0 auto;
+    height: 3px;
+    background-color: #dbb75d;
+    opacity: 1;
+  }
+  .about-us_heading{
+    margin-top: 50px;
+    font-weight: 600;
+    font-family: Arial;
+    margin-bottom: 40px;
+    font-size: 52px;
+    color: black;
+  }
+
+  .col-head-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  @media screen and (max-width: 440px) {
+    #shopify-section-{{ section.id }} .container ul.mobile-grid.grid-cols-2 {
+      grid-template-columns: repeat(1, minmax(0,1fr));
+    }
+    #shopify-section-{{ section.id }} .collection-pages-list {
+      max-height: 268px;
+    }
+  }
+
+</style>
+
+<section id="section-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="collection-list">
+  <div class="col-head-container page-width">
+    {% if section.settings.heading != blank %}
+      {% if section.settings.heading_bottom_margin %}
+        <h1 class="about-us_heading ">{{ section.settings.heading }}</h1>
+        <div class="about-us_heading_and_paragraph_split"></div>
+      {% else %}
+        <h1 class="banner__heading {{ section.settings.heading_size_value }}" style="text-align: center;">
+          {{ section.settings.heading }}
+        </h1>
+      {% endif %}
+    {% endif %}
+  </div>
+  <span class="about-us_paragraph">
+    {{ section.settings.collections__text }}
+  </span>
+  <div class="container">
+    <ul class="grid gap-1 md:auto-rows-fr grid-cols-2 md:grid-cols-4 list-style-none mobile-grid">
+      {% for block in section.blocks %}
+        <li class="collection-pages-list">
+          <div class="h-full">
+            <div class="h-full grid grid-rows-3">
+              <div class="row-start-1 row-end-4 col-span-full">
+                {% if block.settings.button_link != blank %}
+                  <a class="full-unstyled-link collection-button-link" href="{{ block.settings.button_link }}"></a>
+                {% endif %}
+                {% if block.settings.image != blank %}
+                  {% assign image = block.settings.image %}
+                  <img class="new_img_class" src="{{ image |image_url: width: 2000 |
+                    sizes: '(min-width: 2000px) 1000px, (min-width: 1445px) calc(100vw / 2), (min-width: 1200px) calc(100vw / 1.75), (min-width: 1000px) calc(100vw / 1.5), (min-width: 750px) calc(100vw / 3), 100vw',
+                    widths: '300, 550, 750, 1088',
+                    alt: block.settings.image.alt | escape }}"
+                  >
+                {% endif %}
+              </div>
+              <div class="h-full w-full bg-black row-start-1 row-end-4 col-span-full" style="opacity: 15%"></div>
+              <div class="relative h-full w-full row-start-1 row-end-4 col-span-full grid p-4 md:p-5">
+                <div class="justify-self-start text-left self-end inline-block w-full md:w-auto text-color-white">
+                  <div class="text-body w-full text-center-one md:text-left" style="text-transform: {{ section.settings.heading_style }};">
+                    <h4 class="heading--size font-heading heading-case text-headings break-anywhere text-h4 leading-none heading-bold">
+                      {% if block.settings.heading_text != blank %}
+                        {{ block.settings.heading_text }}
+                      {% endif %}
+                    </h4>
+                  </div>
+                  {% if block.settings.button_text != blank %}
+                    <a href="{{ block.settings.button_link }}" class="border-link text-h6 font-heading heading-case leading-none text-center-one min-h-[44px] py-[13px] px-4 inline-block border border-body transition-colors duration-500 relative z-10 armament-button after:absolute after:top-0 after:bottom-0 after:-z-[1] after:bg-body after:transition-transform after:duration-300 after:ease-out text-body hover:text-page before:absolute before:top-0 before:bottom-0 before:left-0 before:right-1/2 before:-z-[1] before:bg-body before:origin-[0_50%] before:transition-transform before:duration-300 before:ease-out after:right-0 after:left-1/2 after:origin-[100%_50%] armament-button--outline hover:disabled:text-body focus:disabled:text-body mt-2 md:mt-3 w-full md:w-auto">
+                      <span>
+                        {{ block.settings.button_text }}
+                      </span>
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Collection media gallery",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "default": "Our Services",
+        "label": "t:sections.image-banner.blocks.heading.settings.heading.label"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Color of the heading text",
+        "default": "#ffffff"
+      },
+      {
+        "type": "checkbox",
+        "id": "heading_bottom_margin",
+        "label": "Heading bottom border",
+        "default": true
+      },
+      {
+        "type": "color",
+        "id": "button_color",
+        "label": "Button text",
+        "default": "#ffffff"
+      },
+      {
+        "type": "select",
+        "id": "heading_size_value",
+        "options": [
+          {
+            "value": "h2",
+            "label": "t:sections.all.heading_size.options__1.label"
+          },
+          {
+            "value": "h1",
+            "label": "t:sections.all.heading_size.options__2.label"
+          },
+          {
+            "value": "h0",
+            "label": "t:sections.all.heading_size.options__3.label"
+          }
+        ],
+        "default": "h1",
+        "label": "t:sections.all.heading_size.label"
+      },
+      {
+        "type": "color",
+        "id": "button_background_color",
+        "label": "Button background color"
+      },
+      {
+        "type": "color",
+        "id": "button_border_color",
+        "label": "Button border color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "text",
+        "id": "collections__text",
+        "label": "Text about us",
+        "default": "At Wealthy Expat, we understand that your time is precious, and we strive to make every step of the process as smooth as possible for you. From finding the best strategy to suit your individual needs to identifying the optimal residence or citizenship option, to opening a company and reducing taxes - we take care of everything from start to finish."
+      },
+      {
+        "type": "range",
+        "id": "heading_size",
+        "default": 18,
+        "min": 10,
+        "max": 50,
+        "step": 1,
+        "label": "Size of the heading card name"
+      },
+      {
+        "type": "select",
+        "id": "heading_style",
+        "default": "unset",
+        "label": "Style of card heading",
+        "options": [
+          {
+            "label": "Normal",
+            "value": "unset"
+          },
+          {
+            "label": "Uppercase",
+            "value": "uppercase"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "margin_top",
+        "default": 20,
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "label": "Top padding of the section"
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom",
+        "default": 20,
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "label": "Bottom padding of the section"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "Collection",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading_text",
+            "label": "Heading",
+            "info": "If left empty name of the collection is shown"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button text"
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "Collection",
+        "name": "Collection media gallery",
+        "settings": {},
+        "blocks": [
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          }
+        ]
+      }
+    ]
+  }
+  {% endschema %}
