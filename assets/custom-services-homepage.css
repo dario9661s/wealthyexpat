@@ -15,7 +15,7 @@
   font-family: 'Arial',Arial,sans-serif;
   line-height: 1.55;
   font-weight: 600;
-  border-width: 1px;
+  border-width: 0;
   border-radius: 0px;
   background: #dbb75d;
   background: -webkit-linear-gradient(to right, #dbb75d, #eedbb1);
@@ -38,7 +38,7 @@
   font-family: 'Arial',Arial,sans-serif;
   line-height: 1.55;
   font-weight: 600;
-  border-width: 1px;
+  border-width: 0;
   border-radius: 0px;
   background: #dbb75d;
   background: -webkit-linear-gradient(to right, #dbb75d, #eedbb1);
